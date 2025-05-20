@@ -4,7 +4,7 @@ html, body {
 	height: 100%;
 }
 .register_page {
-	background: url('../img/register_page_bg.jpg') no-repeat center center;
+	background: url('../img/register_page_bg.jpg') no-repeat bottom center;
 	background-size: cover;
 	min-height: calc(100vh - 56px); /* вычитаем высоту navbar */
 }
@@ -29,88 +29,75 @@ html, body {
 
 .left-page {
 	width: 50%;
-	padding-top: 10px;
+	height: 55%;
+	padding-bottom: 27vh;
 	font-family: Blender Pro;
 	font-weight: 700;
-	font-size: 32px;
 	line-height: 100%;
 	letter-spacing: 0%;
 	text-align: center;
-
 	text-transform: uppercase;
-	color:#B2241C;
+	color: #B2241C;
 }
 
 .left-page h2 {
-	text-align: center;
-	font-size: 32px;
-	line-height: 100%;
-	font-size: 24px;
-	margin-bottom: 10px;
-}
-.left-page h2 {
-	text-align: center;
-	font-size: 32px;
-	line-height: 100%;
-	font-size: 24px;
-	margin-bottom: 10px;
-}
-
-form .form-group label {
-	font-family: 'Blender Pro', sans-serif;
+	font-family: Blender Pro;
 	font-weight: 700;
+	text-align: center;
+	font-size: 18px;
+	line-height: 100%;
+}
+.left-page h3 {
+	text-align: center;
+	line-height: 100%;
+	font-size: 17px;
+	margin-top: 19vh;
+}
+
+.right-page {
+	width: 50%;
+	height: auto;
+	align-items: center;
+	padding-top: 27vh;
+	font-family: Blender Pro;
+	font-weight: 700;
+	line-height: 100%;
+	letter-spacing: 0%;
+	text-align: center;
+	color: #000;
+}
+form{
+	margin-top: 10vh;
+}
+form .form-group {
+	width: 100%;
+	height: 15px;
 	font-size: 10px;
+	margin-bottom:22px;
 	line-height: 1.5;
 	letter-spacing: 0;
-	text-align: center;
-	display: block;
-	width: 100%;
+	
+}
+
+form .form-control {
+	height: 20px;
+	font-family: Blender Pro;
+	font-weight: 700;
+	background: transparent;
+}
+
+form .form-group label{
+	height: 10px;
 }
 
 .register_button{
+	width: 30vw;
 	margin-top: 200px;
 }
 
 .btn-red {
+	
 	background-color: #a00;
 	color: white;
 	border: none;
 }
-
-form .form-control {
-	background: transparent;
-	
-	color: #000;
-	box-shadow: none;
-	outline: none;
-	font-family: 'Georgia', serif;
-	font-size: 16px;
-	padding: 4px 2px;
-}
-.right-page {
-	position: relative;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 5px;
-  
-}
-
-
-/* .form-group.name,
-.form-control.name {
-	top: 10px;
-}
-
-.form-group.email,
-.form-control.email {
-	top: 100px;
-}
-
-.form-group.password,
-.form-control.password {
-	top: 200;
-} */
-

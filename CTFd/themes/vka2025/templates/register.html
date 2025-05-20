@@ -9,7 +9,7 @@
 	<div class="passport-container">
 		<div class="left-page">
 			<h2>РЕГИСТРАЦИЯ</h2>
-			<h3>VKACTF2025</h3>
+			<h3>vkactf2025</h3>
 		</div>
 		<div class="right-page">
 			{% include "components/errors.html" %}
@@ -17,16 +17,16 @@
 			{% with form = Forms.auth.RegistrationForm() %}
 			{% from "macros/forms.html" import render_extra_fields %}
 			<form method="post" accept-charset="utf-8" autocomplete="off" role="form" >
-				<div class="form-group name">
-					{{ form.name(class="form-control name", value=name) }}
+				<div class="form-group">
+					{{ form.name(class="form-control", value=name) }}
 					<label>{{ form.name.label }}</label>
 				</div>
-				<div class="form-group email">
-					{{ form.email(class="form-control email", value=email) }}
+				<div class="form-group">
+					{{ form.email(class="form-control", value=email) }}
 					<label>{{ form.email.label }}</label>
 				</div>
-				<div class="form-group password">
-					{{ form.password(class="form-control password", value=password) }}
+				<div class="form-group">
+					{{ form.password(class="form-control", value=password) }}
 					<label>{{ form.password.label }}</label>
 				</div>
 				{{ form.nonce() }}

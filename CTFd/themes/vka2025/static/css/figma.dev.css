@@ -1,0 +1,52 @@
+body {
+		background: url('../img/register_background.jpg') no-repeat center center fixed;
+		background-size: cover;
+	}
+	.passport-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 80vh;
+		font-family: 'Georgia', serif;
+        background: url('../img/register_background.jpg') no-repeat center center fixed;
+		
+	}
+	.passport-book {
+		display: flex;
+		background: #f8f1dc;
+		border: 1px solid #ccc;
+		box-shadow: 0 0 10px rgba(0,0,0,0.5);
+		padding: 40px;
+		max-width: 800px;
+		width: 100%;
+	}
+	.left-page, .right-page {
+		width: 50%;
+		padding: 20px;
+	}
+	.left-page {
+		border-right: 1px solid #aaa;
+		text-align: center;
+		color: #a00;
+	}
+	.left-page h2 {
+		font-size: 24px;
+		margin-bottom: 10px;
+	}
+	.left-page .cccp {
+		font-size: 36px;
+		letter-spacing: 2px;
+	}
+	.right-page h3 {
+		text-align: center;
+		margin-bottom: 30px;
+		font-size: 22px;
+	}
+	form .form-group label {
+		font-weight: bold;
+	}
+	.btn-red {
+		background-color: #a00;
+		color: white;
+		border: none;
+	}

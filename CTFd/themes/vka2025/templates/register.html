@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block content %}
+<section class="register_page">
+	<div class="passport-container">
+		<div class="left-page">
+			<h2>РЕГИСТРАЦИЯ</h2>
+			<h3>VKACTF2025</h3>
+		</div>
+		<div class="right-page">
+			{% include "components/errors.html" %}
+
+			{% with form = Forms.auth.RegistrationForm() %}
+			{% from "macros/forms.html" import render_extra_fields %}
+			<form method="post" accept-charset="utf-8" autocomplete="off" role="form" >
+				<div class="form-group name">
+					{{ form.name(class="form-control name", value=name) }}
+					<label>{{ form.name.label }}</label>
+				</div>
+				<div class="form-group email">
+					{{ form.email(class="form-control email", value=email) }}
+					<label>{{ form.email.label }}</label>
+				</div>
+				<div class="form-group password">
+					{{ form.password(class="form-control password", value=password) }}
+					<label>{{ form.password.label }}</label>
+				</div>
+				{{ form.nonce() }}
+				{{ render_extra_fields(form.extra) }}
+
+				<div class="text-center mt-3">
+					{{ form.submit(class="btn btn-red btn-block") }}
+				</div>
+
+				{% if Configs.tos_or_privacy %}
+				<div class="text-center mt-3">
+					<small>
+						Регистрируясь, вы соглашаетесь с
+						<a href="{{ Configs.privacy_link }}" target="_blank">политикой конфиденциальности</a>
+						и <a href="{{ Configs.tos_link }}" target="_blank">условиями использования</a>.
+					</small>
+				</div>
+				{% endif %}
+			</form>
+			{% endwith %}
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

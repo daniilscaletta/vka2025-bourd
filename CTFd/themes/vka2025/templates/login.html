@@ -23,7 +23,7 @@
 				{% include "components/errors.html" %}
 			</div>
 			{% with form = Forms.auth.LoginForm() %}
-			<form method="post" accept-charset="utf-8" autocomplete="off">
+			<form method="post" accept-charset="utf-8" autocomplete="off" id="login">
 				<div class="form-group_log">
 					{{ form.name(class="form-control_log", value=name) }}
 					<label>{{ form.name.label }}</label>

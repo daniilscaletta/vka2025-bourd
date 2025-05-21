@@ -29,19 +29,19 @@ html, body {
 .error-container {
     width: 100%;
     margin-bottom: -15px; 
-    transform: translateY(9vh);  
+    transform: translateY(8vh);  
 }
 
 .error {
     width: 100%;
     height: 20px;
-    color: #ff2a2a;
-    font-family: 'Arial Narrow', sans-serif;
+    color: #B2241C;
+    font-family: Blender-bold;
     font-size: 14px;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 5px;  /* Отступ после ошибки */
+    margin-bottom: 5px; 
 }
 
 .form-group_log {
@@ -194,3 +194,45 @@ form .form-group_log label {
     color: #831a15;
 }
 
+.alert {
+    position: relative;
+    padding: 8px 15px;
+    margin: 5px 0 15px;
+    border: 1px solid #000;
+    background: rgba(255, 255, 255, 0.9);
+    font-family: 'Times New Roman', serif;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.alert-danger {
+    color: #B2241C;
+    background: rgba(255, 240, 240, 0.95);
+}
+
+.alert-info {
+    color: #005;
+    background: rgba(240, 245, 255, 0.95);
+}
+
+.close {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+@media (max-width: 768px) {
+    .alert {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}

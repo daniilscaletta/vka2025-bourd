@@ -6,7 +6,7 @@ html, body {
 .register_page, .login-page {
 	background: url('../img/register_page_bg.jpg') no-repeat bottom center;
 	background-size: cover;
-	min-height: calc(100vh - 56px); /* вычитаем высоту navbar */
+	min-height: calc(100vh - 56px);
 }
 
 
@@ -45,7 +45,7 @@ html, body {
 }
 
 .form-group_log {
-    margin-top: 7px;  /* Увеличиваем отступ сверху для первого поля */
+    margin-top: 7px; 
 }
 
 .left-page {
@@ -87,8 +87,18 @@ html, body {
 	letter-spacing: 0%;
 	text-align: center;
 	color: #000;
-}form {
-    margin-top: 10vh;
+}
+form#login{
+    margin-top: 8vh;
+    font-weight: 700;
+    font-family: Blender-bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form#register{
+    margin-top: 2vh;
     font-weight: 700;
     font-family: Blender-bold;
     display: flex;
@@ -100,7 +110,7 @@ form .form-group_reg, .form-group_log {
     width: 280px;
     height: 1vh;
     font-size: 15px;
-    margin-bottom: 3vh;
+    margin-top: 4vh;
     line-height: 1.5;
     letter-spacing: 0;
     background: transparent;
@@ -139,7 +149,7 @@ form .form-group_log label {
 
 .text-center_reg.mt-3_reg {
     width: 225px;
-    margin-top: 30px;
+    padding-top: 7vh;
     display: flex;
     justify-content: center; }
 

@@ -3,7 +3,7 @@ html, body {
 	padding: 0;
 	height: 100%;
 }
-.register_page {
+.register_page, .login-page {
 	background: url('../img/register_page_bg.jpg') no-repeat bottom center;
 	background-size: cover;
 	min-height: calc(100vh - 56px); /* вычитаем высоту navbar */
@@ -29,9 +29,9 @@ html, body {
 
 .left-page {
 	width: 50%;
-	height: 55%;
+	height: 53%;
 	padding-bottom: 27vh;
-	font-family: Blender Pro;
+	font-family: Blender-bold;
 	font-weight: 700;
 	line-height: 100%;
 	letter-spacing: 0%;
@@ -41,13 +41,14 @@ html, body {
 }
 
 .left-page h2 {
-	font-family: Blender Pro;
+	font-family: Blender-bold;
 	font-weight: 700;
 	text-align: center;
-	font-size: 18px;
+	font-size: 22px;
 	line-height: 100%;
 }
 .left-page h3 {
+	font-family: Blender-bold;
 	text-align: center;
 	line-height: 100%;
 	font-size: 17px;
@@ -59,7 +60,7 @@ html, body {
 	height: auto;
 	align-items: center;
 	padding-top: 27vh;
-	font-family: Blender Pro;
+	font-family: Blender-bold;
 	font-weight: 700;
 	line-height: 100%;
 	letter-spacing: 0%;
@@ -68,35 +69,36 @@ html, body {
 }
 form{
 	margin-top: 10vh;
+	font-weight: 700;
+	font-family: Blender-bold;
 }
-form .form-group {
+form .form-group_reg, .form-group_log {
 	width: 100%;
 	height: 15px;
 	font-size: 10px;
 	margin-bottom:22px;
 	line-height: 1.5;
 	letter-spacing: 0;
+	background: transparent;
 	
 }
 
-form .form-control {
+.form-control_reg, .form-control_log {
 	height: 20px;
-	font-family: Blender Pro;
-	font-weight: 700;
+	width: 100%;
 	background: transparent;
+	text-align: center;
 }
 
-form .form-group label{
+form .form-group_reg label{
 	height: 10px;
 }
 
-.register_button{
-	width: 30vw;
-	margin-top: 200px;
+.text-center_reg.mt-3_reg {
+	margin-top: 30px;
 }
 
 .btn-red {
-	
 	background-color: #a00;
 	color: white;
 	border: none;

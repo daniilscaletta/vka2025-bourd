@@ -16,7 +16,6 @@ html, body {
 	align-items: center;
 	width: 45vw;
 	height: 70vh; 
-	font-family: 'Georgia', serif;
 	background: url('../img/passport_book.jpg') no-repeat center center;
 	background-size: cover;
 	position: absolute;
@@ -25,6 +24,28 @@ html, body {
 	transform: translate(-50%, -50%);
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 	border-radius: 8px;
+}
+
+.error-container {
+    width: 100%;
+    margin-bottom: -15px; 
+    transform: translateY(9vh);  
+}
+
+.error {
+    width: 100%;
+    height: 20px;
+    color: #ff2a2a;
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;  /* Отступ после ошибки */
+}
+
+.form-group_log {
+    margin-top: 7px;  /* Увеличиваем отступ сверху для первого поля */
 }
 
 .left-page {
@@ -66,40 +87,110 @@ html, body {
 	letter-spacing: 0%;
 	text-align: center;
 	color: #000;
+}form {
+    margin-top: 10vh;
+    font-weight: 700;
+    font-family: Blender-bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-form{
-	margin-top: 10vh;
-	font-weight: 700;
-	font-family: Blender-bold;
-}
+
 form .form-group_reg, .form-group_log {
-	width: 100%;
-	height: 15px;
-	font-size: 10px;
-	margin-bottom:22px;
-	line-height: 1.5;
-	letter-spacing: 0;
-	background: transparent;
-	
+    width: 280px;
+    height: 1vh;
+    font-size: 15px;
+    margin-bottom: 3vh;
+    line-height: 1.5;
+    letter-spacing: 0;
+    background: transparent;
 }
 
-.form-control_reg, .form-control_log {
-	height: 20px;
-	width: 100%;
-	background: transparent;
-	text-align: center;
+.form-control_reg,
+.form-control_log {
+    height: 20px;
+    width: 100%;
+	font-weight: 500;
+    font-size: 16px;
+    font-style: italic;
+    background: transparent;
+    text-align: center;
+    color: #201922;
+    border: none;
+    border-bottom: 2px dashed #6e797d;
+    outline: none;
+    box-shadow: none;
+    caret-color: #201922;
 }
 
-form .form-group_reg label{
-	height: 10px;
+.form-control_reg:focus,
+.form-control_log:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    border-bottom: 2px dashed #6e797d;
+}
+
+form .form-group_reg label,
+form .form-group_log label {
+    height: 10px;
+	transform: translateY(-3px);
 }
 
 .text-center_reg.mt-3_reg {
-	margin-top: 30px;
+    width: 225px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; }
+
+.text-center_log{
+	width: 225px;
+    margin-top: 5px;
+}
+
+.btn_res_pas{
+	display: flex;
+    justify-content: center;
+	margin-top: 5px;
 }
 
 .btn-red {
-	background-color: #a00;
-	color: white;
-	border: none;
+    background-color: #a00;
+    color: white;
+    border: none;
+    padding: 10px 20px; 
+    width: auto; 
 }
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn_res_pas {
+    margin-top: 10px; 
+    text-align: center;
+}
+
+.atomic-link {
+    text-decoration: none;
+    color: #B2241C; 
+    font-family: Blender-bold;
+	font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase; 
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.atomic-text {
+    position: relative;
+    padding: 0 5px;
+}
+
+.atomic-link:hover {
+    color: #831a15;
+}
+

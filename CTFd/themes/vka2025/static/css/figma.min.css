@@ -14,8 +14,8 @@ html, body {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	width: 45vw;
-	height: 70vh; 
+	width: min(45vw,940px);
+	height: min(70vh,666px); 
 	background: url('../img/passport_book.jpg') no-repeat center center;
 	background-size: cover;
 	position: absolute;
@@ -245,4 +245,145 @@ form .form-group_log label {
         padding: 6px 12px;
         font-size: 13px;
     }
+}
+
+.teams_page {
+    background: url(../img/teams_page_bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    color: #B2241C;
+    font-family: Blender-bold;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.teams_page:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px; /* Высота вашего header'а */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+    z-index: 1;
+}
+
+.teams_page h1 {
+    color: #fff;
+    margin-top: 10vh;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    padding-top: 20px;
+}
+
+/* .table_and_search{
+	font-size: 12px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+} */
+
+.table_and_search {
+	
+	padding: 2rem;
+	border-radius: 10px;
+	margin-top: 10vh;
+	margin-left: 5vw;
+	margin-right: 5vw;
+}
+
+/* Форма поиска */
+form.form-inline {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+form .form-group {
+	padding: 0 0.5rem;
+}
+
+form .form-control {
+	background-color: #1a1a1a;
+	color: white;
+	border: 1px solid #B2241C;
+}
+
+form .form-control::placeholder {
+	color: #aaa;
+}
+
+form button.btn-primary {
+	background-color: #B2241C;
+	border: none;
+	color: white;
+	transition: background-color 0.3s ease;
+}
+
+form button.btn-primary:hover {
+	background-color: #e60000;
+}
+
+/* Таблица */
+table.table {
+	width: 100%;
+	background-color: transparent;
+	color: white;
+	border-collapse: collapse;
+}
+
+table thead {
+	background-color: #B2241C;
+	color: white;
+}
+
+table thead td {
+	font-weight: bold;
+	padding: 1rem;
+	border-bottom: 2px solid #B2241C;
+}
+
+table tbody tr {
+	background-color: rgba(255, 255, 255, 0.05);
+	transition: background-color 0.3s ease;
+}
+
+table tbody tr:hover {
+	background-color: rgba(255, 46, 46, 0.2);
+}
+
+table tbody td {
+	padding: 1rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Пагинация */
+.page-select {
+	background-color: #1a1a1a;
+	color: white;
+	border: 1px solid #B2241C;
+	border-radius: 5px;
+	padding: 0.3rem 0.5rem;
+	margin: 0 0.5rem;
+}
+
+a {
+	color: #B2241C;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }

@@ -19,7 +19,7 @@
 
 			{% with form = Forms.auth.RegistrationForm() %}
 			{% from "macros/forms.html" import render_extra_fields %}
-			<form method="post" accept-charset="utf-8" autocomplete="off" role="form" >
+			<form method="post" accept-charset="utf-8" autocomplete="off" role="form" id="register">
 				<div class="form-group_reg">
 					{{ form.name(class="form-control_reg", value=name) }}
 					<label>{{ form.name.label }}</label>

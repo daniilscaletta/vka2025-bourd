@@ -4,14 +4,15 @@
 {% endblock %}
 
 {% block content %}
-<div class="jumbotron">
-	<div class="container">
-		<h1>Login</h1>
-	</div>
-</div>
-<div class="container">
-	<div class="row">
-		<div class="col-md-6 offset-md-3">
+
+<div class="login-page">
+	<div class="passport-container">
+		<div class="left-page">
+			<h2>Вход</h2>
+			<h3>vkactf2025</h3>
+		</div>
+		<div class="right-page">
+			
 			{% include "components/errors.html" %}
 			{% if integrations.tg() %}
 			<div class="col-md-6 offset-md-3">
@@ -23,18 +24,18 @@
 
 			{% with form = Forms.auth.LoginForm() %}
 			<form method="post" accept-charset="utf-8" autocomplete="off">
-				<div class="form-group">
+				<div class="form-group_log">
+					{{ form.name(class="form-control_log", value=name) }}
 					<b>{{ form.name.label }}</b>
-					{{ form.name(class="form-control", value=name) }}
 				</div>
-				<div class="form-group">
+				<div class="form-group_log">
+					{{ form.password(class="form-control_log", value=password) }}
 					<b>{{ form.password.label }}</b>
-					{{ form.password(class="form-control", value=password) }}
 				</div>
 				<div class="row pt-3">
 					<div class="col-md-6">
 						<a class="float-left align-text-to-button" href="{{ url_for('auth.reset_password') }}">
-							Forgot your password?
+							Забыл пароль?
 						</a>
 					</div>
 					<div class="col-md-6">
@@ -44,6 +45,7 @@
 				{{ form.nonce() }}
 			</form>
 			{% endwith %}
+		
 		</div>
 	</div>
 </div>

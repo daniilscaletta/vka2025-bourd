@@ -4,77 +4,62 @@
 {% endblock %}
 
 {% block content %}
+
 <section class="teams_page">
 	<h1>Команды</h1>
-	<div class="table_and_search">
-		<div class="row">
-			<div class="col-md-12">
-				{% if q and field %}
-				<h5 class="text-muted text-center">
-					Searching for teams with  <strong>{{ field }}</strong> matching <strong>{{ q }}</strong>
-				</h5>
-				<h6 class="text-muted text-center pb-3">
-					Page {{ teams.page }} of {{ teams.total }} results
-				</h6>
-				{% endif %}
-
-				{% with form = Forms.teams.PublicTeamSearchForm(field=field, q=q) %}
-				<form method="GET" class="form-inline">
-					<div class="form-group col-md-2">
-						{{ form.field(class="form-control custom-select w-100") }}
-					</div>
-					<div class="form-group col-md-8">
-						{{ form.q(class="form-control w-100", placeholder="Search for matching teams") }}
-					</div>
-					<div class="form-group col-md-2">
-						<button type="submit" class="btn btn-primary w-100">
-							<i class="fas fa-search" aria-hidden="true"></i>
-						</button>
-					</div>
-				</form>
-				{% endwith %}
-			</div>
+	<div class="table_and_input_line">
+		<div class="search_team_line">
+			{% with form = Forms.teams.PublicTeamSearchForm(field=field, q=q) %}
+			<form method="GET" class="form-teams_search">
+				<div class="form-group-team ">
+					{{ form.field(class="form-control-team") }}
+				</div>
+				<div class="form-group-team ">
+					{{ form.q(class="form-control-team", placeholder="Введите название команды") }}
+				</div>
+				<div class="form-group-team">
+					<button type="submit" class="btn btn-red btn-block">
+						<i class="fas fa-search" aria-hidden="true"></i>
+					</button>
+				</div>
+			</form>
+			{% endwith %}	
 		</div>
 
 		<hr>
 
-		<div class="row">
-			<div class="col-md-12">
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th style="width: 70%; text-align: left; padding-left: 15vw;"><b>Название команды</b></th>
-							<th style="width: 30%; text-align: right; padding-right: 15vw;"><b>ВУЗ</b></th>
-						</tr>
-					</thead>
-					<tbody>
-						{% for team in teams.items %}
-						<tr>
-							<td style="text-align: left; padding-left: 15vw;">
-								{% if scores_visible() %}
-									<a href="{{ url_for('teams.public', team_id=team.id) }}">{{ team.name | truncate(50) }}</a>
-								{% else %}
-									<span>{{ team.name | truncate(50) }}</span>
-								{% endif %}
-								{% if team.oauth_id %}
-									<a href="https://majorleaguecyber.org/t/{{ team.name }}">
-										<span class="badge badge-primary">Official</span>
-									</a>
-								{% endif %}
-							</td>
-							<td style="text-align: right; padding-right: 15vw;">
-								{% if team.affiliation %}
-									<span>{{ team.affiliation | truncate(50) }}</span>
-								{% endif %}
-							</td>
-						</tr>
-						{% endfor %}
-					</tbody>
-				</table>
-
-
-
-			</div>
+		<div class="team_table">
+			<table class="table_team">
+				<thead>
+					<tr>
+						<th style="width: 70%; text-align: left; padding-left: 13vw;"><b>Название команды</b></th>
+						<th style="width: 30%; text-align: right; padding-right: 13vw;"><b>ВУЗ</b></th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for team in teams.items %}
+					<tr>
+						<td style="text-align: left; padding-left: 13vw;">
+							{% if scores_visible() %}
+								<a href="{{ url_for('teams.public', team_id=team.id) }}">{{ team.name | truncate(50) }}</a>
+							{% else %}
+								<span>{{ team.name | truncate(50) }}</span>
+							{% endif %}
+							{% if team.oauth_id %}
+								<a href="https://majorleaguecyber.org/t/{{ team.name }}">
+									<span class="badge badge-primary">Official</span>
+								</a>
+							{% endif %}
+						</td>
+						<td style="text-align: right; padding-right: 13vw;">
+							{% if team.affiliation %}
+								<span>{{ team.affiliation | truncate(50) }}</span>
+							{% endif %}
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
 		</div>
 		{% if teams.pages > 1 %}
 		<div class="row">

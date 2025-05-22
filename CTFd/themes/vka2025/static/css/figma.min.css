@@ -6,7 +6,11 @@ html, body {
 .register_page, .login-page {
 	background: url('../img/register_page_bg.jpg') no-repeat bottom center;
 	background-size: cover;
+
 	min-height: calc(100vh - 56px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -16,14 +20,12 @@ html, body {
 	align-items: center;
 	width: min(45vw,940px);
 	height: min(70vh,666px); 
-	background: url('../img/passport_book.jpg') no-repeat center center;
-	background-size: cover;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	background: url('../img/passport_book.png') no-repeat center center;
+	background-size: contain;
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-	border-radius: 8px;
+	border-radius: 30px;
+    background-color: transparent;
+    overflow: hidden;
 }
 
 .error-container {
@@ -165,11 +167,21 @@ form .form-group_log label {
 }
 
 .btn-red {
-    background-color: #a00;
+    background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
     color: white;
     border: none;
     padding: 10px 20px; 
     width: auto; 
+}
+
+.btn-red:hover{
+    background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+    box-shadow: 0px 20px 40px 0px #DF0C0033;
+}
+
+.btn-red:active{
+    background: linear-gradient(90deg, #A8100D 0%, #710A0A 100%);
+
 }
 
 .btn-block {
@@ -246,7 +258,9 @@ form .form-group_log label {
         font-size: 13px;
     }
 }
+/**LOGIN AND REGISTER PAGE END**/
 
+/**TEAMS_PAGE START**/
 .teams_page {
     background: url(../img/teams_page_bg.jpg) no-repeat center center fixed;
     background-size: cover;
@@ -268,7 +282,7 @@ form .form-group_log label {
     top: 0;
     left: 0;
     right: 0;
-    height: 56px; /* Высота вашего header'а */
+    height: 56px;
     background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
     z-index: 1;
 }
@@ -280,94 +294,124 @@ form .form-group_log label {
     z-index: 2;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     padding-top: 20px;
+    
 }
 
-/* .table_and_search{
-	font-size: 12px;
-	padding-right: 15px;
-	padding-left: 15px;
-	margin-right: auto;
-	margin-left: auto;
-} */
-
-.table_and_search {
-	
-	padding: 2rem;
-	border-radius: 10px;
-	margin-top: 10vh;
-	margin-left: 5vw;
-	margin-right: 5vw;
+.table_and_input_line{
+    margin-top: 10vh;
+    width: 100%;
+    max-width: 1140px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-/* Форма поиска */
-form.form-inline {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 1.5rem;
+.search_team_line{
+    display: flex;
+    flex-wrap: wrap;
+    height: 7vh;
 }
 
-form .form-group {
-	padding: 0 0.5rem;
+.form-teams_search{
+    width: 100%;
+    border: 1px solid #B2241C;
+    display: flex;
 }
 
-form .form-control {
-	background-color: #1a1a1a;
-	color: white;
-	border: 1px solid #B2241C;
+.form-group-team{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
-form .form-control::placeholder {
-	color: #aaa;
+.form-group-team:nth-child(1) {
+    flex: 0 0 15%;
 }
 
-form button.btn-primary {
-	background-color: #B2241C;
-	border: none;
-	color: white;
-	transition: background-color 0.3s ease;
+.form-group-team:nth-child(2) {
+    flex: 0 0 70%;
 }
 
-form button.btn-primary:hover {
-	background-color: #e60000;
+.form-group-team:nth-child(3) {
+    flex: 0 0 15%;
 }
 
-/* Таблица */
-table.table {
-	width: 100%;
-	background-color: transparent;
-	color: white;
-	border-collapse: collapse;
+.form-control-team{
+    width: 100%;
+    font-weight: 500;
+    font-size: 15px;
+    color: #fff;
+    border: 1px solid #B2241C;
+    box-sizing: border-box;
+    background: transparent;
+
 }
 
-table thead {
-	background-color: #B2241C;
-	color: white;
+.form-control-team option{
+    font-size: 14px;             
+    color: #333;                        
+    background-color: #fff;           
+    padding: 8px; 
 }
 
-table thead td {
-	font-weight: bold;
-	padding: 1rem;
-	border-bottom: 2px solid #B2241C;
+
+.team_table {
+    width: 100%;
+    overflow-x: auto;
+    background-size: cover;
 }
 
-table tbody tr {
-	background-color: rgba(255, 255, 255, 0.05);
-	transition: background-color 0.3s ease;
+.table_team {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
 }
 
-table tbody tr:hover {
-	background-color: rgba(255, 46, 46, 0.2);
+.table_team thead {
+    background-color: #B2241C;
+    font-size: 18px;
+    text-transform: uppercase;
 }
 
-table tbody td {
-	padding: 1rem;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.table_team thead th {
+    padding: 15px 13vw;
+    text-align: left;
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
-	background-color: rgba(255, 255, 255, 0.03);
+.table_team thead th:last-child {
+    text-align: right;
 }
+
+.table_team tbody{
+    border: 1px solid #B2241C;
+    color: #fff;
+    text-transform: none;
+}
+
+.table_team tbody tr {
+    height: 50px;
+}
+
+.table_team td {
+    padding: 15px 13vw;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.table_team td:last-child {
+    text-align: right;
+}
+
+.table_team tbody tr:nth-child(odd) {
+    background: transparent;
+}
+
+.table_team tbody tr:nth-child(even) {
+    background: #810E0E4D;
+}
+
+
 
 /* Пагинация */
 .page-select {
@@ -380,10 +424,11 @@ table tbody td {
 }
 
 a {
-	color: #B2241C;
+	color: #fff;
 	text-decoration: none;
 }
 
 a:hover {
+    color: #810E0E;
 	text-decoration: underline;
 }

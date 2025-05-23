@@ -1,8 +1,185 @@
-html, body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
+  html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
+
+body {
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #000000;
+}
+
+.navbar {
+  background-color: #B2241C !important; /* Красный цвет вместо темного */
+  padding: 10px 0;
+}
+
+.header_list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.header_logo_link {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #B2241C !important; /* Белый цвет для лого на красном фоне */
+  text-decoration: none;
+}
+
+.header_logo_link:hover{
+    color: #ffffff !important;
+}
+
+.header_link {
+  font-size: 20px !important;
+  font-weight: 500;
+  line-height: 100% !important;
+  letter-spacing: 0% !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  padding: 10px 15px !important;
+  position: relative; /* Добавляем для позиционирования псевдоэлементов */
+}
+
+/* Общие стили для иконок */
+.header_link.with-icon {
+  display: inline-block;
+  padding-left: 40px !important; /* Оставляем место для иконки */
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 24px;
+}
+
+/* Конкретные иконки */
+.header_link.icon-team {
+  background-image: url('../img/svg/команда.svg');
+}
+
+.header_link.icon-user {
+  background-image: url('../img/svg/Vector.svg');
+
+}
+
+.header_link.icon-settings {
+  background-image: url('../img/svg/настройки.svg');
+
+}
+
+.header_link.icon-logout {
+  background-image: url('../img/svg/выход.svg');
+
+}
+
+.header_link.icon-notifications {
+  background-image: url('../img/ctfd.svg');
+
+}
+
+.header_link.icon-rectangle {
+  background-image: url('../img/svg/Rectangle_25.svg');
+
+}
+
+.header_item .header_link:hover {
+  color: #681510 !important;
+  text-decoration: none;
+  background: none;
+  box-shadow: none;
+}
+
+.header_item {
+  margin-left: 10px;
+}
+
+.header_link_img {
+  width: 50px;
+  height: 24px;
+}
+
+/* Десктоп ≥992px */
+@media screen and (min-width: 992px) {
+  #base-navbars {
+    display: flex !important;
+  }
+  
+  .burger__button {
+    display: none !important;
+  }
+}
+
+/* Планшеты 768-991px */
+@media screen and (max-width: 991px) {
+  .navbar-collapse {
+    display: none !important;
+  }
+  
+  #base-navbars.show {
+    display: flex !important;
+    background-color: #000000 !important;
+  }
+  
+  .burger__button {
+    display: block;
+    position: absolute;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background-image: url(../img/png/burger.png);
+    background-color: transparent;
+    border: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 10000;
+  }
+
+
+  #base-navbars {
+    flex-direction: column;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    z-index: 9999;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .navbar-nav {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100%;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .header_link {
+    display: block;
+    width: 100%;
+  }
+
+  .header_logo_link{
+    position: absolute;
+    left: 20px;
+  }
+}
+
+/* NAVBAR END */
+
 .register_page, .login-page {
 	background: url('../img/register_page_bg.jpg') no-repeat bottom center;
 	background-size: cover;
@@ -13,12 +190,20 @@ html, body {
 }
 
 .passport-container {
-    position: relative;
-    width: min(45vw, 940px);
-    aspect-ratio: 940 / 666; 
-    max-height: 70vh;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    border-radius: 30px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 940px;
+	height: 666px; 
+	background: url('../img/passport_book.jpg') no-repeat center center;
+	background-size: cover;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+	border-radius: 30px;
+    background-color: transparent;
     overflow: hidden;
     font-family: Blender-bold;
 	font-weight: 700;

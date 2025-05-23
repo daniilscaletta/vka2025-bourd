@@ -4,126 +4,202 @@
 {% endblock %}
 
 {% block content %}
-<div class="jumbotron">
-	<div class="container">
-		<h1>Settings</h1>
-	</div>
-</div>
-<div class="container">
-	<div class="row">
-		<div class="col-md-2 offset-md-1">
-			<div class="nav flex-column nav-pills" role="tablist">
-				<a class="nav-link active" id="settings-profile-tab" data-toggle="pill" href="#profile" role="tab">Profile</a>
-				<a class="nav-link" id="settings-tokens-tab" data-toggle="pill" href="#tokens" role="tab">Access Tokens</a>
+
+<section class="heavy">
+
+		<div class="container">
+		
+			<h1 class="title_settings">настройки</h1>
+		
+			<div class="container_settings_form">
+
+				<div class="left_buttons_container">
+					<div class="link-box active-box">
+						<a class="nav-link settings_profile_link active" id="settings-profile-tab" data-toggle="pill" href="#profile" role="tab">
+							профиль
+						</a>
+					</div>
+					<div class="link-box inactive-box">
+						<a class="nav-link settings_profile_link" id="settings-tokens-tab" data-toggle="pill" href="#tokens" role="tab">
+							доступные задачи
+						</a>
+					</div>
+				</div>
+
+				<div class="center_line">&nbsp;</div>
+
+				<div class="settings_right_block">
+    				<div class="profile_form_container">
+						<div class="tab-content" id="v-pills-tabContent">
+							<div class="tab-pane fade show active" id="profile" role="tabpanel">
+								
+								<h2 class="profile_title">профиль</h2>
+								{% with form = Forms.self.SettingsForm(country=country) %}
+								{% from "macros/forms.html" import render_extra_fields %}
+								<form id="user-profile-form" method="post" accept-charset="utf-8" autocomplete="off" role="form"
+									class="form-horizontal">
+
+									<div class="form-group">
+										{{ form.name.label }}
+										<div class="form-input-wrapper">
+											{{ form.name(class="form-control", placeholder="user_name", readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										{{ form.email.label }}
+										<div class="form-input-wrapper">
+											{{ form.email(class="form-control", placeholder="example@mail.ru", readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										{{ form.confirm.label }}
+										<div class="form-input-wrapper">
+											{{ form.confirm(class="form-control", placeholder="********", readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										{{ form.password.label }}
+										<div class="form-input-wrapper">
+											{{ form.password(class="form-control",placeholder="********", readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										{{ form.affiliation.label }}
+										<div class="form-input-wrapper">
+											{{ form.affiliation(class="form-control",placeholder="-",value=affiliation or "", readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										{{ form.website.label }}
+										<div class="form-input-wrapper">
+											{{ form.website(class="form-control", placeholder="-", readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										{{ form.country.label }}
+										<div class="form-input-wrapper">
+											{{ form.country(class="form-control custom-select", value=country, readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>
+									</div>
+
+									{{ render_extra_fields(form.extra) }}
+
+									<div id="results" class="form-group">
+									</div>
+
+									<div class="btn_group">
+										<button for={{ form.submit(class="btn btn-md btn-primary btn-outlined float-right") }}Сохранить</button>
+									</div>
+								</form>
+								{% endwith %}
+							</div>
+		
+
+							<div class="tab-pane fade" id="tokens" role="tabpanel">
+								<h2 class="profile_title">доступные задачи</h2>
+								{% with form = Forms.self.TokensForm() %}
+								<form method="POST" id="user-token-form">
+
+									<div class="form-group">
+										<label for="{{ form.expiration.id }}">Окончание:</label>
+											{{ form.expiration(class="form-control") }}
+									</div>
+									<div class="form-group">
+										<button for={{ form.submit(class="btn btn-md btn-primary btn-outlined float-right") }}Сгенерировать</button>
+									</div>
+								</form>
+								{% endwith %}
+
+								{% if tokens %}
+								<hr>
+								<h4 class="text-center">Active Tokens</h4>
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<td class="text-center"><b>Created</b></td>
+											<td class="text-center"><b>Expiration</b></td>
+											<td class="text-center"><b>Delete</b></td>
+										</tr>
+									</thead>
+									<tbody>
+										{% for token in tokens %}
+										<tr>
+											<td><span data-time="{{ token.created | isoformat }}"></span></td>
+											<td><span data-time="{{ token.expiration | isoformat }}"></span></td>
+											<td class="text-center">
+												<span class="delete-token" role="button" data-token-id="{{ token.id }}">
+													<i class="btn-fa fas fa-times"></i>
+												</span>
+											</td>
+										</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="col-md-8">
-			<div class="tab-content" id="v-pills-tabContent">
-				<div class="tab-pane fade show active" id="profile" role="tabpanel">
-					{% include "components/errors.html" %}
-
-					{% with form = Forms.self.SettingsForm(country=country) %}
-					{% from "macros/forms.html" import render_extra_fields %}
-					<form id="user-profile-form" method="post" accept-charset="utf-8" autocomplete="off" role="form"
-						class="form-horizontal">
-						<div class="form-group">
-							<b>{{ form.name.label }}</b>
-							{{ form.name(class="form-control", value=name) }}
-						</div>
-						<div class="form-group">
-							<b>{{ form.email.label }}</b>
-							{{ form.email(class="form-control", value=email) }}
-						</div>
-
-						<hr>
-
-						<div class="form-group">
-							<b>{{ form.confirm.label }}</b>
-							{{ form.confirm(class="form-control") }}
-						</div>
-						<div class="form-group">
-							<b>{{ form.password.label }}</b>
-							{{ form.password(class="form-control") }}
-						</div>
-
-						<hr>
-
-						<div class="form-group">
-							<b>{{ form.affiliation.label }}</b>
-							{{ form.affiliation(class="form-control", value=affiliation or "") }}
-						</div>
-						<div class="form-group">
-							<b>{{ form.website.label }}</b>
-							{{ form.website(class="form-control", value=website or "") }}
-						</div>
-						<div class="form-group">
-							<b>{{ form.country.label }}</b>
-							{{ form.country(class="form-control custom-select", value=country) }}
-						</div>
-
-						<hr>
-
-						{{ render_extra_fields(form.extra) }}
-
-						<div id="results" class="form-group">
-						</div>
-
-						<div class="form-group">
-							{{ form.submit(class="btn btn-md btn-primary btn-outlined float-right") }}
-						</div>
-					</form>
-					{% endwith %}
-				</div>
-				<div class="tab-pane fade" id="tokens" role="tabpanel">
-					{% with form = Forms.self.TokensForm() %}
-					<form method="POST" id="user-token-form">
-						<div class="form-group">
-							<b>{{ form.expiration.label }}</b>
-							{{ form.expiration(class="form-control") }}
-						</div>
-
-						<div class="form-group text-right">
-							{{ form.submit(class="btn btn-md btn-primary btn-outlined") }}
-						</div>
-					</form>
-					{% endwith %}
-
-					{% if tokens %}
-					<hr>
-					<h4 class="text-center">Active Tokens</h4>
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<td class="text-center"><b>Created</b></td>
-								<td class="text-center"><b>Expiration</b></td>
-								<td class="text-center"><b>Delete</b></td>
-							</tr>
-						</thead>
-						<tbody>
-							{% for token in tokens %}
-							<tr>
-								<td><span data-time="{{ token.created | isoformat }}"></span></td>
-								<td><span data-time="{{ token.expiration | isoformat }}"></span></td>
-								<td class="text-center">
-									<span class="delete-token" role="button" data-token-id="{{ token.id }}">
-										<i class="btn-fa fas fa-times"></i>
-									</span>
-								</td>
-							</tr>
-							{% endfor %}
-						</tbody>
-					</table>
-					{% endif %}
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+</section>
 {% endblock %}
 
 {% block scripts %}
 {% endblock %}
 
 {% block entrypoint %}
-	<script defer src="{{ url_for('views.themes', path='js/pages/settings.js') }}"></script>
+	<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const links = document.querySelectorAll('.settings_profile_link');
+		const panes = document.querySelectorAll('.tab-pane');
+
+		links.forEach(link => {
+			link.addEventListener('click', (e) => {
+				e.preventDefault();
+
+				// Удалить active у всех
+				links.forEach(l => {
+					l.classList.remove('active');
+					l.closest('.link-box').classList.remove('active-box');
+					l.closest('.link-box').classList.add('inactive-box'); 
+				});
+				panes.forEach(p => p.classList.remove('show', 'active'));
+
+				// Добавить active текущим
+				link.classList.add('active');
+				link.closest('.link-box').classList.add('active-box');
+				link.closest('.link-box').classList.remove('inactive-box');
+
+				const target = document.querySelector(link.getAttribute('href'));
+				if (target) {
+					target.classList.add('show', 'active');
+				}
+			});
+		});
+	});
+</script>
+
+<script>
+function enableInput(icon) {
+    const input = icon.previousElementSibling;
+    if (input && input.hasAttribute('readonly')) {
+        input.removeAttribute('readonly');
+        input.focus();
+    }
+}
+</script>
 {% endblock %}

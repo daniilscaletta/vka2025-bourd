@@ -299,7 +299,7 @@
 
 {% block scripts %}
 <script>
-	var STATE = {{ state | tojson }};
+	var STATE = "{{ state | tojson }}";
 </script>
 {% endblock %}
 

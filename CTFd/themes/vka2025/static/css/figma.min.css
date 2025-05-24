@@ -36,6 +36,12 @@ body{
   background-color: #ffffff;
 }
 
+.container_full {
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 /* COMMON END */
 
 
@@ -281,6 +287,7 @@ body{
   line-height: 100%;
   letter-spacing: 0%;
   text-transform: uppercase;
+  
 
 }
 
@@ -292,6 +299,7 @@ body{
     min-width: 360px;
     min-height:  100px;
     display: flex;
+	align-items: stretch;
     flex-direction: column;
     margin-right: 20px;
     flex-grow: 1;
@@ -636,7 +644,6 @@ width: 260px;
     text-align: center;
 }
 
-
 /* TEAM PROFILE END */
 
 
@@ -646,6 +653,93 @@ width: 260px;
 /* -------------------------------------------------------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------------------------------------------------- */
 
+
+
+
+
+/* NOTIFICATIONS START */
+
+.notif {
+  position: relative;
+  height: 100vh;
+  overflow-y: auto; /* скролл внутри блока */
+  background: url(../img/jpg/bg_mail.jpg) no-repeat center center fixed;
+  background-size: cover;
+  padding-top: 100px;
+}
+
+
+.center_line_notif {
+    width: 2px;
+	background: linear-gradient(180deg, #5C0C0A 0%, #C21916 100%);
+    align-self: stretch;
+    margin-right: 5px;
+}
+
+.left_buttons_inner {
+    display: flex;
+    flex-direction: row; /* Линия слева, кнопки справа */
+    height: 100%;
+}
+
+.links_column {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; /* Расстояние между кнопками */
+}
+
+
+.link-box-notif {
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link-column{
+    display: block;          /* чтобы работало ограничение по ширине */
+    max-width: 100%;        /* не выходит за пределы колонки */
+    overflow: hidden;       /* скрываем выходящий текст */
+    white-space: nowrap;    /* запрещаем перенос */
+    text-overflow: ellipsis;
+    padding-left: 10px; /* добавляем многоточие */
+}
+
+
+active-box-notif{
+  color: #C21916;
+}
+
+
+.notif_right_block {
+    position: relative;
+    min-width: 700px;
+    min-height: 408px;
+    background-image: url('../img/png/ramka_notif.png');
+    background-size: cover; /* или contain / 100% 100% в зависимости от эффекта */
+    background-repeat: no-repeat;
+    background-position:top;
+    padding: 20px; /* чтобы отступы от краев были и текст не прижимался к рамке */
+    box-sizing: border-box;
+    color: #ffffff; 
+    transform: translateY(-40px);
+}
+
+.card-title,
+.blockquote {
+  white-space: normal; /* позволяет переносить строки */
+  overflow-wrap: break-word; /* современный аналог */
+}
+
+
+
+/* NOTIFICATIONS END */
+
+
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
 
 
 

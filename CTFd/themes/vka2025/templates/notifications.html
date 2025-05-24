@@ -1,29 +1,81 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Notifications</h1>
-		</div>
+<section class="notif">
+	<div class="container_full">
+		<h1 class="title_settings">почта</h1>
 	</div>
 	<div class="container">
-		{% if not notifications %}
-		<h2 class="text-center">There are no notifications yet</h2>
-		{% endif %}
-		{% for notification in notifications %}
-		<div class="card bg-light mb-4">
-			<div class="card-body">
-				<h3 class="card-title">{{ notification.title }}</h3>
-				<blockquote class="blockquote mb-0">
-					<p>{{ notification.html }}</p>
-					<small class="text-muted"><span data-time="{{ notification.date | isoformat }}"></span></small>
-				</blockquote>
+		<div class="container_settings_form">
+			<div class="left_buttons_container">
+				<div class="left_buttons_inner">
+					<div class="center_line_notif">&nbsp;</div>
+						<div class="links_column">
+						{% for notification in notifications %}
+							<div class="link-box-notif">
+								<a class="nav-link nav-link-column settings_profile_link {% if loop.first %}active{% endif %}"
+									data-toggle="pill"
+									href="#notif-{{ loop.index }}"
+									role="tab">
+									{{ notification.title }}
+								</a>
+							</div>
+						{% endfor %}
+						</div>
+					</div>
+				</div>
 			</div>
+
+			<div class="notif_right_block tab-content">
+			{% for notification in notifications %}
+				<div class="tab-pane fade {% if loop.first %}show active{% endif %}" id="notif-{{ loop.index }}" role="tabpanel">
+						<div class="card-body">
+							<h3 class="card-title">{{ notification.title }}</h3>
+							<blockquote class="blockquote mb-0">
+								{{ notification.html }}
+									<span data-time="{{ notification.date | isoformat }}"></span>
+							</blockquote>
+						</div>
+				</div>
+			{% endfor %}
+			</div>
+
 		</div>
-		{% endfor %}
 	</div>
+</section>
+
 {% endblock %}
 
 {% block entrypoint %}
-	<script defer src="{{ url_for('views.themes', path='js/pages/notifications.js') }}"></script>
+<script defer src="{{ url_for('views.themes', path='js/pages/notifications.js') }}"></script>
+
+
+<script>
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault(); // чтобы не сработал переход по href, если не нужен
+
+      // Удаляем active у всех ссылок
+      document.querySelectorAll('.nav-link').forEach(el => {
+        el.classList.remove('active-box-notif');
+      });
+
+      // Добавляем active к текущей ссылке
+      this.classList.add('active-box-notif');
+
+      // Дополнительно переключаем табы вручную, если Bootstrap JS не используется
+      // Если Bootstrap, он сам переключит таб, и можно этот код убрать
+
+      // Показать нужный таб, скрыть остальные
+      const targetId = this.getAttribute('href').substring(1);
+      document.querySelectorAll('.tab-pane').forEach(tab => {
+        tab.classList.remove('show', 'active');
+      });
+      const targetTab = document.getElementById(targetId);
+      if (targetTab) {
+        targetTab.classList.add('show', 'active');
+      }
+    });
+  });
+</script>
 {% endblock %}

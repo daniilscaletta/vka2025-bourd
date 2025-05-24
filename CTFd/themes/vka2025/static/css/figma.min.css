@@ -1,3 +1,5 @@
+/* COMMON START */
+
 @font-face {
     font-family: 'Blender Pro';
     src: local('Blender Pro Medium'), local('Blender-Pro-Medium'),
@@ -14,7 +16,7 @@
         url('../fonts/BlenderPro-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
-  } 
+  }
 
   html{
     box-sizing: border-box;
@@ -31,13 +33,30 @@ body{
   line-height: 1.2;
   font-weight: 700;
   color:rgb(0, 0, 0);
-  background-color: #000;
+  background-color: #ffffff;
 }
 
+/* COMMON END */
+
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* NAVBAR START */
 
 .navbar {
+  display: flex;
+  flex-direction: row;
   background-color: #B2241C !important; /* Красный цвет вместо темного */
-  padding: 10px 0;
+  padding: 5px 0;
+}
+
+.container{
+    max-width: 1340px;
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
 }
 
 .header_list {
@@ -47,7 +66,8 @@ body{
 }
 
 .header_logo_link {
-  font-size: 22px;
+  font-size: 20px;
+  font-family: 'Blender Pro';
   font-weight: 700;
   line-height: 100%;
   letter-spacing: 0%;
@@ -57,22 +77,28 @@ body{
 }
 
 .header_logo_link:hover{
-    color: #ffffff !important;
+    color: #762020 !important;
 }
 
 .header_link {
   font-size: 20px !important;
-  font-weight: 500;
+  font-family: 'Blender Pro';
+  font-weight: 700;
   line-height: 100% !important;
   letter-spacing: 0% !important;
-  text-align: center !important;
+  /* text-align: center !important; */
   text-transform: uppercase !important;
   color: #FFFFFF !important;
   text-decoration: none !important;
-  padding: 10px 15px !important;
+  /* padding: 10px 15px !important; */
   position: relative; /* Добавляем для позиционирования псевдоэлементов */
 }
 
+.navbar-nav.ml-md-auto{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 /* Общие стили для иконок */
 .header_link.with-icon {
   display: inline-block;
@@ -133,7 +159,7 @@ body{
   #base-navbars {
     display: flex !important;
   }
-  
+
   .burger__button {
     display: none !important;
   }
@@ -144,12 +170,12 @@ body{
   .navbar-collapse {
     display: none !important;
   }
-  
+
   #base-navbars.show {
     display: flex !important;
     background-color: #000000 !important;
   }
-  
+
   .burger__button {
     display: block;
     position: absolute;
@@ -189,7 +215,7 @@ body{
     width: 100%;
     text-align: center;
   }
-  
+
   .header_link {
     display: block;
     width: 100%;
@@ -204,7 +230,13 @@ body{
 /* NAVBAR END */
 
 
-/* SERRINGS PROFILE START */
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+/* SETTINGS PROFILE START */
 .heavy {
   height: 100vh;
   background: url(../img/jpg/settings_bg.jpg) no-repeat top;
@@ -286,42 +318,15 @@ body{
     margin-right: 20px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    .settings_long_rect_img{
-        margin-right: 19px;
-        height: 100%;
-    }
-
-    .left_buttons_title{
-        font-size: 22px;
-        line-height: 100%;
-        letter-spacing: 0%;
-        text-transform: uppercase;
-        position: absolute;
-        top: 14px;
-        left: 42px;
-    }
-    .settings_right_block {
-        position: relative;
-        min-width: 760px;
-        min-height: 500px;
-        background-image: url('../img/svg/Rectangle_settings_right.svg');
-        background-size: contain; /* или contain / 100% 100% в зависимости от эффекта */
-        background-repeat: no-repeat;
-        background-position:top;
-    }
+.settings_right_block {
+    position: relative;
+    min-width: 760px;
+    min-height: 500px;
+    background-image: url('../img/svg/Rectangle_settings_right.svg');
+    background-size: contain; /* или contain / 100% 100% в зависимости от эффекта */
+    background-repeat: no-repeat;
+    background-position:top;
+}
 
 .alert {
     width: 90%; /* вместо фиксированных 700px — адаптивнее */
@@ -344,7 +349,6 @@ body{
 .alert span{
     color: #C21916;
 }
-
 
 .alert .close {
     color: white;
@@ -381,121 +385,82 @@ body{
 	right: 2px;
 	top: 2px;
 }
-
-
-    /* Форма поверх изображения */
-    .profile_form_container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: auto;
-        height: auto ;
-        box-sizing: border-box;
-        z-index: 20;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        margin-top: 20px;
-        margin-left: 30px;
-        margin-bottom: 50px;
-    }
-
-    .profile_title {
-        font-weight: 700;
-        font-size: 32px;
-        line-height: 100%;
-        text-transform: uppercase;
-        margin-bottom: 30px;
-    }
-
-    .profile_form {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        flex:1;
-    }
-
-    .form-group{
-        display: flex !important;
-        justify-content: flex-start !important;  
-        align-items: center !important;
-        width: 760px !important; 
-        height: 30px;
-    }
-
-    .form-group label {
-        font-family: Blender Pro;
-        font-weight: 500;
-        font-size: 20px;
-        width: 200px !important;
-        display: flex; /* фикс: делает элемент flex-элементом */
-        align-items: flex-end; /* вертикальное центрирование текста */
-    }
-
-    .form-control {
-    background: transparent !important;
-    border: none !important;
-    color: white !important;
-    font-size: 16px;
+/* Форма поверх изображения */
+.profile_form_container {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: auto;
-    outline: none;
-    width: 260px;
+    height: auto ;
+    box-sizing: border-box;
+    z-index: 20;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 50px;
 }
 
-    .form-control::placeholder {
-        font-family: Blender Pro;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 110.00000000000001%;
-        letter-spacing: 0%;
+.profile_title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
 
-    }
+
+.form-group{
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    width: 760px !important;
+    height: 30px;
+}
+
+.form-group label {
+    font-family: Blender Pro;
+    font-weight: 500;
+    font-size: 20px;
+    width: 200px !important;
+    display: flex; /* фикс: делает элемент flex-элементом */
+    align-items: flex-end; /* вертикальное центрирование текста */
+}
+
+.form-control {
+background: transparent !important;
+border: none !important;
+color: white !important;
+font-size: 16px;
+width: auto;
+outline: none;
+width: 260px;
+}
+
+.form-control::placeholder {
+    font-family: Blender Pro;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 110.00000000000001%;
+    letter-spacing: 0%;
+
+}
 
 
-    .form-input-wrapper {
+.form-input-wrapper {
     display: flex;
     align-items: center;
     position: relative;
     color: #005;
 }
 
-
-.form_input {
-    position: relative;
-    display: inline-block;
-    align-items: center;
-    width: auto;
-
-}
-
-.form_input input {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 16px;
-    width: auto;
-    display: inline-block;
-    box-sizing: border-box;
-
-}
-
-.form_input input::placeholder {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 110.00000000000001%;
-    letter-spacing: 0%;
-    color: #474747;
-    width: auto;
-}
-
-
-
 .btn_group{
     content: "Сохранить";
     display: flex !important;
-    justify-content: flex-start !important;  
+    justify-content: flex-start !important;
     align-items: center !important;
-    width: 760px !important; 
+    width: 760px !important;
     height: 30px;
 }
 
@@ -534,8 +499,156 @@ body{
     margin-left: 190px;
 }
 
+/* SETTINGS PROFILE END */
 
-/* SERRINGS PROFILE END */
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+/* TEAM PROFILE START */
+
+.tournament {
+    min-height: 200vh;
+    background-image: url(../img/jpg/turnir_table_bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-attachment: scroll;
+    text-align: center;
+}
+
+
+.top_girl_flag {
+    position: relative;
+    display: inline-block;
+    width: 58%;
+    height: 100%;
+    max-width: 80%; /* подстройка под нужный размер */
+    aspect-ratio: 16 / 9; /* или замените на fixed height, если нужно */
+    background-image: url('../img/png/blisnyashka_flag_1.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: -175px;
+}
+
+.top_girl_flag_title {
+    position: absolute;
+    top: 47%;
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    max-width: 40%;
+    word-break: break-word;
+}
+
+.top_girl_flag_title_pos_left {
+    left: 88px;
+    text-align: left;
+}
+
+.top_girl_flag_title_pos_right {
+    right: 126px;
+    text-align: right;
+}
+
+
+.result_graphics_form{
+    width: 1159px;
+    height: 500px;
+    background-color: #000000;
+    margin: 0 auto;
+    border: 1px solid #B2241C;
+    box-shadow: 0px 2px 20px rgba(21,24,36,0.16);
+    position: relative;
+    z-index: 30;
+    margin-bottom: 60px;
+}
+
+.top_50_title{
+    font-family: Blender Pro;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+}
+
+.top_50_table {
+    font-family: Blender Pro;
+    width: 1159px;
+    height: auto;
+    border-collapse: collapse;
+    background-color: #3404022c;
+    margin: 0 auto;
+    border: 1px solid #B2241C
+}
+
+.top_50_table_head{
+    color: #FFFFFF;
+    font-family: Blender Pro;
+    background-color: #B2241C;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+
+}
+
+.top_50_table_head th {
+    padding: 21px; /* Добавляем отступы для заголовков */
+    height: 66px; /* Фиксированная высота для заголовков */
+}
+
+.top_50_table_body td{
+    padding: 16px; /* Добавляем отступы для заголовков */
+    height: 55px;
+}
+
+.top_50_table_row_highlight{
+    background: #810E0E4D;
+}
+
+
+
+.top_50_table_cell{
+    color: #FFFFFF;
+    font-family: Blender Pro;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+
+/* TEAM PROFILE END */
+
+
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
 
 
 
@@ -553,7 +666,7 @@ body{
 	flex-direction: row;
 	align-items: center;
 	width: 940px;
-	height: 666px; 
+	height: 666px;
 	background: url('../img/passport_book.jpg') no-repeat center center;
 	background-size: cover;
 	position: absolute;
@@ -571,25 +684,25 @@ body{
 
 .passport-bg {
     width: 100%;
-    height: 100%;
-    object-fit: contain; 
+    margin-bottom: -15px;
+    transform: translateY(8vh);
 }
 
 .error {
     width: 100%;
     height: 1.5em;
     color: #B2241C;
-    margin-top: 1em;
-    margin-bottom: -3em;
-} 
-.error_log {
-    width: 100%;
-    height: 2em;
-    color: #B2241C;
-    margin-top: 1em;
-    margin-bottom: -2.5em;
-} 
+    font-family: Blender-bold;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
 
+.form-group_log {
+    margin-top: 7px;
+}
 
 .left-page {
     position: absolute;
@@ -677,19 +790,10 @@ form#register,form#login {
 /* Кнопка */
 .btn-red {
     background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
-    font-size: clamp(14px, 1.3vw, 17px);
-    color: #fff;
-    height: 100%;
-    width: 100%;
-    margin-top: 0.5em;
-}
-
-.btn-red_search{
-    background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
-    font-size: clamp(14px, 1.3vw, 17px);
-    color: #fff;
-    height: 100%;
-    width: 100%;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    width: auto;
 }
 
 .btn-red:hover{
@@ -702,14 +806,24 @@ form#register,form#login {
 
 }
 
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn_res_pas {
+    margin-top: 10px;
+    text-align: center;
+}
+
 .atomic-link {
     text-decoration: none;
-    color: #B2241C; 
+    color: #B2241C;
     font-family: Blender-bold;
 	font-size: 12px;
     font-weight: bold;
     letter-spacing: 1px;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     position: relative;
     display: inline-block;
     transition: all 0.3s ease;
@@ -791,7 +905,7 @@ form#register,form#login {
     position: relative;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     padding-top: 20px;
-    
+
 }
 
 .table_and_input_line{
@@ -847,12 +961,11 @@ form#register,form#login {
 
 }
 
-.form-control-team option{                                   
-    background-color: #000;           
-    padding: 1em; 
-}
-.option:hover{
-    background-color: #B2241C;
+.form-control-team option{
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    padding: 8px;
 }
 
 .team_table {

@@ -20,6 +20,9 @@
 
   html{
     box-sizing: border-box;
+    height: 100%;
+    padding: 0;
+    margin: 0;
   }
 
   *, *::after, *::before{
@@ -34,6 +37,7 @@ body{
   font-weight: 700;
   color:rgb(0, 0, 0);
   background-color: #ffffff;
+  
 }
 
 .container_full {
@@ -818,12 +822,12 @@ width: 260px;
 
 
 .register_page, .login-page {
-	background: url('../img/register_page_bg.jpg') no-repeat bottom center;
-	background-size: cover;
-	min-height: calc(100vh - 56px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: url('../img/register_page_bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 92.2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .passport-container {
@@ -966,21 +970,24 @@ form#register,form#login {
 
 }
 
-.btn-red_search{
+.button-red_search{
     background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
     font-size: clamp(14px, 1.3vw, 17px);
     color: #fff;
     height: 100%;
     width: 100%;
+    border: none;
 }
 
-.button-red:hover{
+.button-red:hover,
+.button-red_search:hover{
   color: #710A0A;
   background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
   box-shadow: 0px 20px 40px 0px #DF0C0033;
 }
 
-.button-red:active{
+.button-red:active,
+.buyton-red_search:active{
     background: linear-gradient(90deg, #A8100D 0%, #710A0A 100%);
 
 }

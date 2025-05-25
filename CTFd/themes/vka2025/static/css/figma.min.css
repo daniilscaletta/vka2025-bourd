@@ -944,14 +944,26 @@ form#register,form#login {
     background: transparent; 
 }
 
+.register_button{
+  height: 2.0em;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  margin-top: -0.7em;
+  justify-content: center;
+}
+
 /* Кнопка */
-.btn-red {
-    background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
-    font-size: clamp(14px, 1.3vw, 17px);
-    color: #fff;
-    height: 100%;
-    width: 100%;
-    margin-top: 0.5em;
+.button-red {
+  display: flex;
+  background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: #fff;
+  height: 100%;
+  width: 80%;
+  margin-top: 0.5em;
+  align-items: center;
+
 }
 
 .btn-red_search{
@@ -962,27 +974,29 @@ form#register,form#login {
     width: 100%;
 }
 
-.btn-red:hover{
-    background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
-    box-shadow: 0px 20px 40px 0px #DF0C0033;
+.button-red:hover{
+  color: #710A0A;
+  background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  box-shadow: 0px 20px 40px 0px #DF0C0033;
 }
 
-.btn-red:active{
+.button-red:active{
     background: linear-gradient(90deg, #A8100D 0%, #710A0A 100%);
 
 }
 
 .atomic-link {
-    text-decoration: none;
-    color: #B2241C; 
-    font-family: Blender-bold;
-	font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase; 
-    position: relative;
-    display: inline-block;
-    transition: all 0.3s ease;
+  text-decoration: none;
+  color: #B2241C; 
+  font-family: Blender-bold;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase; 
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+  margin-top: 1.2em;
 }
 
 .atomic-text {
@@ -992,6 +1006,7 @@ form#register,form#login {
 
 .atomic-link:hover {
     color: #831a15;
+    border-bottom: #831a15;
 }
 
 .alert {

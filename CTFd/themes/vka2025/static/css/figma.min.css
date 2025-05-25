@@ -1340,4 +1340,11 @@ form#register,form#login {
   margin: 0;
   position: relative;
   overflow: hidden;
+  display: ;
+}
+
+.info_team_container{
+  height: 2em;
+  display: inline-block;
+
 }

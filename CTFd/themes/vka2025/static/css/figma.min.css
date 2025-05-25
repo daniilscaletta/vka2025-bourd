@@ -321,7 +321,6 @@ form#register,form#login {
     width: 100%;
     overflow-x: auto;
     background-size: cover;
-    margin-bottom: 10vh;
 }
 
 .table_team {
@@ -332,17 +331,6 @@ form#register,form#login {
     color: #fff;
     align-items: center;
 }
-
-/* .table_team th,
-.table_team td {
-    padding: 0.75rem 2rem;
-    text-align: left;
-}
-.table_team th:last-child,
-.table_team td:last-child {
-    text-align: right;
-} */
-
 
 .table_team thead {
     background-color: #B2241C;
@@ -387,21 +375,124 @@ form#register,form#login {
 
 
 /* Пагинация */
-.page-select {
-	background-color: #1a1a1a;
-	color: white;
-	border: 1px solid #B2241C;
-	border-radius: 5px;
-	padding: 0.3rem 0.5rem;
-	margin: 0 0.5rem;
+/* Контейнер */
+.pagination-container {
+  display: flex;
+  font-size: 1.4vw;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
-a {
-	color: #fff;
-	text-decoration: none;
+/* Блок с цифрами */
+.page-numbers {
+  display: flex;
+  gap:0.5em;
 }
 
-a:hover {
-    color: #810E0E;
-	text-decoration: underline;
+/* Цифры */
+.page-numbers a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s;
 }
+
+.page-numbers a:hover {
+  color: #ccc;
+}
+
+.page-numbers .active-page {
+  color: #B2241C;
+  font-weight: bold;
+}
+
+.arrow {
+  cursor: pointer;
+  width: 0.7em;
+  margin-left: 0.7em;
+  margin-right: 0.7em;
+  position: relative;
+  display: inline-block;
+}
+
+/* Левая стрелка */
+.arrow-left {
+  transform: scaleX(-1);
+}
+
+/* Наведение (зеркально) */
+.arrow-left:hover .arrow-top:after {
+  right: 0;
+  left: auto;
+  transition-delay: 0.15s;
+}
+
+.arrow-left:hover .arrow-bottom:after {
+  left: 0;
+  right: auto;
+  transition-delay: 0s;
+}
+
+.arrow-left:active {
+  transform: scaleX(-1) scale(0.9);
+}
+
+/* Правая стрелка */
+.arrow-top,
+.arrow-bottom {
+  background-color: #666;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+.arrow-top:after,
+.arrow-bottom:after {
+  background-color: #fff;
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: all 0.15s;
+}
+
+.arrow-top {
+  transform: rotate(45deg);
+  transform-origin: bottom right;
+}
+
+.arrow-top:after {
+  left: 100%;
+  right: 0;
+  transition-delay: 0s;
+}
+
+.arrow-bottom {
+  transform: rotate(-45deg);
+  transform-origin: top right;
+}
+
+.arrow-bottom:after {
+  left: 0;
+  right: 100%;
+  transition-delay: 0.15s;
+}
+
+.arrow:hover .arrow-top:after {
+  left: 0;
+  transition-delay: 0.15s;
+}
+
+.arrow:hover .arrow-bottom:after {
+  right: 0;
+  transition-delay: 0s;
+}
+
+/* Только для правой стрелки активное нажатие */
+.arrow:not(.arrow-left):active {
+  transform: scale(0.9);
+}
+
+

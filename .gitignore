@@ -1,1 +1,11 @@
-.data/
+# Игнорируем всё
+*
+
+# Но оставляем тему
+!CTFd/
+!CTFd/themes/
+!CTFd/themes/vka2025/
+!CTFd/themes/vka2025/**
+
+# Оставим gitignore работать правильно
+!.gitignore

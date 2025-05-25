@@ -1323,3 +1323,21 @@ form#register,form#login {
 .arrow:not(.arrow-left):active {
   transform: scale(0.9);
 }
+
+/* TEAMS PAGE END */
+
+/* ONE TEAM PAGE PROFILE START*/ 
+.one_team_page{
+  background: url(../img/teams_page_bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  color: #B2241C;
+  font-family: Blender-bold;
+  font-size: 1.4vw;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}

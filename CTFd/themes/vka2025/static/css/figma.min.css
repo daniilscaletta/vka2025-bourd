@@ -1310,5 +1310,110 @@ form#register,form#login {
 .arrow:not(.arrow-left):active {
   transform: scale(0.9);
 }
+/**TEAMS_PAGE END**/
 
+/**TEAM_PAGE START**/
 
+.one_team_page {
+  background: url(../img/teams_page_bg.jpg) no-repeat center center fixed;
+  background-size: auto;
+  background-size: cover;
+  min-height: 100vh;
+  color: #fff;
+  font-family: Blender-bold;
+  font-size: 1.4vw;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.info_team_container{
+    font-family: Blender-bold;
+    font-weight: 700;
+    font-size: 1vw;
+    width: 100%;
+    align-items: center;
+   justify-content: space-between;
+}
+
+.info_team_line{
+    margin-top: 5em;
+    width: 100%;
+    max-width: 1140px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    border-bottom:#474747;
+}
+
+.info_team_line h1{
+    font-family: Blender-bold;
+    font-weight: 700;
+    color: #B2241C;
+    font-size: 3vw;
+}
+
+.team-place{
+    height: 100%;
+    width: 100%;
+}
+
+.info_team_line h2{
+    font-family: Blender-bold;
+    font-weight: 700;
+    color: #fff;
+    font-size: 2vw;
+    display: inline;
+    text-transform: uppercase;
+    justify-content: space-between;
+}
+
+.info_team_line p{
+    font-family: Blender-bold;
+    font-weight: 700;
+    font-size: 1vw;
+    display: inline-block;
+    text-transform: uppercase;
+    justify-content: space-between;
+}
+
+.info_team_line h3{
+    font-family: Blender-bold;
+    font-weight: 700;
+    background: url(../img/info_kvadrat.jpg);
+    font-size: 1vw;
+    display: inline-block;
+    text-transform: uppercase;
+    height: 2em;
+    width: 2em;
+}7
+
+.score-box {
+  width: 60px;
+  height: 60px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ddd;
+}
+
+.score-value {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.score-label {
+  font-size: 10px;
+  text-transform: lowercase;
+}

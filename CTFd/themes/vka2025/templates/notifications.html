@@ -13,7 +13,7 @@
 						<div class="links_column">
 						{% for notification in notifications %}
 							<div class="link-box-notif">
-								<a class="nav-link nav-link-column settings_profile_link {% if loop.first %}active{% endif %}"
+								<a class="custom-link nav-link nav-link-column settings_profile_link {% if loop.first %}active{% endif %}"
 									data-toggle="pill"
 									href="#notif-{{ loop.index }}"
 									role="tab">
@@ -31,10 +31,15 @@
 				<div class="tab-pane fade {% if loop.first %}show active{% endif %}" id="notif-{{ loop.index }}" role="tabpanel">
 						<div class="card-body">
 							<h3 class="card-title">{{ notification.title }}</h3>
-							<blockquote class="blockquote mb-0">
+							<div class="underline"></div>
+							<div class="notification-meta">
+								<p>Дата: <span data-time="{{ notification.date | isoformat }}"></span></p>
+								<p>От кого: рук. комплекса «Вавилов» С. Вавилов</p>
+								<p>Кому: участнику соревнований VKACTF 2025</p>
+							</div>
+							<div class="notification-text">
 								{{ notification.html }}
-									<span data-time="{{ notification.date | isoformat }}"></span>
-							</blockquote>
+							</div>
 						</div>
 				</div>
 			{% endfor %}
@@ -53,7 +58,7 @@
 <script>
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function (e) {
-      e.preventDefault(); // чтобы не сработал переход по href, если не нужен
+
 
       // Удаляем active у всех ссылок
       document.querySelectorAll('.nav-link').forEach(el => {

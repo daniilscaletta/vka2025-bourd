@@ -42,6 +42,19 @@ body{
     padding: 0 20px;
 }
 
+
+.custom-link {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.custom-link:hover {
+	text-decoration: underline;
+  color: #C21916;
+}
+
+
 /* COMMON END */
 
 
@@ -705,15 +718,15 @@ width: 260px;
 }
 
 
-active-box-notif{
+.active-box-notif{
   color: #C21916;
 }
 
 
 .notif_right_block {
     position: relative;
-    min-width: 700px;
-    min-height: 408px;
+    width: 806px;
+    height: 470px;
     background-image: url('../img/png/ramka_notif.png');
     background-size: cover; /* или contain / 100% 100% в зависимости от эффекта */
     background-repeat: no-repeat;
@@ -724,11 +737,70 @@ active-box-notif{
     transform: translateY(-40px);
 }
 
-.card-title,
-.blockquote {
-  white-space: normal; /* позволяет переносить строки */
-  overflow-wrap: break-word; /* современный аналог */
+.card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  max-width: 100%;
+  margin-bottom: 0; /* убираем нижний отступ чтобы не было двойного */
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
+
+.underline {
+  width: 120px;
+  height: 20px;
+  background-image: url('../img/png/underline.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 10px;
+}
+
+/* Обычное поведение для текста */
+.notification-text {
+  font-family: 'Blender Pro', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 110%; /* 1.1 */
+  letter-spacing: 0;
+  text-align: justify;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 7;       /* ограничение до 8 строк */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+
+  margin-bottom: 0;
+}
+
+.notification-meta {
+  color: #ffffff; /* белый текст, как в основном блоке */
+  font-size: 14px;
+  line-height: 1.4;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.notification-meta p {
+  font-family: Blender Pro;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 110.00000000000001%;
+  letter-spacing: 0%;
+  margin-bottom: 10px;
+
+}
+
 
 
 

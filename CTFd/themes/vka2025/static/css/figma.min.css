@@ -6,172 +6,138 @@ html, body {
 .register_page, .login-page {
 	background: url('../img/register_page_bg.jpg') no-repeat bottom center;
 	background-size: cover;
-
 	min-height: calc(100vh - 56px);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
 .passport-container {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	width: min(45vw,940px);
-	height: min(70vh,666px); 
-	background: url('../img/passport_book.png') no-repeat center center;
-	background-size: contain;
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-	border-radius: 30px;
-    background-color: transparent;
+    position: relative;
+    width: min(45vw, 940px);
+    aspect-ratio: 940 / 666; 
+    max-height: 70vh;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
     overflow: hidden;
+    font-family: Blender-bold;
+	font-weight: 700;
+	text-align: center;
 }
 
-.error-container {
+.passport-bg {
     width: 100%;
-    margin-bottom: -15px; 
-    transform: translateY(8vh);  
+    height: 100%;
+    object-fit: contain; 
 }
 
 .error {
     width: 100%;
-    height: 20px;
+    height: 1.5em;
     color: #B2241C;
-    font-family: Blender-bold;
-    font-size: 14px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 5px; 
-}
+    margin-top: 1em;
+    margin-bottom: -3em;
+} 
+.error_log {
+    width: 100%;
+    height: 2em;
+    color: #B2241C;
+    margin-top: 1em;
+    margin-bottom: -2.5em;
+} 
 
-.form-group_log {
-    margin-top: 7px; 
-}
 
 .left-page {
-	width: 50%;
-	height: 53%;
-	padding-bottom: 27vh;
-	font-family: Blender-bold;
-	font-weight: 700;
-	line-height: 100%;
-	letter-spacing: 0%;
-	text-align: center;
-	text-transform: uppercase;
-	color: #B2241C;
+    position: absolute;
+    top: 23%; 
+    width: 50%; 
+    text-align: center;
+    text-transform: uppercase;
+    color: #B2241C;
 }
 
 .left-page h2 {
-	font-family: Blender-bold;
-	font-weight: 700;
-	text-align: center;
-	font-size: 22px;
-	line-height: 100%;
+    font-family: Blender-bold;
+    font-weight: 700;
+    font-size: 1.5vw; 
+    line-height: 1.2; 
+    margin-bottom: 0.5em; 
 }
+
 .left-page h3 {
-	font-family: Blender-bold;
-	text-align: center;
-	line-height: 100%;
-	font-size: 17px;
-	margin-top: 19vh;
+    font-family: Blender-bold;
+    font-size: 1.1vw; 
+    line-height: 1.2;
+    margin-top: 7em; 
 }
 
 .right-page {
-	width: 50%;
-	height: auto;
-	align-items: center;
-	padding-top: 27vh;
-	font-family: Blender-bold;
-	font-weight: 700;
-	line-height: 100%;
-	letter-spacing: 0%;
-	text-align: center;
-	color: #000;
-}
-form#login{
-    margin-top: 8vh;
-    font-weight: 700;
     font-family: Blender-bold;
+    font-size: 1.1vw; 
+    line-height: 1.2;
+    position: absolute;
+    width: 42%; 
+    left: 54%; 
+    top: 50%;
     display: flex;
     flex-direction: column;
+    justify-content: center; 
     align-items: center;
+    pointer-events: all; 
 }
 
-form#register{
-    margin-top: 2vh;
-    font-weight: 700;
+form#register,form#login {
     font-family: Blender-bold;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-size: 1.1vw; 
+    line-height: 1.2;
 }
 
-form .form-group_reg, .form-group_log {
-    width: 280px;
-    height: 1vh;
-    font-size: 15px;
-    margin-top: 4vh;
-    line-height: 1.5;
-    letter-spacing: 0;
-    background: transparent;
-}
-
-.form-control_reg,
-.form-control_log {
-    height: 20px;
+.form-group_reg_name {
     width: 100%;
-	font-weight: 500;
-    font-size: 16px;
-    font-style: italic;
-    background: transparent;
+    margin-top: 3em; 
+    width: 100%;
+}
+.form-control_reg-name{
+    border: none;
+    border-bottom: 2px dashed #6e797d;
     text-align: center;
-    color: #201922;
+    background: transparent; 
+}
+
+.form-group_reg_pass {
+    width: 100%;
+    margin-top: -1em; 
+    width: 100%;
+}
+.form-control_reg-pass{
+    margin-top: 1em;
     border: none;
     border-bottom: 2px dashed #6e797d;
-    outline: none;
-    box-shadow: none;
-    caret-color: #201922;
+    text-align: center;
+    background: transparent; 
 }
 
-.form-control_reg:focus,
-.form-control_log:focus {
-    outline: none;
-    box-shadow: none;
+.form-group_reg_email {
+    width: 100%;
+    margin-top: -1em; 
+    width: 100%;
+}
+.form-control_reg-email{
+    margin-top: 1em;
     border: none;
     border-bottom: 2px dashed #6e797d;
+    text-align: center;
+    background: transparent; 
 }
 
-form .form-group_reg label,
-form .form-group_log label {
-    height: 10px;
-	transform: translateY(-3px);
-}
-
-.text-center_reg.mt-3_reg {
-    width: 225px;
-    padding-top: 7vh;
-    display: flex;
-    justify-content: center; }
-
-.text-center_log{
-	width: 225px;
-    margin-top: 5px;
-}
-
-.btn_res_pas{
-	display: flex;
-    justify-content: center;
-	margin-top: 5px;
-}
-
+/* Кнопка */
 .btn-red {
     background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
-    color: white;
-    border: none;
-    padding: 10px 20px; 
-    width: auto; 
+    font-size: clamp(14px, 1.3vw, 17px);
+    color: #fff;
+    height: 2.5em;
+    width: 80%;
+    margin-top: 0.5em;
 }
 
 .btn-red:hover{
@@ -182,16 +148,6 @@ form .form-group_log label {
 .btn-red:active{
     background: linear-gradient(90deg, #A8100D 0%, #710A0A 100%);
 
-}
-
-.btn-block {
-    display: block;
-    width: 100%;
-}
-
-.btn_res_pas {
-    margin-top: 10px; 
-    text-align: center;
 }
 
 .atomic-link {
@@ -240,12 +196,10 @@ form .form-group_log label {
 
 .close {
     position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
+    left: 45%;
     color: #888;
     font-size: 18px;
-    line-height: 1;
+    bottom: 40%     ;
     cursor: pointer;
 }
 
@@ -289,16 +243,18 @@ form .form-group_log label {
 
 .teams_page h1 {
     color: #fff;
-    margin-top: 10vh;
+    font-family: Blender-bold;
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 3vh;
     position: relative;
-    z-index: 2;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     padding-top: 20px;
     
 }
 
 .table_and_input_line{
-    margin-top: 10vh;
+    margin-top: 6vh;
     width: 100%;
     max-width: 1140px;
     padding-right: 15px;
@@ -308,6 +264,7 @@ form .form-group_log label {
 }
 
 .search_team_line{
+    font-size: 15px;
     display: flex;
     flex-wrap: wrap;
     height: 7vh;
@@ -345,6 +302,8 @@ form .form-group_log label {
     border: 1px solid #B2241C;
     box-sizing: border-box;
     background: transparent;
+    outline: none;
+    padding-left: 1vw;
 
 }
 
@@ -357,51 +316,65 @@ form .form-group_log label {
 
 
 .team_table {
+    font-size: 22px;
+    font-weight: 700;
     width: 100%;
     overflow-x: auto;
     background-size: cover;
+    margin-bottom: 10vh;
 }
 
 .table_team {
+    font-size: 15px;
+    font-weight: 500;
     width: 100%;
     border-collapse: collapse;
     color: #fff;
+    align-items: center;
 }
+
+/* .table_team th,
+.table_team td {
+    padding: 0.75rem 2rem;
+    text-align: left;
+}
+.table_team th:last-child,
+.table_team td:last-child {
+    text-align: right;
+} */
+
 
 .table_team thead {
     background-color: #B2241C;
     font-size: 18px;
     text-transform: uppercase;
+    align-items: center;
 }
 
 .table_team thead th {
-    padding: 15px 13vw;
-    text-align: left;
-}
-
-.table_team thead th:last-child {
-    text-align: right;
+    padding: 15px;
+    align-items: center;
 }
 
 .table_team tbody{
     border: 1px solid #B2241C;
     color: #fff;
     text-transform: none;
+    align-items: center;
 }
 
 .table_team tbody tr {
     height: 50px;
+    align-items: center;
+
 }
 
 .table_team td {
     padding: 15px 13vw;
     font-size: 16px;
-    vertical-align: middle;
+    align-items: center;
 }
 
-.table_team td:last-child {
-    text-align: right;
-}
 
 .table_team tbody tr:nth-child(odd) {
     background: transparent;

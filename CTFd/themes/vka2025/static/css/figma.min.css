@@ -135,9 +135,17 @@ form#register,form#login {
     background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
     font-size: clamp(14px, 1.3vw, 17px);
     color: #fff;
-    height: 2.5em;
-    width: 80%;
+    height: 100%;
+    width: 100%;
     margin-top: 0.5em;
+}
+
+.btn-red_search{
+    background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+    font-size: clamp(14px, 1.3vw, 17px);
+    color: #fff;
+    height: 100%;
+    width: 100%;
 }
 
 .btn-red:hover{

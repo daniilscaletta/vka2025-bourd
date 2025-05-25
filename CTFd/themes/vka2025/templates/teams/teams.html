@@ -64,25 +64,37 @@
 
 		</div>
 		{% if teams.pages > 1 %}
-		<div class="row">
-			<div class="col-md-12">
-				<div class="text-center">Page
-					<br>
-					{% if teams.page != 1 %}
-					<a href="{{ prev_page }}">&lt;&lt;&lt;</a>
-					{% endif %}
-					<select class="page-select">
-						{% for page in range(1, teams.pages + 1) %}
-						<option {% if teams.page == page %}selected{% endif %}>{{ page }}</option>
-						{% endfor %}
-					</select>
-					{% if teams.next_num %}
-					<a href="{{ next_page }}">&gt;&gt;&gt;</a>
-					{% endif %}
-				</div>
+		<div class="pagination-container">
+
+			{% if teams.page != 1 %}
+			<a class="arrow arrow-left" href="{{ prev_page }}">
+				<div class="arrow-top"></div>
+				<div class="arrow-bottom"></div>
+			</a>
+			{% endif %}
+
+			<div class="page-numbers">
+			{% for page in range(1, teams.pages + 1) %}
+				{% if teams.page == page %}
+				<span class="active-page">{{ page }}</span>
+				{% else %}
+				<a href="?page={{ page }}">{{ page }}</a>
+
+				{% endif %}
+			{% endfor %}
 			</div>
+
+			{% if teams.next_num %}
+			<a class="arrow" href="{{ next_page }}">
+				<div class="arrow-top"></div>
+				<div class="arrow-bottom"></div>
+			</a>
+			{% endif %}
+
 		</div>
 		{% endif %}
+
+
 	</div>
 </section>
 {% endblock %}

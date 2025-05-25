@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="one_team_page">
 	<div id="team-edit-modal" class="modal fade">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -141,9 +142,9 @@
 		</div>
 	</div>
 
-	<div class="jumbotron">
-		<div class="container">
-			<h1 id="team-id" team-id="{{ team.id }}">{{ team.name }}</h1>
+	<div class="info_team_container">
+		<div class="info_team_line">
+			<h1 id="team_name" team-id="{{ team.id }}">{{ team.name }}</h1>
 			{% if team.oauth_id %}
 				<a href="https://majorleaguecyber.org/t/{{ team.name }}">
 					<h3><span class="badge badge-primary">Official</span></h3>
@@ -167,21 +168,21 @@
 					{{ field.name }}: {{ field.value }}
 				</h3>
 			{% endfor %}
-			<h2 id="team-place" class="text-center">
+			<div id="team-place" class="text-center">
 				{# This intentionally hides the team's place when scores are hidden because this can be their internal profile
 			and we don't want to leak their place in the CTF. #}
 				{# Public page hiding is done at the route level #}
 				{% if scores_visible() %}
 					{% if place %}
-						{{ place }}
-						<small>place</small>
+						<h2>Место</h2>
+						<h3>{{ place }}</h3>
 					{% endif %}
 				{% endif %}
-			</h2>
+						</div>
 			<h2 id="team-score" class="text-center">
 				{% if score %}
 					{{ score }}
-					<small>points</small>
+					<small>Заработано очков</small>
 				{% endif %}
 			</h2>
 			<div class="pt-3">
@@ -362,6 +363,7 @@
 			</div>
 		{% endif %}
 	</div>
+</div>
 {% endblock %}
 
 {% block scripts %}

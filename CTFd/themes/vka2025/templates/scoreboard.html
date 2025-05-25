@@ -39,7 +39,7 @@
 					<tr {% if loop.index % 2 == 0 %}class="top_50_table_row_highlight"{% endif %}>
 						<td class="top_50_table_cell">{{ loop.index }}</td>
 						<td class="top_50_table_cell">
-							<a href="{{ generate_account_url(standing.account_id) }}">
+							<a href="{{ generate_account_url(standing.account_id) }}" class="custom-link">
 								{{ standing.name | truncate(50) }}
 
 								{% if standing.oauth_id %}

@@ -157,43 +157,35 @@
 				<span class="team-btn btn-disband disabled" title="Only team captains can disband the team"></span>
 			{% endif %}
 			</div>
-
-
-			{% if team.affiliation %}
-				<h3 class="d-inline-block">
-					<span class="badge badge-primary">{{ team.affiliation }}</span>
-				</h3>
-			{% endif %}
-			{% if team.country %}
-				<h3 class="d-inline-block">
-					<span class="badge badge-primary">
-						<i class="flag-{{ team.country.lower() }}"></i>
-						{{ lookup_country_code(team.country) }}
-					</span>
-				</h3>
-			{% endif %}
-			{% for field in team.fields %}
-				<h3 class="d-block">
-					{{ field.name }}: {{ field.value }}
-				</h3>
-			{% endfor %}
-			<div id="team-place" class="text-center">
-				{# This intentionally hides the team's place when scores are hidden because this can be their internal profile
-			and we don't want to leak their place in the CTF. #}
-				{# Public page hiding is done at the route level #}
-				{% if scores_visible() %}
-					{% if place %}
-						<h2>Место</h2>
+			<div class="team-score-wrapper">
+				<small class="score-label">Место</small>
+				<div class="score-boxes">
+					<div class="team-stat-box left-box">
+					{% if scores_visible() and place %}
 						<h3>{{ place }}</h3>
 					{% endif %}
-				{% endif %}
+					</div>
+				</div>
+			</div>	
+			<div class="team-score-wrapper">
+				<small class="score-label">Заработано очков</small>
+					<div class="score-boxes">
+						<div class="team-stat-box middle-box 
+							{% if score >= 19000 %}
+								middle-high
+							{% elif score >= 10000 %}
+								middle-medium
+							{% else %}
+								middle-low
+							{% endif %}
+						"></div>
+						<div class="team-stat-box right-box">
+						{% if score %}
+							<h2>{{ score }}</h2>
+						{% endif %}
 						</div>
-			<h2 id="team-score" class="text-center">
-				{% if score %}
-					{{ score }}
-					<small>Заработано очков</small>
-				{% endif %}
-			</h2>
+					</div>
+			</div>
 		</div>
 		
 	</div>

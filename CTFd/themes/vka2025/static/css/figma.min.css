@@ -1367,14 +1367,6 @@ form#register,form#login {
   font-size: 1.7vw;
 }
 
-.info_team_line h2,
-.info_team_line h3 {
-  display: inline-block;
-  margin: 0;
-  padding: 0 0.5em;
-  font-size: 1em;
-}
-
 .text-center{
   color: #fff;
 }
@@ -1383,7 +1375,7 @@ form#register,form#login {
   display: flex;
   justify-content: center;
   gap: 0.8rem;
-  margin-left: -5em;
+  margin-left: -10em;
 }
 
 .team-btn {
@@ -1471,10 +1463,6 @@ form#register,form#login {
   background-image: url('../img/low_bat.png'), url('../img/box_red.jpg');
 }
 
-
-
-
-
 .right-box {
   border-top-right-radius: 0.5em;
   margin-left: 0.3em;
@@ -1483,6 +1471,8 @@ form#register,form#login {
 
 .team-stat-box h2,
 .team-stat-box h3 {
+  font-family: Blender-Bold;
+  font-weight: 700;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }

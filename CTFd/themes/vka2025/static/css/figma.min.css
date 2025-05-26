@@ -71,7 +71,7 @@ body{
 .navbar {
   display: flex;
   flex-direction: row;
-  background-color: #B2241C !important; /* Красный цвет вместо темного */
+  background-color: #000 !important; /* Красный цвет вместо темного */
   padding: 5px 0;
 }
 
@@ -1327,24 +1327,98 @@ form#register,form#login {
 /* TEAMS PAGE END */
 
 /* ONE TEAM PAGE PROFILE START*/ 
-.one_team_page{
-  background: url(../img/teams_page_bg.jpg) no-repeat center center fixed;
+.one_team_page {
+  background: url('../img/teams_page_bg.jpg') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
-  color: #B2241C;
-  font-family: Blender-bold;
+  color: #B2241C; /* основной красный цвет */
+  font-family: 'Blender-bold', sans-serif;
   font-size: 1.4vw;
   text-align: center;
   text-transform: uppercase;
-  padding: 0;
   margin: 0;
+  padding: 0;
   position: relative;
   overflow: hidden;
-  display: ;
 }
 
-.info_team_container{
-  height: 2em;
-  display: inline-block;
+.info_team_container {
+  display: flex;
+  width: 100%;
+  height: 4em;
+  align-items: center;
+  padding: 0 1em;
+}
 
+.info_team_line {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5em;
+  margin-top: 2.5em;
+  border-bottom: solid #474747;
+}
+
+.info_team_line h1{
+  font-family: 'Blender-bold';
+  color: #B2241C;
+  font-weight: 700;
+  font-size: 2vw;
+}
+
+.info_team_line h2,
+.info_team_line h3 {
+  display: inline-block;
+  margin: 0;
+  padding: 0 0.5em;
+  font-size: 1em;
+}
+
+.text-center{
+  color: #fff;
+}
+
+.team-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-left: -5em;
+}
+
+.team-btn {
+  width: 1.3em;
+  height: 1.3em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  border: none;
+  outline: none;
+  transition: transform 0.2s, opacity 0.3s;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-image: url('../img/setting.png');
+}
+.btn-captain {
+  background-image: url('../img/invite_us.png');
+}
+.btn-invite {
+  background-image: url('../img/invite_us.png');
+}
+.btn-disband {
+  background-image: url('../img/delete.png');
+}
+
+
+.team-btn:hover:not(.disabled) {
+  transform: scale(1.1);
+}
+
+.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
 }

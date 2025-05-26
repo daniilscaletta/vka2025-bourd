@@ -1327,6 +1327,15 @@ form#register,form#login {
 /* TEAMS PAGE END */
 
 /* ONE TEAM PAGE PROFILE START*/ 
+.wrapper{
+  width: 100%;
+  max-width: 1340px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .one_team_page {
   background: url('../img/teams_page_bg.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -1340,6 +1349,7 @@ form#register,form#login {
   padding: 0;
   position: relative;
   overflow: hidden;
+  
 }
 
 .info_team_container {
@@ -1476,3 +1486,4 @@ form#register,form#login {
   margin: 0;
   font-size: 0.8rem;
 }
+

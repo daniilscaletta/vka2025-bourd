@@ -1333,7 +1333,7 @@ form#register,form#login {
   min-height: 100vh;
   color: #B2241C; /* основной красный цвет */
   font-family: 'Blender-bold', sans-serif;
-  font-size: 1.4vw;
+  font-size: 20px !important;
   text-align: center;
   text-transform: uppercase;
   margin: 0;
@@ -1364,7 +1364,7 @@ form#register,form#login {
   font-family: 'Blender-bold';
   color: #B2241C;
   font-weight: 700;
-  font-size: 2vw;
+  font-size: 1.7vw;
 }
 
 .info_team_line h2,
@@ -1421,4 +1421,68 @@ form#register,form#login {
   opacity: 0.4;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+.team-score-wrapper {
+  font-family: Blender-Bold;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+}
+
+.score-boxes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.team-stat-box {
+  background: url('../img/box_red.jpg') no-repeat center center;
+  background-size: cover;
+  color: white;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: Blender-Bold;
+  text-transform: uppercase;
+}
+
+.middle-box {
+  width: 2em;
+  height: 2em;
+  background-size: auto, cover; 
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+}
+.middle-box.middle-high {
+  background-image: url('../img/full_bat.png'), url('../img/box_red.jpg');
+
+}
+.middle-box.middle-medium {
+  background-image: url('../img/middle_bat.png'), url('../img/box_red.jpg');
+}
+.middle-box.middle-low {
+  background-image: url('../img/low_bat.png'), url('../img/box_red.jpg');
+}
+
+
+
+
+
+.right-box {
+  border-top-right-radius: 0.5em;
+  margin-left: 0.3em;
+
+}
+
+.team-stat-box h2,
+.team-stat-box h3 {
+  margin: 0;
+  font-size: 1rem;
 }

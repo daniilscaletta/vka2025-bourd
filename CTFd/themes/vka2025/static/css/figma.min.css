@@ -2031,3 +2031,14 @@ form#register,form#login {
     text-align: left;
     padding-left: 10px;
 }
+
+.team-name {
+    color: #fff;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.team-link {
+    display: inline-block;
+    color: inherit;
+}

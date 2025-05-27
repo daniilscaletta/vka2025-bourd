@@ -554,8 +554,8 @@ width: 260px;
     display: inline-block;
     width: 58%;
     height: 100%;
-    max-width: 80%; /* подстройка под нужный размер */
-    aspect-ratio: 16 / 9; /* или замените на fixed height, если нужно */
+    max-width: 80%; 
+    aspect-ratio: 16 / 9; 
     background-image: url('../img/png/blisnyashka_flag_1.png');
     background-size: cover;
     background-position: center;
@@ -1909,14 +1909,17 @@ form#register,form#login {
   background: url('../img/box_red.jpg') no-repeat center center;
   background-size: cover;
   color: white;
-  width: 2em;
+  min-width: 2em; /* вместо width используем min-width */
   height: 2em;
+  padding: 0 0.5em; /* добавляем горизонтальный padding */
   text-align: center;
-  display: flex;
+  display: inline-flex; /* или flex, но не блоковый элемент */
   justify-content: center;
+  align-items: center; /* для вертикального выравнивания */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   font-family: Blender-Bold;
   text-transform: uppercase;
+  white-space: nowrap; /* предотвращаем перенос текста */
 }
 
 .middle-box {
@@ -1966,3 +1969,60 @@ form#register,form#login {
   color: #fff;
 }
 
+.table_profile_team {
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.table_profile_team thead {
+    background-color: #B2241C;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.table_profile_team thead tr td {
+    padding: 15px;
+    text-align: center;
+}
+
+.table_profile_team tbody {
+    border: 1px solid #B2241C;
+    color: #fff;
+    text-transform: none;
+}
+
+.table_profile_team tbody tr {
+    height: 50px;
+}
+
+.table_profile_team td {
+    padding: 15px 20px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+}
+
+.table_profile_team tbody tr:nth-child(odd) {
+    background: transparent;
+}
+
+.table_profile_team tbody tr:nth-child(even) {
+    background: #810E0E4D;
+}
+
+.table_with_memb {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.table_with_memb h1 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: left;
+    padding-left: 10px;
+}

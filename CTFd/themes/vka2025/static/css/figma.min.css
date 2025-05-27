@@ -1487,3 +1487,14 @@ form#register,form#login {
   font-size: 0.8rem;
 }
 
+.pt-3{
+  align-items: center;
+  color:#fff;
+  font-size: 1vw;
+}
+
+.team-score-wrappe p{
+  display: flex;
+  font-size: 1.2vw;
+  align-items: center;
+}

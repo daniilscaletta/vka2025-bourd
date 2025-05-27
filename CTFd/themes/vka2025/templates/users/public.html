@@ -13,7 +13,7 @@
 				{% if user.team_id %}
 					<a href="{{ url_for('teams.public', team_id=user.team_id) }}" class="team-link">
 						<i class="btn-fa fas fa-users fa-2x px-2" data-toggle="tooltip" data-placement="top"
-						title="View team profile"></i>
+						title="Профиль команды"></i>
 					</a>
 					<span class="team-name ml-2">{{ user.team.name }}</span>
 				{% endif %}
@@ -83,7 +83,7 @@
             {% else %}
                 <div class="row min-vh-25">
                     <h3 class="opacity-50 text-center w-100 justify-content-center align-self-center">
-                        Решений нет
+                        Решений пока нет
                     </h3>
                 </div>
             {% endif %}

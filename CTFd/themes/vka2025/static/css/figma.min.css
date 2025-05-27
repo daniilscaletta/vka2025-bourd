@@ -1807,7 +1807,7 @@ form#register,form#login {
   min-height: 100vh;
   color: #B2241C; /* основной красный цвет */
   font-family: 'Blender-bold', sans-serif;
-  font-size: 20px !important;
+  font-size: 1.5em !important;
   text-align: center;
   text-transform: uppercase;
   margin: 0;
@@ -1961,6 +1961,10 @@ form#register,form#login {
   align-items: center;
   color:#fff;
   font-size: 1vw;
+}
+
+.tables{
+  margin-top:2em;
 }
 
 .table_with_memb h1{

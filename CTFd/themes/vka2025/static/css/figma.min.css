@@ -1448,7 +1448,6 @@ form#register,form#login {
   height: 2em;
   text-align: center;
   display: flex;
-  align-items: center;
   justify-content: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   font-family: Blender-Bold;
@@ -1493,8 +1492,9 @@ form#register,form#login {
   font-size: 1vw;
 }
 
-.team-score-wrappe p{
-  display: flex;
-  font-size: 1.2vw;
-  align-items: center;
+.table_with_memb h1{
+  font-family: Blender-bold;
+  font-weight: 700;
+  color: #fff;
 }
+

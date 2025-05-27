@@ -45,11 +45,6 @@
 							{% else %}
 								<span>{{ team.name | truncate(50) }}</span>
 							{% endif %}
-							{% if team.oauth_id %}
-								<a href="https://majorleaguecyber.org/t/{{ team.name }}">
-									<span class="badge badge-primary">Official</span>
-								</a>
-							{% endif %}
 						</td>
 						<td class="col-uni">
 							{% if team.affiliation %}
@@ -60,19 +55,15 @@
 					{% endfor %}
 				</tbody>
 			</table>
-
-
 		</div>
 		{% if teams.pages > 1 %}
 		<div class="pagination-container">
-
 			{% if teams.page != 1 %}
 			<a class="arrow arrow-left" href="{{ prev_page }}">
 				<div class="arrow-top"></div>
 				<div class="arrow-bottom"></div>
 			</a>
 			{% endif %}
-
 			<div class="page-numbers">
 			{% for page in range(1, teams.pages + 1) %}
 				{% if teams.page == page %}
@@ -90,11 +81,8 @@
 				<div class="arrow-bottom"></div>
 			</a>
 			{% endif %}
-
 		</div>
 		{% endif %}
-
-
 	</div>
 </section>
 {% endblock %}

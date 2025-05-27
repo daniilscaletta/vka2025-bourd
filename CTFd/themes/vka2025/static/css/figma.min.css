@@ -1031,6 +1031,162 @@ width: 260px;
 
 
 
+
+
+/* WELCOME PAGE WO TEAM START */
+
+
+.container_main_page_if_wo_team {
+    background-size: 100%;        /* Увеличит зум (напр., 150% от реального размера) */
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image: url('../img/jpg/back_main_hello.jpg');
+    height: 100vh;
+}
+
+.container_inner_main_page{
+  width: 762px;
+  margin: 0 auto;
+  padding-top: 90px;;
+}
+
+.welcome_text{
+
+    width: 526px;
+    height: 106px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('../img/png/welcome.png');
+    margin: 0 auto;
+    margin-bottom: 20px;;
+}
+
+.container_main_page_form_for_2_buttons{
+    position: relative;
+    width: 762px;
+    height: 315px;
+    background-image: url('../img/png/bumaga_rvana.png');
+    background-repeat: no-repeat;
+    background-position:top;
+    background-size: contain;
+    padding-top: 50px;
+}
+.text_into_form_team{
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #B2241C;
+  margin-left: 130px;;
+  width: 496px;
+  word-wrap: break-word;
+}
+
+.comtainer_main_form_with_2_team_button{
+  width: 560px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 40px auto 0 auto;
+}
+
+.to_join_team-btn-link{
+  width: 260px;
+  height: 58px;
+  border: 2px solid #B2241C;
+  color: #B2241C;
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.to_create_team-btn-link{
+  width: 260px;
+  height: 58px;
+  background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  color: #FFFFFF;
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+
+}
+
+.to_create_team-btn-link:hover{
+  transform: translateY(-5px);
+  background-color: #e5979481;
+}
+
+.inverse_link_for_main_left_btn{
+  	color: #C21916;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.inverse_link_for_main_left_btn:hover{
+  text-decoration: underline;
+  color: #C21916;
+}
+
+.to_join_team-btn-link:hover{
+  transform: translateY(-5px);
+}
+
+
+
+.inverse_link_for_main_right_btn{
+  	color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.inverse_link_for_main_right_btn:hover{
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+
+
+
+
+
+/* WELCOME PAGE WO TEAM END */
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
 /* CONKRETNIY TASK START */
 
 

@@ -20,6 +20,9 @@
 
   html{
     box-sizing: border-box;
+    height: 100%;
+    padding: 0;
+    margin: 0;
   }
 
   *, *::after, *::before{
@@ -34,6 +37,7 @@ body{
   font-weight: 700;
   color:rgb(0, 0, 0);
   background-color: #ffffff;
+  
 }
 
 .container_full {
@@ -67,7 +71,7 @@ body{
 .navbar {
   display: flex;
   flex-direction: row;
-  background-color: #B2241C !important; /* Красный цвет вместо темного */
+  background-color: #000 !important; /* Красный цвет вместо темного */
   padding: 5px 0;
 }
 
@@ -812,8 +816,7 @@ width: 260px;
 /* -------------------------------------------------------------------------------------------------------------------------- */
 
 
-
-
+/* LOGIN AND REGISTER PAGE STAR*/
 
 /* CONKRETNIY TASK START */
 
@@ -846,29 +849,21 @@ width: 260px;
 
 
 .register_page, .login-page {
-	background: url('../img/register_page_bg.jpg') no-repeat bottom center;
-	background-size: cover;
-	min-height: calc(100vh - 56px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: url('../img/register_page_bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 92.2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .passport-container {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	width: 940px;
-	height: 666px;
-	background: url('../img/passport_book.jpg') no-repeat center center;
-	background-size: cover;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-	border-radius: 30px;
-    background-color: transparent;
+    position: relative;
+    width: min(45vw, 940px);
+    aspect-ratio: 940 / 666; 
+    max-height: 70vh;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
     overflow: hidden;
     font-family: Blender-bold;
 	font-weight: 700;
@@ -877,25 +872,25 @@ width: 260px;
 
 .passport-bg {
     width: 100%;
-    margin-bottom: -15px;
-    transform: translateY(8vh);
+    height: 100%;
+    object-fit: contain; 
 }
 
 .error {
     width: 100%;
     height: 1.5em;
     color: #B2241C;
-    font-family: Blender-bold;
-    font-size: 14px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-}
+    margin-top: 1em;
+    margin-bottom: -3em;
+} 
+.error_log {
+    width: 100%;
+    height: 2em;
+    color: #B2241C;
+    margin-top: 1em;
+    margin-bottom: -2.5em;
+} 
 
-.form-group_log {
-    margin-top: 7px;
-}
 
 .left-page {
     position: absolute;
@@ -956,7 +951,7 @@ form#register,form#login {
 
 .form-group_reg_pass {
     width: 100%;
-    margin-top: -1em; 
+    margin-top: -2em; 
     width: 100%;
 }
 .form-control_reg-pass{
@@ -969,7 +964,7 @@ form#register,form#login {
 
 .form-group_reg_email {
     width: 100%;
-    margin-top: -1em; 
+    margin-top: -2em; 
     width: 100%;
 }
 .form-control_reg-email{
@@ -980,46 +975,62 @@ form#register,form#login {
     background: transparent; 
 }
 
+.register_button{
+  height: 2.0em;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  margin-top: -0.7em;
+  justify-content: center;
+}
+
 /* Кнопка */
-.btn-red {
+.button-red {
+  display: flex;
+  background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: #fff;
+  height: 100%;
+  width: 80%;
+  margin-top: 0.5em;
+  align-items: center;
+
+}
+
+.button-red_search{
     background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
-    color: white;
+    font-size: clamp(14px, 1.3vw, 17px);
+    color: #fff;
+    height: 100%;
+    width: 100%;
     border: none;
-    padding: 10px 20px;
-    width: auto;
 }
 
-.btn-red:hover{
-    background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
-    box-shadow: 0px 20px 40px 0px #DF0C0033;
+.button-red:hover,
+.button-red_search:hover{
+  color: #710A0A;
+  background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  box-shadow: 0px 20px 40px 0px #DF0C0033;
 }
 
-.btn-red:active{
+.button-red:active,
+.buyton-red_search:active{
     background: linear-gradient(90deg, #A8100D 0%, #710A0A 100%);
 
 }
 
-.btn-block {
-    display: block;
-    width: 100%;
-}
-
-.btn_res_pas {
-    margin-top: 10px;
-    text-align: center;
-}
-
 .atomic-link {
-    text-decoration: none;
-    color: #B2241C;
-    font-family: Blender-bold;
-	font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    position: relative;
-    display: inline-block;
-    transition: all 0.3s ease;
+  text-decoration: none;
+  color: #B2241C; 
+  font-family: Blender-bold;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase; 
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+  margin-top: 1.2em;
 }
 
 .atomic-text {
@@ -1029,6 +1040,7 @@ form#register,form#login {
 
 .atomic-link:hover {
     color: #831a15;
+    border-bottom: #831a15;
 }
 
 .alert {
@@ -1098,7 +1110,7 @@ form#register,form#login {
     position: relative;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     padding-top: 20px;
-
+    
 }
 
 .table_and_input_line{
@@ -1154,11 +1166,12 @@ form#register,form#login {
 
 }
 
-.form-control-team option{
-    font-size: 14px;
-    color: #333;
-    background-color: #fff;
-    padding: 8px;
+.form-control-team option{                                   
+    background-color: #000;           
+    padding: 1em; 
+}
+.option:hover{
+    background-color: #B2241C;
 }
 
 .team_table {
@@ -1338,4 +1351,166 @@ form#register,form#login {
   transform: scale(0.9);
 }
 
+/* TEAMS PAGE END */
+
+/* ONE TEAM PAGE PROFILE START*/ 
+.wrapper{
+  width: 100%;
+  max-width: 1340px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.one_team_page {
+  background: url('../img/teams_page_bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  color: #B2241C; /* основной красный цвет */
+  font-family: 'Blender-bold', sans-serif;
+  font-size: 20px !important;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.info_team_container {
+  display: flex;
+  width: 100%;
+  height: 4em;
+  align-items: center;
+  padding: 0 1em;
+}
+
+.info_team_line {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5em;
+  margin-top: 2.5em;
+  border-bottom: solid #474747;
+}
+
+.info_team_line h1{
+  font-family: 'Blender-bold';
+  color: #B2241C;
+  font-weight: 700;
+  font-size: 1.7vw;
+}
+
+.text-center{
+  color: #fff;
+}
+
+.team-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-left: -10em;
+}
+
+.team-btn {
+  width: 1.3em;
+  height: 1.3em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  border: none;
+  outline: none;
+  transition: transform 0.2s, opacity 0.3s;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-image: url('../img/setting.png');
+}
+.btn-captain {
+  background-image: url('../img/invite_us.png');
+}
+.btn-invite {
+  background-image: url('../img/invite_us.png');
+}
+.btn-disband {
+  background-image: url('../img/delete.png');
+}
+
+
+.team-btn:hover:not(.disabled) {
+  transform: scale(1.1);
+}
+
+.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.team-score-wrapper {
+  font-family: Blender-Bold;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+}
+
+.score-boxes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.team-stat-box {
+  background: url('../img/box_red.jpg') no-repeat center center;
+  background-size: cover;
+  color: white;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: Blender-Bold;
+  text-transform: uppercase;
+}
+
+.middle-box {
+  width: 2em;
+  height: 2em;
+  background-size: auto, cover; 
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+}
+.middle-box.middle-high {
+  background-image: url('../img/full_bat.png'), url('../img/box_red.jpg');
+
+}
+.middle-box.middle-medium {
+  background-image: url('../img/middle_bat.png'), url('../img/box_red.jpg');
+}
+.middle-box.middle-low {
+  background-image: url('../img/low_bat.png'), url('../img/box_red.jpg');
+}
+
+.right-box {
+  border-top-right-radius: 0.5em;
+  margin-left: 0.3em;
+
+}
+
+.team-stat-box h2,
+.team-stat-box h3 {
+  font-family: Blender-Bold;
+  font-weight: 700;
+  margin: 0;
+  font-size: 0.8rem;
+}
 

@@ -590,13 +590,31 @@ width: 260px;
 .result_graphics_form{
     width: 1159px;
     height: 500px;
-    background-color: #000000;
+    background-color: #ffffff;
     margin: 0 auto;
     border: 1px solid #B2241C;
     box-shadow: 0px 2px 20px rgba(21,24,36,0.16);
     position: relative;
     z-index: 30;
     margin-bottom: 60px;
+}
+
+#score-graph {
+    margin-top: 20px;
+    width: 100%;    /* занимает всю ширину контейнера с отступами */
+    height: 100%;   /* занимает всю высоту контейнера */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Если в #score-graph будет canvas или svg, можно подстроить: */
+#score-graph > canvas, 
+#score-graph > svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* если применимо */
 }
 
 .top_50_title{
@@ -927,18 +945,30 @@ width: 260px;
   border: 2px solid #B2241C;
 }
 
-.challenge_mid_container_locker{
+.challenge_mid_container_locker {
   width: 25px;
   height: 31px;
-  top: 400px;
-  left: 671px;
   background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
+  background-repeat: no-repeat;
+  background-position: center;
   background-image: url('../img/svg/замок.svg');
   margin-left: 568px;
   margin-top: 203px;
   margin-bottom: 30px;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.challenge_mid_container_locker:hover {
+  animation: shake-lock 0.6s ease-in-out;
+}
+
+@keyframes shake-lock {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(3deg); }
+  100% { transform: rotate(0deg); }
 }
 
 .challenges_mid_container_center-text{
@@ -967,6 +997,7 @@ width: 260px;
 
 .challenges_back_btn:hover .challenges_down_container_left-text {
   text-decoration: underline;
+  color: #C21916;
 }
 
 .challenges_down_container_left-text {
@@ -1192,7 +1223,7 @@ form#register,form#login {
 .button-red:hover,
 .button-red_search:hover{
   color: #710A0A;
-  background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  background: linear-gradient(90deg, #c51916 0%, #810E0E 100%);
   box-shadow: 0px 20px 40px 0px #DF0C0033;
 }
 

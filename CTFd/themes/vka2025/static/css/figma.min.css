@@ -1372,6 +1372,7 @@ form#register,form#login {
     font-family: Blender-bold;
     font-size: 1.1vw; 
     line-height: 1.2;
+    color: #000;
 }
 
 .form-group_reg_name {

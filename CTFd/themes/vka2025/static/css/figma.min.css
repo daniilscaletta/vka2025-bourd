@@ -35,8 +35,8 @@ body{
   font-size: 16px;
   line-height: 1.2;
   font-weight: 700;
-  color:rgb(0, 0, 0);
-  background-color: #ffffff;
+  color:rgb(255, 255, 255);
+  background-color: #000000;
   
 }
 
@@ -590,13 +590,31 @@ width: 260px;
 .result_graphics_form{
     width: 1159px;
     height: 500px;
-    background-color: #000000;
+    background-color: #ffffff;
     margin: 0 auto;
     border: 1px solid #B2241C;
     box-shadow: 0px 2px 20px rgba(21,24,36,0.16);
     position: relative;
     z-index: 30;
     margin-bottom: 60px;
+}
+
+#score-graph {
+    margin-top: 20px;
+    width: 100%;    /* занимает всю ширину контейнера с отступами */
+    height: 100%;   /* занимает всю высоту контейнера */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Если в #score-graph будет canvas или svg, можно подстроить: */
+#score-graph > canvas, 
+#score-graph > svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* если применимо */
 }
 
 .top_50_title{
@@ -806,8 +824,6 @@ width: 260px;
 }
 
 
-
-
 /* NOTIFICATIONS END */
 
 
@@ -818,9 +834,457 @@ width: 260px;
 /* -------------------------------------------------------------------------------------------------------------------------- */
 
 
+
+
+
+/* CHALLENGES START */
+
+.challenge_container{
+  max-width: 1160px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.challenges_up_container{
+  width: 1160px;
+  height: 74px;
+  top: 82px;
+  left: 103px;
+  border-width: 2px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-top: 40px;
+  border: 2px solid #B2241C;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.challenges_up_container h1{
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  margin-top: .5rem;
+  margin-left: 40px;
+}
+
+.center_title_vkactf{
+  font-family: Blender Pro;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 110.00000000000001%;
+  letter-spacing: 0%;
+  color: #505050;
+  margin-top: 1rem;
+}
+
+.challenges_up_right_els{
+  display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.challenges_up_right_els_left-text{
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+
+.challenges_up_right_els_center-icon{
+  width: 45px;
+	height: 45px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+  background-image: url('../img/svg/icon_battery.svg');
+  margin-left: 20px;;
+}
+
+.challenges_up_right_els_right-icon{
+  width: 66px;
+  height: 45px;
+  top: 96px;
+  left: 1183px;
+  border-top-right-radius: 10px;
+  background: #810E0E;
+  margin-left: 5px;
+  margin-right: 14px;
+  font-family: 'Blender Pro';
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 150%;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.challenge_mid_container{
+  width: 1160px;
+  height: 568px;
+  top: 166px;
+  left: 103px;
+  border-width: 2px;
+  border: 2px solid #B2241C;
+  margin-bottom: 10px;
+}
+
+.challenge_down_container{
+  width: 1160px;
+  height: 74px;
+  top: 744px;
+  left: 103px;
+  border-width: 2px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 2px solid #B2241C;
+}
+
+.challenge_mid_container_locker {
+  width: 25px;
+  height: 31px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../img/svg/замок.svg');
+  margin-left: 568px;
+  margin-top: 203px;
+  margin-bottom: 30px;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.challenge_mid_container_locker:hover {
+  animation: shake-lock 0.6s ease-in-out;
+}
+
+@keyframes shake-lock {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.challenges_mid_container_center-text{
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.challenges_back_btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-top: 24px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+
+.challenges_back_btn:hover .challenges_down_container_left-icon {
+  transform: translateX(-5px);
+}
+
+.challenges_back_btn:hover .challenges_down_container_left-text {
+  text-decoration: underline;
+  color: #C21916;
+}
+
+.challenges_down_container_left-text {
+  font-family: 'Blender Pro';
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: white;
+}
+
+.challenges_down_container_left-icon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../img/svg/стрелка.svg');
+  width: 23px;
+  height: 11px;
+  margin-right: 14px;
+}
+
+/* CHALLENGES END */
+
+
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* WELCOME PAGE WO TEAM START */
+
+
+.container_main_page_if_wo_team {
+    background-size: 100%;        /* Увеличит зум (напр., 150% от реального размера) */
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image: url('../img/jpg/back_main_hello.jpg');
+    height: 100vh;
+}
+
+.container_inner_main_page{
+  width: 762px;
+  margin: 0 auto;
+  padding-top: 90px;;
+}
+
+.welcome_text{
+
+    width: 526px;
+    height: 106px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('../img/png/welcome.png');
+    margin: 0 auto;
+    margin-bottom: 20px;;
+}
+
+.container_main_page_form_for_2_buttons{
+    position: relative;
+    width: 762px;
+    height: 315px;
+    background-image: url('../img/png/bumaga_rvana.png');
+    background-repeat: no-repeat;
+    background-position:top;
+    background-size: contain;
+    padding-top: 50px;
+}
+.text_into_form_team{
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #B2241C;
+  margin-left: 130px;;
+  width: 496px;
+  word-wrap: break-word;
+}
+
+.comtainer_main_form_with_2_team_button{
+  width: 560px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 40px auto 0 auto;
+}
+
+.to_join_team-btn-link{
+  width: 260px;
+  height: 58px;
+  border: 2px solid #B2241C;
+  color: #B2241C;
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.to_create_team-btn-link{
+  width: 260px;
+  height: 58px;
+  background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  color: #FFFFFF;
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+
+}
+
+.to_create_team-btn-link:hover{
+  transform: translateY(-5px);
+  background-color: #e5979481;
+}
+
+.inverse_link_for_main_left_btn{
+  	color: #C21916;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.inverse_link_for_main_left_btn:hover{
+  text-decoration: underline;
+  color: #C21916;
+}
+
+.to_join_team-btn-link:hover{
+  transform: translateY(-5px);
+}
+
+
+
+.inverse_link_for_main_right_btn{
+  	color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.inverse_link_for_main_right_btn:hover{
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+/* WELCOME PAGE WO TEAM END */
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+/* ERROR PAGE START */
+
+
+/* 404s */
+.error_pages_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Центрирование по высоте */
+    text-align: center;
+}
+
+.error_page_number_img{
+    background-size: 100%;        /* Увеличит зум (напр., 150% от реального размера) */
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image: url('../img/png/404.png');
+    height: 100vh;
+
+    width: 558px;
+    height: 291px;
+    padding-left:175px;
+    margin-bottom: 70px;
+}
+
+.inside_error_number_pioner{
+    background-size: 100%;        /* Увеличит зум (напр., 150% от реального размера) */
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image: url('../img/png/pioner.png');
+    height: 100vh;
+
+    width: 209px;
+    height: 405px;
+    transform: translateY(-70px);
+}
+
+.h2_error_page{
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+ 
+}
+
+
+
+
+
+
+
+
+/* ERROR PAGE START */
+
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* CONKRETNIY TASK START */
+
+
+.task_back {
+  position: relative;
+  width:1160px;
+  height: 830px;
+  overflow-y: auto; /* скролл внутри блока */
+  background-color: #000; 
+  background-size: cover;
+  padding-top: 100px;
+}
+
+
+
+
+
+
+
+/* CONKRETNIY TASK END */
+
+
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
+
+
+
 /* LOGIN AND REGISTER PAGE STAR*/
-
-
 .register_page, .login-page {
   background: url('../img/register_page_bg.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -982,7 +1446,7 @@ form#register,form#login {
 .button-red:hover,
 .button-red_search:hover{
   color: #710A0A;
-  background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  background: linear-gradient(90deg, #c51916 0%, #810E0E 100%);
   box-shadow: 0px 20px 40px 0px #DF0C0033;
 }
 
@@ -1461,13 +1925,16 @@ form#register,form#login {
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
 }
+
 .middle-box.middle-high {
   background-image: url('../img/full_bat.png'), url('../img/box_red.jpg');
 
 }
+
 .middle-box.middle-medium {
   background-image: url('../img/middle_bat.png'), url('../img/box_red.jpg');
 }
+
 .middle-box.middle-low {
   background-image: url('../img/low_bat.png'), url('../img/box_red.jpg');
 }

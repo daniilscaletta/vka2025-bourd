@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 {% block stylesheets %}
@@ -5,30 +6,54 @@
 {% endblock %}
 
 {% block content %}
-<div class="jumbotron">
-	<div class="container">
-		<h1>Challenges</h1>
-	</div>
-</div>
-
-<div class="modal fade" id="challenge-window" tabindex="-1" role="dialog">
-</div>
-
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			{% include "components/errors.html" %}
-		</div>
-	</div>
-
-	<div id='challenges-board'>
-		<div class="min-vh-50 d-flex align-items-center">
-			<div class="text-center w-100">
-				<i class="fas fa-circle-notch fa-spin fa-3x fa-fw spinner"></i>
+	<div class="challenge_container">
+		<div class="challenges_up_container">
+			<h1>категории заданий</h1>
+			<p class="center_title_vkactf">vkactf 2025.</p>
+			<div class="challenges_up_right_els">
+				<div class="challenges_up_right_els_left-text">заработано очков</div>
+				<div class="challenges_up_right_els_center-icon"></div>
+				<div class="challenges_up_right_els_right-icon">_</div>
 			</div>
 		</div>
+
+		<div class="challenge_mid_container">
+			<div class="challenge_mid_container_locker"></div>
+			<div class="challenges_mid_container_center-text">задания пока не доступны</div>
+		</div>
+
+		<div class="challenge_down_container">
+			<a href="/" class="challenges_back_btn custom-link">
+				<div class="challenges_down_container_left-icon"></div>
+				<div class="challenges_down_container_left-text">вернуться на главную</div>
+			</a>
+		</div>
+
 	</div>
-</div>
+
+
+
+
+<!-- 
+	<div class="modal fade" id="challenge-window" tabindex="-1" role="dialog">
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				{% include "components/errors.html" %}
+			</div>
+		</div>
+
+		<div id='challenges-board'>
+			<div class="min-vh-50 d-flex align-items-center">
+				<div class="text-center w-100">
+					<i class="fas fa-circle-notch fa-spin fa-3x fa-fw spinner"></i>
+				</div>
+			</div>
+		</div>
+	</div> -->
+
 {% endblock %}
 
 {% block scripts %}

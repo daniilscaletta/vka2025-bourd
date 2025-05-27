@@ -1167,11 +1167,6 @@ width: 260px;
   color: #ffffff;
 }
 
-
-
-
-
-
 /* WELCOME PAGE WO TEAM END */
 
 
@@ -1183,6 +1178,78 @@ width: 260px;
 
 /* -------------------------------------------------------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+/* ERROR PAGE START */
+
+
+/* 404s */
+.error_pages_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Центрирование по высоте */
+    text-align: center;
+}
+
+.error_page_number_img{
+    background-size: 100%;        /* Увеличит зум (напр., 150% от реального размера) */
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image: url('../img/png/404.png');
+    height: 100vh;
+
+    width: 558px;
+    height: 291px;
+    padding-left:175px;
+    margin-bottom: 70px;
+}
+
+.inside_error_number_pioner{
+    background-size: 100%;        /* Увеличит зум (напр., 150% от реального размера) */
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image: url('../img/png/pioner.png');
+    height: 100vh;
+
+    width: 209px;
+    height: 405px;
+    transform: translateY(-70px);
+}
+
+.h2_error_page{
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+ 
+}
+
+
+
+
+
+
+
+
+/* ERROR PAGE START */
+
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
+
+
 
 
 

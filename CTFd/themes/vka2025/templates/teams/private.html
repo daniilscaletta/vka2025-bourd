@@ -145,18 +145,58 @@
 		
 		<div class="info_team_line">
 			<h1 id="team_name" team-id="{{ team.id }}">{{ team.name }}</h1>
-			<div class="team-controls">
-			{% if team.captain_id == user.id %}
-				<a class="team-btn btn-edit" title="Edit Team"></a>
-				<a class="team-btn btn-captain" title="Choose Captain"></a>
-				<a class="team-btn btn-invite" title="Invite Users"></a>
-				<a class="team-btn btn-disband" title="Disband Team"></a>
-			{% else %}
-				<span class="team-btn btn-edit disabled" title="Only team captains can edit team information"></span>
-				<span class="team-btn btn-captain disabled" title="Only team captains can choose a new captain"></span>
-				<span class="team-btn btn-invite disabled" title="Only team captains can generate invite links"></span>
-				<span class="team-btn btn-disband disabled" title="Only team captains can disband the team"></span>
-			{% endif %}
+			<div class="pt-3">
+				<a class="edit-team">
+					{% if team.captain_id == user.id %}
+						<i class="btn-fa fas fa-cogs fa-2x px-2"
+						   data-toggle="tooltip"
+						   data-placement="top"
+						   title="Edit Team"></i>
+
+						<a class="edit-captain">
+							<i class="btn-fa fas fa-user-tag fa-2x px-2" data-toggle="tooltip" data-placement="top"
+							   title="Choose Captain"></i>
+						</a>
+
+						<a class="invite-members">
+							<i class="btn-fa fas fa-ticket-alt fa-2x px-2" data-toggle="tooltip" data-placement="top"
+							   title="Invite Users"></i>
+						</a>
+						<a class="disband-team">
+							<i class="btn-fa fas fa-trash-alt fa-2x px-2" data-toggle="tooltip" data-placement="top"
+								title="Disband Team"></i>
+						</a>
+					{% else %}
+						<i class="btn-fa fas fa-cogs fa-2x px-2 fa-disabled"
+						   data-toggle="tooltip"
+						   data-placement="top"
+						   title="Only team captains can edit team information"></i>
+						<a class="edit-captain">
+							<i class="btn-fa fas fa-user-tag fa-2x px-2 fa-disabled"
+							   data-toggle="tooltip"
+							   data-placement="top"
+							   title="Only team captains can choose a new captain"></i>
+						</a>
+						<a class="invite-members">
+							<i class="btn-fa fas fa-ticket-alt fa-2x px-2"
+								data-toggle="tooltip"
+								data-placement="top"
+								title="Only team captains can generate invite links"></i>
+						</a>
+						<a class="disband-team">
+							<i class="btn-fa fas fa-trash-alt fa-2x px-2 fa-disabled"
+								data-toggle="tooltip"
+								data-placement="top"
+								title="Only team captains can disband the team"></i>
+						</a>
+					{% endif %}
+				</a>
+				{% if team.website and (team.website.startswith('http://') or team.website.startswith('https://')) %}
+					<a href="{{ team.website }}" target="_blank" style="color: inherit;" rel="noopener">
+						<i class="fas fa-external-link-alt fa-2x px-2" data-toggle="tooltip" data-placement="top"
+						   title="{{ team.website }}"></i>
+					</a>
+				{% endif %}
 			</div>
 			<div class="team-score-wrapper">
 				<small class="score-label">Место</small>
@@ -164,6 +204,8 @@
 					<div class="team-stat-box left-box">
 					{% if scores_visible() and place %}
 						<h3>{{ place }}</h3>
+					{% else %}
+						<p>-</p>
 					{% endif %}
 					</div>
 				</div>
@@ -182,7 +224,9 @@
 						"></div>
 						<div class="team-stat-box right-box">
 						{% if score %}
-							<h2>{{ score }}</h2>
+							<p>{{ score }}</p>
+						{% else  %}
+							<p>0</p>
 						{% endif %}
 						</div>
 					</div>
@@ -285,27 +329,29 @@
 				</div>
 			{% endif %}
 		</div>
-		</div>
 	</div>
+</div>
 {% endblock %}
 
 {% block scripts %}
-	<script>
-		var stats_data = {{ {
-			'type': 'team',
-			'id': team.id,
-			'name': team.name,
-			'account_id': 'me',
-		} | tojson }};
-		var team_captain = {{ (user.id == team.captain_id) | tojson }};
-	</script>
-	<script defer src="{{ url_for('views.themes', path='js/echarts.bundle.js') }}"></script>
-	{% if solves or awards %}
-		<script defer src="{{ url_for('views.themes', path='js/graphs.js') }}"></script>
-		<script defer src="{{ url_for('views.themes', path='js/pages/stats.js') }}"></script>
-	{% endif %}
+<script>
+	var stats_data = {{ {
+		"type": "team",
+		"id": team.id,
+		"name": team.name,
+		"account_id": "me"
+	} | tojson }};
+	
+	var team_captain = {{ (user.id == team.captain_id) | tojson }};
+</script>
+
+<script defer src="{{ url_for('views.themes', path='js/echarts.bundle.js') }}"></script>
+{% if solves or awards %}
+	<script defer src="{{ url_for('views.themes', path='js/graphs.js') }}"></script>
+	<script defer src="{{ url_for('views.themes', path='js/pages/stats.js') }}"></script>
+{% endif %}
 {% endblock %}
 
 {% block entrypoint %}
-	<script defer src="{{ url_for('views.themes', path='js/pages/teams/private.js') }}"></script>
+<script defer src="{{ url_for('views.themes', path='js/pages/teams/private.js') }}"></script>
 {% endblock %}

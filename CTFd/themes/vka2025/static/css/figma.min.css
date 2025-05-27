@@ -1316,16 +1316,17 @@ width: 260px;
 .error {
     width: 100%;
     height: 1.5em;
-    color: #B2241C;
+    color: #000;
     margin-top: 1em;
     margin-bottom: -3em;
 } 
 .error_log {
     width: 100%;
     height: 2em;
-    color: #B2241C;
+    color: #000;
     margin-top: 1em;
     margin-bottom: -2.5em;
+
 } 
 
 
@@ -1389,7 +1390,7 @@ form#register,form#login {
 
 .form-group_reg_pass {
     width: 100%;
-    margin-top: -2em; 
+    margin-top: -1em; 
     width: 100%;
 }
 .form-control_reg-pass{
@@ -1402,7 +1403,7 @@ form#register,form#login {
 
 .form-group_reg_email {
     width: 100%;
-    margin-top: -2em; 
+    margin-top: -1em; 
     width: 100%;
 }
 .form-control_reg-email{
@@ -1430,7 +1431,7 @@ form#register,form#login {
   color: #fff;
   height: 100%;
   width: 80%;
-  margin-top: 0.5em;
+  margin-top: 2em;
   align-items: center;
 
 }
@@ -1468,7 +1469,7 @@ form#register,form#login {
   position: relative;
   display: inline-block;
   transition: all 0.3s ease;
-  margin-top: 1.2em;
+  margin-top: 2em;
 }
 
 .atomic-text {

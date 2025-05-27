@@ -10,13 +10,14 @@
             <h1>{{ user.name }}</h1>
             
             <div class="pt-3">
-                {% if user.team_id %}
-                    <a href="{{ url_for('teams.public', team_id=user.team_id) }}">
-                        <i class="btn-fa fas fa-users fa-2x px-2" data-toggle="tooltip" data-placement="top"
-                           title="Team: {{ user.team.name }}"></i>
-                    </a>
-                {% endif %}
-            </div>
+				{% if user.team_id %}
+					<a href="{{ url_for('teams.public', team_id=user.team_id) }}" class="team-link">
+						<i class="btn-fa fas fa-users fa-2x px-2" data-toggle="tooltip" data-placement="top"
+						title="View team profile"></i>
+					</a>
+					<span class="team-name ml-2">{{ user.team.name }}</span>
+				{% endif %}
+			</div>
             
             
             <div class="team-score-wrapper">

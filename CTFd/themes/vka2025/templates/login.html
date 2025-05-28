@@ -11,6 +11,9 @@
 		<div class="left-page">
 			<h2>Вход</h2>
 			<h3>vkactf2025</h3>
+			<div class="error_log">
+				{% include "components/errors.html" %}
+			</div>
 		</div>
 		<div class="right-page">
 			
@@ -20,9 +23,6 @@
 					data-size="large" data-auth-url="/tgoauth" data-request-access="write"></script>
 			</div>
 			{% endif %}
-			<div class="error_log">
-				{% include "components/errors.html" %}
-			</div>
 			{% with form = Forms.auth.LoginForm() %}
 			<form method="post" accept-charset="utf-8" autocomplete="off" id="login">
 				<div class="form-group_reg_name">

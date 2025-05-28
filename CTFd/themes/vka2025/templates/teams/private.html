@@ -170,43 +170,43 @@
 						<i class="btn-fa fas fa-cogs fa-2x px-2"
 						   data-toggle="tooltip"
 						   data-placement="top"
-						   title="Edit Team"></i>
+						   title="Редактировать настройки команды"></i>
 
 						<a class="edit-captain">
 							<i class="btn-fa fas fa-user-tag fa-2x px-2" data-toggle="tooltip" data-placement="top"
-							   title="Choose Captain"></i>
+							   title="Выбрать капитана команды"></i>
 						</a>
 
 						<a class="invite-members">
 							<i class="btn-fa fas fa-ticket-alt fa-2x px-2" data-toggle="tooltip" data-placement="top"
-							   title="Invite Users"></i>
+							   title="Пригласить пользователя"></i>
 						</a>
 						<a class="disband-team">
 							<i class="btn-fa fas fa-trash-alt fa-2x px-2" data-toggle="tooltip" data-placement="top"
-								title="Disband Team"></i>
+								title="Расформировать команду"></i>
 						</a>
 					{% else %}
 						<i class="btn-fa fas fa-cogs fa-2x px-2 fa-disabled"
 						   data-toggle="tooltip"
 						   data-placement="top"
-						   title="Only team captains can edit team information"></i>
+						   title="Только капитаны команд могут редактировать информацию о команде"></i>
 						<a class="edit-captain">
 							<i class="btn-fa fas fa-user-tag fa-2x px-2 fa-disabled"
 							   data-toggle="tooltip"
 							   data-placement="top"
-							   title="Only team captains can choose a new captain"></i>
+							   title="Только капитаны команд могут выбрать нового капитана"></i>
 						</a>
 						<a class="invite-members">
 							<i class="btn-fa fas fa-ticket-alt fa-2x px-2"
 								data-toggle="tooltip"
 								data-placement="top"
-								title="Only team captains can generate invite links"></i>
+								title="Только капитаны команд могут создавать ссылки для приглашений"></i>
 						</a>
 						<a class="disband-team">
 							<i class="btn-fa fas fa-trash-alt fa-2x px-2 fa-disabled"
 								data-toggle="tooltip"
 								data-placement="top"
-								title="Only team captains can disband the team"></i>
+								title="Только капитаны команд могут удалить команду"></i>
 						</a>
 					{% endif %}
 				</a>
@@ -222,7 +222,7 @@
 				<div class="score-boxes">
 					<div class="team-stat-box left-box">
 					{% if scores_visible() and place %}
-						<h3>{{ place }}</h3>
+						<p>{{ place }}</p>
 					{% else %}
 						<p>-</p>
 					{% endif %}
@@ -261,7 +261,7 @@
 		<div class="tables">
 				<div class="table_with_memb">
 					<h1>Участники</h1>
-					<table class="table_team">
+					<table class="table_profile_team">
 						<thead>
 						<tr>
 							<td><b>Имя пользователя</b></td>
@@ -286,33 +286,12 @@
 					</table>
 				</div>
 			
-			{% if solves or awards %}
-				{% if awards %}
-					<div class="row">
-						<div class="col-md-12">
-							<h3>Awards</h3>
-						</div>
-						{% for award in awards %}
-							<div class="col-md-3 col-sm-6">
-								<p class="text-center">
-									<i class="award-icon award-{{ award.icon }} fa-2x"></i>
-									<br>
-									<strong>{{ award.name }}</strong>
-								</p>
-								{% if award.category %}<p class="text-center">{{ award.category }}</p>{% endif %}
-								{% if award.description %}<p class="text-center">{{ award.description }}</p>{% endif %}
-								<p class="text-center">{{ award.value }}</p>
-							</div>
-						{% endfor %}
-					</div>
+			{% if solves %}
 
-					<br>
-				{% endif %}
-
-				<div class="row">
-					<div class="col-md-12">
-						<h2>Решения</h2>
-						<table class="table_team">
+				<div class="table_with_memb">
+					
+						<h1>Решения</h1>
+						<table class="table_profile_team">
 							<thead>
 							<tr>
 								<td><b>Задание</b></td>
@@ -338,7 +317,7 @@
 							{% endfor %}
 							</tbody>
 						</table>
-					</div>
+
 				</div>
 			{% else %}
 				<div class="row min-vh-25">

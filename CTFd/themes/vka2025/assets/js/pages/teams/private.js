@@ -46,8 +46,8 @@ $(() => {
 
     $(".disband-team").click(function() {
       ezQuery({
-        title: "Disband Team",
-        body: "Are you sure you want to disband your team?",
+        title: "расформировать команду",
+        body: "Вы уверены, что хотите распустить команду?",
         success: function() {
           CTFd.fetch("/api/v1/teams/me", {
             method: "DELETE"

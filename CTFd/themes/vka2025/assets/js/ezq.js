@@ -3,18 +3,18 @@ import $ from "jquery";
 import hljs from "highlight.js";
 
 const modalTpl =
-  '<div class="modal fade" tabindex="-1" role="dialog">' +
-  '  <div class="modal-dialog" role="document">' +
-  '    <div class="modal-content">' +
-  '      <div class="modal-header">' +
-  '        <h5 class="modal-title">{0}</h5>' +
-  '        <button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
+  '<div class="modal fade custom-disband-modal" tabindex="-1" role="dialog">' +
+  '  <div class="modal-dialog modal-dialog-centered" role="document">' +
+  '    <div class="modal-content border-0 shadow-lg">' +
+  '      <div class="modal-header bg-danger text-white d-flex justify-content-center w-100 border-0">' +
+  '        <h5 class="modal-title text-white m-0 w-100 text-center" style="font-family: \'Blender Pro\', sans-serif; font-weight: 700; font-size: 32px; line-height: 1; letter-spacing: 0; text-align: center; text-transform: uppercase;">{0}</h5>' +
+  '        <button type="button" class="close text-white position-absolute" style="right: 1rem;" data-dismiss="modal" aria-label="Close">' +
   '          <span aria-hidden="true">&times;</span>' +
   "        </button>" +
   "      </div>" +
-  '      <div class="modal-body">' +
+  '      <div class="modal-body p-4 text-center">' +
   "      </div>" +
-  '      <div class="modal-footer">' +
+  '      <div class="modal-footer justify-content-center border-0">' +
   "      </div>" +
   "    </div>" +
   "  </div>" +
@@ -54,9 +54,9 @@ const successTpl =
 const buttonTpl =
   '<button type="button" class="btn btn-primary" data-dismiss="modal">{0}</button>';
 const noTpl =
-  '<button type="button" class="btn btn-danger" data-dismiss="modal">No</button>';
+  '<button type="button" class="btn btn-danger" data-dismiss="modal">НЕТ</button>';
 const yesTpl =
-  '<button type="button" class="btn btn-primary" data-dismiss="modal">Yes</button>';
+  '<button type="button" class="btn btn-primary" data-dismiss="modal">ДА</button>';
 
 export function ezAlert(args) {
   const modal = modalTpl.format(args.title);

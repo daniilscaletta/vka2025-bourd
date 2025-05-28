@@ -1,45 +1,50 @@
 {% extends "base.html" %}
 
 {% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/team.css') }}">
 {% endblock %}
 
 {% block content %}
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Create Team</h1>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 offset-md-3">
-				{% include "components/errors.html" %}
+<div class="one_team_page">
+    <div class="wrapper">
+        <div class="team-container">
+            <h1>Команда</h1>
+            <div class="form_and_team">
+                <div class="team-panel">
+                    <button class="team-button">СОЗДАТЬ КОМАНДУ</button>
+                </div>
 
-				{% with form = Forms.teams.TeamRegisterForm() %}
-				{% from "macros/forms.html" import render_extra_fields %}
-				<form method="POST">
-					<div class="form-group">
-						<b>{{ form.name.label }}</b>
-						{{ form.name(class="form-control") }}
-					</div>
-					<div class="form-group">
-						<b>{{ form.password.label }}</b>
-						{{ form.password(class="form-control") }}
-					</div>
+                <div class="team-form-container">
+                    {% include "components/errors.html" %}
 
-					{{ render_extra_fields(form.extra) }}
+                    {% with form = Forms.teams.TeamRegisterForm() %}
+                    {% from "macros/forms.html" import render_extra_fields %}
+                    <form method="POST" class="team-form">
+                        <div class="input-group">
+                            <label for="name" class="team-label">Название команды {{ form.name(class="team-input", placeholder="user_name") }}</label>
+                            
+                        </div>
 
-					<div class="row pt-3">
-						<div class="col-md-12">
-							<p>After creating your team, share the team name and password with your teammates so they can join your team.</p>
-							{{ form.submit(class="btn btn-success float-right") }}
-						</div>
-					</div>
-					{{ form.nonce() }}
-				</form>
-				{% endwith %}
-			</div>
-		</div>
-	</div>
+                        <div class="input-group">
+                            <label for="password" class="team-label">Пароль {{ form.password(class="team-input", placeholder="*************") }}</label>
+                            
+                        </div>
+
+                        {{ render_extra_fields(form.extra) }}
+
+                        <p class="team-hint">
+                            После создания команды поделитесь с участниками названием и паролем от аккаунта команды, чтобы они могли присоединиться.
+                        </p>
+
+                        {{ form.submit(class="team-submit-button") }}
+                        {{ form.nonce() }}
+                    </form>
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}

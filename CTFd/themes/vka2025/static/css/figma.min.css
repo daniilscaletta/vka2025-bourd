@@ -784,8 +784,8 @@ width: 260px;
 }
 
 /* Обычное поведение для текста */
-.notification-text {
-  font-family: 'Blender Pro', sans-serif;
+.notification-text p {
+  font-family: 'Blender Pro';
   font-weight: 500;
   font-size: 20px;
   line-height: 110%; /* 1.1 */
@@ -793,7 +793,7 @@ width: 260px;
   text-align: justify;
 
   display: -webkit-box;
-  -webkit-line-clamp: 7;       /* ограничение до 8 строк */
+  -webkit-line-clamp: 7;       /* ограничение до 7 строк */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -808,8 +808,8 @@ width: 260px;
 .notification-meta {
   color: #ffffff; /* белый текст, как в основном блоке */
   font-size: 14px;
-  line-height: 1.4;
-  margin-top: 10px;
+  line-height: 1.1;
+  margin-top: 5px;
   margin-bottom: 30px;
 }
 
@@ -817,10 +817,10 @@ width: 260px;
   font-family: Blender Pro;
   font-weight: 500;
   font-size: 20px;
-  line-height: 110.00000000000001%;
+  line-height: 1;
   letter-spacing: 0%;
-  margin-bottom: 10px;
-
+  margin-top: 0px;
+  margin-bottom: 5px;
 }
 
 

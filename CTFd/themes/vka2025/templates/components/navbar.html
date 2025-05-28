@@ -40,28 +40,28 @@
       <ul class="navbar-nav ml-md-auto">
         {% if authed() %}
           {% if is_admin() %}
-            <li class="nav-item header_item">
-              <a class="nav-link header_link" href="{{ url_for('admin.view') }}">AP</a>
+            <li class="nav-item header_item_ico">
+              <a class="nav-link header_link" href="{{ url_for('admin.view') }}">admino4ka</a>
             </li>
           {% endif %}
-          <li class="nav-item header_item">
+          <li class="nav-item header_item_ico">
             <a class="nav-link header_link icon-notifications with-icon" href="{{ url_for('views.notifications') }}"></a>
           </li>
           {% if Configs.user_mode == "teams" %}
-            <li class="nav-item header_item">
+            <li class="nav-item header_item_ico">
               <a class="nav-link header_link icon-team with-icon" href="{{ url_for('teams.private') }}"></a>
             </li>
           {% endif %}
-          <li class="nav-item header_item">
+          <li class="nav-item header_item_ico">
             <a class="nav-link header_link icon-user with-icon" href="{{ url_for('users.private') }}"></a>
           </li>
-          <li class="nav-item header_item">
+          <li class="nav-item header_item_ico">
             <a class="nav-link header_link icon-settings with-icon" href="{{ url_for('views.settings') }}"></a>
           </li>
-          <li class="nav-item header_item">
+          <li class="nav-item header_item_ico">
             <a class="nav-link header_link icon-rectangle with-icon" href="#!"></a>
           </li>
-          <li class="nav-item header_item">
+          <li class="nav-item header_item_ico">
             <a class="nav-link header_link icon-logout with-icon" href="{{ url_for('auth.logout') }}"></a>
           </li>
         {% else %}

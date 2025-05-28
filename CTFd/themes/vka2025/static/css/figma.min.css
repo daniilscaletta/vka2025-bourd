@@ -1238,9 +1238,6 @@ width: 260px;
 
 
 
-
-
-
 /* ERROR PAGE START */
 
 
@@ -1251,6 +1248,150 @@ width: 260px;
 
 
 
+
+
+
+/* POP-UPS START */
+
+.window_edit_team_header{
+    margin: 80px auto 50px;
+}
+
+
+.edit_tram_model_window_title{
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  text-align: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.window_edit_team{
+  width: 800px;
+  height: 684px;
+  margin-left:25px;
+  margin-bottom: 100px;
+  background-color: #000;
+  border: 2px solid #B2241C;
+   border-radius: 8px;
+}
+
+.window_edit_inner_container{
+  width: 620px;
+  margin: 0 auto; 
+  overflow-wrap: break-word; /* переносит длинные слова */
+  word-break: break-word;    /* принудительный разрыв при переполнении */
+  overflow: hidden; 
+  padding-top: 10px;
+}
+
+.window_edit_team_micro_row_container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.window_edit_team_micro_row_container label {
+  flex: 0 0 auto;
+}
+
+.line_between_micro_edit_team{
+  background: #2B2B2B;
+  width: 620px;
+  height: 1px;
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
+.lable_name_window_edit_team{
+  font-family: Blender Pro;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 110.00000000000001%;
+  letter-spacing: 0%;
+
+  color: #fff;
+}
+
+.form-input-wrapper_edit_win {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: #005;
+    gap: 100px;
+}
+
+.form-control_edit_win {
+background: transparent !important;
+border: none !important;
+color: white !important;
+font-size: 16px;
+width: auto;
+outline: none;
+width: 200px;
+}
+
+.modal-content {
+  background-color: rgba(0, 0, 0, 0); /* чёрный с 70% непрозрачностью */
+  border: none;
+  box-shadow: none; /* если не хочешь тени */
+}
+
+
+.custom_submit_button{
+   width: 620px;
+  height: 58px;
+  background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  content: 'РЕДАКТИРОВАТЬ';
+}
+
+.custom_submit_button:hover {
+  background: linear-gradient(90deg, #e02d2a 0%, #a61818 100%);
+  text-decoration: underline;
+}
+
+/* POP-UPS END */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
 
 
 

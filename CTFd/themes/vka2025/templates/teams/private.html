@@ -6,74 +6,93 @@
 {% block content %}
 <div class="one_team_page">
 	<div class="wrapper">
-		<div id="team-edit-modal" class="modal fade">
-			<div class="modal-dialog modal-lg">
+		<div id="team-edit-modal" class="modal fade" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-lg">
 				<div class="modal-content">
-					<div class="modal-header">
-						<h2 class="modal-action text-center w-100">Edit Team</h2>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body clearfix">
-						{% with form = Forms.teams.TeamSettingsForm(obj=team) %}
-						{% from "macros/forms.html" import render_extra_fields %}
-						<form id="team-info-form" method="POST">
-							<div class="form-group">
-								<b>{{ form.name.label }}</b>
-								{{ form.name(class="form-control") }}
-								<small class="form-text text-muted">
-									{{ form.name.description }}
-								</small>
+						<div class="window_edit_team">
+							<div class="window_edit_team_header">
+								<h2 class="edit_tram_model_window_title">редактировать команду</h2>
 							</div>
-							<div class="form-group">
-								<b>{{ form.password.label }}</b>
-								{{ form.password(class="form-control") }}
-								<small class="form-text text-muted">
-									{{ form.password.description }}
-								</small>
-							</div>
-							<div class="form-group">
-								<b>{{ form.confirm.label }}</b>
-								{{ form.confirm(class="form-control") }}
-								<small class="form-text text-muted">
-									{{ form.confirm.description }}
-								</small>
-							</div>
-							<div class="form-group">
-								<b>{{ form.website.label }}</b>
-								{{ form.website(class="form-control") }}
-								<small class="form-text text-muted">
-									{{ form.website.description }}
-								</small>
-							</div>
-							<div class="form-group">
-								<b>{{ form.affiliation.label }}</b>
-								{{ form.affiliation(class="form-control") }}
-								<small class="form-text text-muted">
-									{{ form.affiliation.description }}
-								</small>
-							</div>
-							<div class="form-group">
-								<b>{{ form.country.label }}</b>
-								{{ form.country(class="form-control custom-select") }}
-								<small class="form-text text-muted">
-									{{ form.country.description }}
-								</small>
-							</div>
+							{% with form = Forms.teams.TeamSettingsForm(obj=team) %}
+							{% from "macros/forms.html" import render_extra_fields %}
+							<form id="team-info-form" method="POST"> 
+								<div class="window_edit_inner_container">
+									<div class="window_edit_team_micro_row_container">
+										<p class="lable_name_window_edit_team">
+											Имя команды
+										</p>
+										<div class="form-input-wrapper_edit_win">
+											{{ form.name(class="form-control", placeholder="user_name", readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>
+									</div>
+									<div class="line_between_micro_edit_team"></div>
+									<div class="window_edit_team_micro_row_container">
+										<p class="lable_name_window_edit_team">
+											Новый пароль
+										</p>
+										<div class="form-input-wrapper_edit_win">
+											{{ form.password(class="form-control",placeholder="********", readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>
+									</div>
+									<div class="line_between_micro_edit_team"></div>
+									<div class="window_edit_team_micro_row_container">
+										<p class="lable_name_window_edit_team">
+											Подтверждение пароля
+										</p>
+										<div class="form-input-wrapper_edit_win">
+											{{ form.confirm(class="form-control",placeholder="********", readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>	
+									</div>
+									<div class="line_between_micro_edit_team"></div>
+									<div class="window_edit_team_micro_row_container">
+										<p class="lable_name_window_edit_team">
+											Принадлежность
+										</p>
+										<div class="form-input-wrapper_edit_win">
+											{{ form.affiliation(class="form-control",placeholder="-",value=affiliation or "", readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>	
+									</div>
+									<div class="line_between_micro_edit_team"></div>
+									<div class="window_edit_team_micro_row_container">
+										<p class="lable_name_window_edit_team">
+											Сайт
+										</p>
+										<div class="form-input-wrapper_edit_win">
+											{{ form.website(class="form-control", placeholder="-", readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>	
+									</div>
+									<div class="line_between_micro_edit_team"></div>
+									<div class="window_edit_team_micro_row_container">
+										<p class="lable_name_window_edit_team">
+											Страна
+										</p>
+										<div class="form-input-wrapper_edit_win">
+											{{ form.country(class="form-control custom-select", value=country, readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>	
+									</div>
+									<div class="line_between_micro_edit_team"></div>
 
-							<hr>
+									<hr>
 
-							{{ render_extra_fields(form.extra) }}
+									{{ render_extra_fields(form.extra) }}
 
-							<div id="results">
+									<div id="results">
 
-							</div>
-							{{ form.submit(class="btn btn-primary btn-outlined float-right modal-action") }}
-						</form>
-						{% endwith %}
-					</div>
+									</div>
+									{{ form.submit(class="custom_submit_button", value="Сохранить изменения")}}
+								</div>
+							</form>
+							{% endwith %}
+				        </div>
+					
 				</div>
+
 			</div>
 		</div>
 
@@ -334,6 +353,18 @@
 {% endblock %}
 
 {% block scripts %}
+
+
+<script>
+function enableInput(icon) {
+	const input = icon.previousElementSibling;
+	if (input.hasAttribute('readonly')) {
+		input.removeAttribute('readonly');
+		input.focus();
+	}
+}
+</script>
+
 <script>
 	var stats_data = {{ {
 		"type": "team",

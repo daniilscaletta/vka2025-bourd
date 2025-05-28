@@ -41,3 +41,91 @@
 .key-submit .btn {
   height: 51px;
 }
+
+.all-challenges{
+  width: 100%;
+  height: 100%;
+}
+
+/* Категории */
+.task-category-list {
+    background-color: black;
+    border: 1px solid red;
+    padding: 10px;
+    min-width: 250px;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+}
+
+.task-category-item {
+    padding: 15px;
+    margin-bottom: 5px;
+    background: #1a1a1a;
+    color: white;
+    cursor: pointer;
+    border-left: 5px solid transparent;
+}
+
+.task-category-item.active {
+    background: linear-gradient(to right, #700000, #d12c2c);
+    font-weight: bold;
+}
+
+.task-category-item.locked {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Область задач */
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid red;
+}
+
+.task-card {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+}
+
+.task-card.completed {
+    background-color: #d12c2c;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.task-card.locked {
+    background-color: #1a1a1a;
+    color: gray;
+    text-align: center;
+}
+
+.task-card .difficulty {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #1aff1a;
+}
+
+.task-scoreboard {
+    margin-top: 20px;
+    border: 1px solid red;
+    padding: 10px;
+    color: white;
+}
+
+.scoreboard-button {
+    width: 100%;
+    background: linear-gradient(#333, #111);
+    border: none;
+    color: white;
+    padding: 12px;
+    cursor: pointer;
+}

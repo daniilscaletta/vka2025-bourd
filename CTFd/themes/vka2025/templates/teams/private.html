@@ -29,22 +29,22 @@
 									<div class="line_between_micro_edit_team"></div>
 									<div class="window_edit_team_micro_row_container">
 										<p class="lable_name_window_edit_team">
+											Старый пароль
+										</p>
+										<div class="form-input-wrapper_edit_win">
+											{{ form.confirm(class="form-control",placeholder="********", readonly=True) }}
+											<span class="edit_icon" onclick="enableInput(this)"></span>
+										</div>	
+									</div>
+									<div class="line_between_micro_edit_team"></div>
+									<div class="window_edit_team_micro_row_container">
+										<p class="lable_name_window_edit_team">
 											Новый пароль
 										</p>
 										<div class="form-input-wrapper_edit_win">
 											{{ form.password(class="form-control",placeholder="********", readonly=True) }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
-									</div>
-									<div class="line_between_micro_edit_team"></div>
-									<div class="window_edit_team_micro_row_container">
-										<p class="lable_name_window_edit_team">
-											Подтверждение пароля
-										</p>
-										<div class="form-input-wrapper_edit_win">
-											{{ form.confirm(class="form-control",placeholder="********", readonly=True) }}
-											<span class="edit_icon" onclick="enableInput(this)"></span>
-										</div>	
 									</div>
 									<div class="line_between_micro_edit_team"></div>
 									<div class="window_edit_team_micro_row_container">

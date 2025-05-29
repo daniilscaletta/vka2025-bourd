@@ -1,69 +1,53 @@
-.chal-desc {
-  padding-left: 30px;
-  padding-right: 30px;
-  font-size: 14px;
-}
-
-.chal-desc img {
-  max-width: 100%;
-  height: auto;
-}
-
-.modal-content {
-  border-radius: 0;
-  max-width: 1000px;
-  padding: 1em;
-  margin: 0 auto;
-}
-
-.badge-info,
-.btn-info {
-  background-color: #5b7290 !important;
-}
-
-.challenge-button {
-  box-shadow: 3px 3px 3px grey;
-}
-
-.solved-challenge {
-  background-color: #37d63e !important;
-  opacity: 0.4;
-  border: none;
-}
-
-.corner-button-check {
-  margin-top: -10px;
-  margin-right: 25px;
-  position: absolute;
-  right: 0;
-}
-
-.key-submit .btn {
-  height: 51px;
-}
-
 .all-challenges{
+  font-family: Blender-bold;
+  font-weight: 700;
+  color: #fff;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
 }
 
-/* Категории */
-.task-category-list {
-    background-color: black;
-    border: 1px solid red;
-    padding: 10px;
-    min-width: 250px;
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
+.challenges-board {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  width: 100%;
+  margin-top: 1em;
+  gap: 1em; 
+}
+.info_team_line_cat{
+  width: 100%;
+  height: 4.5em;
+  border-width: 1em;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  margin-top: 1em;
+  border: 2px solid #B2241C;
+  text-indent: 2.7em;
 }
 
 .task-category-item {
-    padding: 15px;
-    margin-bottom: 5px;
-    background: #1a1a1a;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;    
+    min-height: 2em;        
+    padding: 0 0 0 2em;     
+    margin: 0.1.8em 0;        
+    background: transparent;
     color: white;
     cursor: pointer;
-    border-left: 5px solid transparent;
+    align-items: center;
+}
+
+.task-categories-list {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 30%;
+    background: transparent;
+    border: 1px solid red;
+    color: white;
+    text-align: center;
 }
 
 .task-category-item.active {
@@ -71,61 +55,123 @@
     font-weight: bold;
 }
 
-.task-category-item.locked {
-    opacity: 0.3;
-    cursor: not-allowed;
+.task-categories-content{
+  display: grid;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  border-bottom-right-radius: 1em;
 }
 
-/* Область задач */
-.task-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    border: 1px solid red;
+.task-category-content{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid red;
 }
 
 .task-card {
-    background-color: #222;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: left;
-    font-family: 'Segoe UI', sans-serif;
-    position: relative;
+  background-color: #1a1a1a;
+  padding: 12px;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+  border: 1px solid #333;
 }
 
-.task-card.completed {
-    background-color: #d12c2c;
-    color: white;
-    font-weight: bold;
-    text-align: center;
+.task-card:hover {
+  transform: scale(1.03);
+  border-color: #b2241c;
+  box-shadow: 0 0 10px #b2241c33;
 }
 
-.task-card.locked {
-    background-color: #1a1a1a;
-    color: gray;
-    text-align: center;
+.challenge-button {
+  width: 100%;
+  background: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2a2a2a;
+  border-radius: 6px;
+  border: 1px solid #b2241c;
+  transition: background 0.2s ease;
 }
 
-.task-card .difficulty {
-    font-size: 12px;
-    margin-top: 10px;
-    color: #1aff1a;
+.challenge-button:hover {
+  background-color: #b2241c;
 }
 
-.task-scoreboard {
-    margin-top: 20px;
-    border: 1px solid red;
-    padding: 10px;
-    color: white;
+.challenge-button p {
+  margin: 0;
+  margin-bottom: 8px;
 }
 
-.scoreboard-button {
-    width: 100%;
-    background: linear-gradient(#333, #111);
-    border: none;
-    color: white;
-    padding: 12px;
-    cursor: pointer;
+.challenge-button span {
+  font-size: 14px;
+  font-weight: normal;
+  color: #ccc;
+}
+
+/* Решённые задачи */
+.solved-challenge {
+  background-color: #4caf50 !important;
+  color: white;
+  position: relative;
+}
+
+.solved-challenge .corner-button-check {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: white;
+}
+
+.leaderboadr {
+  border: solid 2px #B2241C;
+  border-bottom-left-radius: 1em;
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 1em; 
+  background-color: transparent;
+  align-items: center; /* Центрируем все содержимое по горизонтали */
+}
+
+.leaderboard-title {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1em; 
+}
+
+.leaderboard-button {
+  background: linear-gradient(90deg, #5E5E5E 0%, #242424 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px; 
+  width: 80%; 
+  height: 50px; 
+  min-height: 50px; 
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em; 
+  font-weight: 500;
+  transition: all 0.3s ease; 
+  border: none; 
+  cursor: pointer;
+}
+
+.leaderboard-button:hover {
+  background: linear-gradient(90deg, #6E6E6E 0%, #343434 100%);
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }

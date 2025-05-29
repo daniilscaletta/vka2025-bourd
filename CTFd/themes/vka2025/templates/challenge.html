@@ -1,156 +1,176 @@
-<div class="task_back">
+
+<div class="modal-dialog modal-dialog-centered modal-lg">
 	<div class="modal-content">
 		<div class="modal-body">
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
-			<ul class="nav nav-tabs">
-				<li class="nav-item">
-					<a class="nav-link active" href="#challenge">Challenge</a>
-				</li>
-				{% block solves %}
-					<li class="nav-item">
-						<a class="nav-link challenge-solves" href="#solves">
-							{% if solves != None %}
-								{{ solves }} {% if solves > 1 %}Solves{% else %}Solve{% endif %}
-							{% endif %}
-						</a>
-					</li>
-				{% endblock %}
-			</ul>
-			<div role="tabpanel">
-				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane fade show active" id="challenge">
-						<h2 class='challenge-name text-center pt-3'>
-							{{ challenge.name }}
-						</h2>
-						<h3 class="challenge-value text-center">
-							{{ challenge.value }}
-						</h3>
-
-						<div class="challenge-tags text-center">
-							{% block tags %}
-								{% for tag in tags %}
-									<span class='badge badge-info challenge-tag'>{{ tag }}</span>
-								{% endfor %}
-							{% endblock %}
+			<div class="challenge_container_task">
+				<div class="challenges_up_container_task">
+					{% if challenge.category == "web" %}
+					<div class="challenge_up_left_name_and_img">
+						<img class="web_icon_fg" src="themes/vka2025/static/img/png/web_img.png" alt="web_img">
+						<h1>{{ challenge.category }}</h1>
+					</div>
+					{% elif challenge.category == "crypto" %}
+					<div class="challenge_up_left_name_and_img">
+						<img class="web_icon_fg" src="themes/vka2025/static/img/png/crypt_img.png" alt="crypt_img">
+						<h1>{{ challenge.category }}</h1>
+					</div>
+					{% elif challenge.category == "ppc" %}
+					<div class="challenge_up_left_name_and_img">
+						<img class="web_icon_fg" src="themes/vka2025/static/img/png/ppc_img.png" alt="ppc_img">
+						<h1>{{ challenge.category }}</h1>
+					</div>
+					{% elif challenge.category == "misc" %}
+					<div class="challenge_up_left_name_and_img">
+						<img class="web_icon_fg" src="themes/vka2025/static/img/png/misc_img.png" alt="misc_img">
+						<h1>{{ challenge.category }}</h1>
+					</div>
+					{% elif challenge.category == "forensics" %}
+					<div class="challenge_up_left_name_and_img">
+						<img class="web_icon_fg" src="themes/vka2025/static/img/png/for_img.png" alt="for_img">
+						<h1>{{ challenge.category }}</h1>
+					</div>
+					{% elif challenge.category == "pwn" %}
+					<div class="challenge_up_left_name_and_img">
+						<img class="web_icon_fg" src="themes/vka2025/static/img/png/pwn_img.png" alt="pwn_img">
+						<h1>{{ challenge.category }}</h1>
+					</div>
+					{% elif challenge.category == "rev" %}
+					<div class="challenge_up_left_name_and_img">
+						<img class="web_icon_fg" src="themes/vka2025/static/img/png/rev_img.png" alt="rev_img">
+						<h1>{{ challenge.category }}</h1>
+					</div>
+					{% endif %}
+					<p class="center_title_vkactf">vkactf 2025.</p>
+					<div class="challenges_up_right_els">
+						<div class="challenges_up_right_els_left-text">ценность задания</div>
+						<div class="challenges_up_right_els_center_box">
+							<div class="challenges_up_right_els_center-icon_capsul"></div>
 						</div>
+						<div class="challenges_up_right_els_right-icon_value">{{ challenge.value }}</div>
+					</div>
+				</div>
 
-						<span class="challenge-desc">{% block description %}{{ challenge.html }}{% endblock %}</span>
-
-						<span class="challenge-connection-info">
-							{% block connection_info %}
-								{% set conn = challenge.connection_info %}
-								{% if not conn %}
-								{% elif conn.startswith("http") %}
-									{{ conn | urlize(target="_blank") }}
-								{% else %}
-									<code>{{ conn }}</code>
+				<div class="challenge_mid_container_bg_black">
+					<div class="challenge_mid_container_left-column">
+						<div class="box_ramka_red left-top_box_ramka"></div>
+						<div class="box_ramka_red left-bottom_box_ramka">
+							<h3 class="chellange_count_solve_header">
+								{% if solves != None %}
+									{{ solves }} {% if solves == 1 %}Готовое решение{% else %}Готовых решений{% endif %}
 								{% endif %}
-							{% endblock %}
-						</span>
-
-						<div class="challenge-hints hint-row row">
-							{% for hint in hints %}
-								<div class='col-md-12 hint-button-wrapper text-center mb-3'>
-									<a class="btn btn-info btn-hint btn-block load-hint" href="javascript:;" data-hint-id="{{ hint.id }}">
-										{% if hint.content %}
-											<small>
-												View Hint
-											</small>
-										{% else %}
+							</h3>
+							<a class="challenge_grey_btn_solves" href="#solves">
+								смотреть таблицу
+							</a>
+						</div>
+					</div>
+					<div class="challenge_mid_container_right-column">
+						<div class="box_ramka_red right-box_box_ramka">
+							<div class="right-box_box_ramka-column-left">
+								<img class="task_icon_left" src="themes/vka2025/static/img/task_img.gif" alt="task_img">
+								<div class="left-box_connection_info_up">
+									Задействуй потенциал
+ 								</div>
+								<span class="challenge-connection-info_string">
+								{% block connection_info %}
+									{% set conn = challenge.connection_info %}
+									{% if not conn %}
+									{% elif conn.startswith("http") %}
+										{{ conn | urlize(target="_blank") }}
+									{% else %}
+										<code>{{ conn }}</code>
+									{% endif %}
+								{% endblock %}
+								<div class="challenge_container_download_file">
+									{% for file in files %}
+											<a class='download_file_bg_link'
+											href='{{ file }}'>
+												<img class="download_challenge_img" src="themes/vka2025/static/img/svg/dwnload_img.svg" alt="download_img">
+												<small>
+													{% set segments = file.split('/') %}
+													{% set file = segments | last %}
+													{% set token = file.split('?') | last %}
+													{% if token %}
+														{{ file | replace("?" + token, "") }}
+													{% else %}
+														{{ file }}
+													{% endif %}
+												</small>
+											</a>
+									{% endfor %}
+								</div>
+							</span>
+							</div>
+							<div class="right-box_box_ramka-column-right">
+								<h2 class='challenge_header_title'>
+									{{ challenge.name }}
+								</h2>
+								<div class="challenge_container_level_right">
+									<h3 class="challenge_level_title">
+										Уровень сложности:
+									</h3>
+									<div class="challenge_level_tags">
+										{% block tags %}
+											{% for tag in tags %}
+												<span>{{ tag }}</span>
+											{% endfor %}
+										{% endblock %}
+									</div>
+								</div>
+								<div class="challenge_desc_text_task">
+									{{ challenge.html }}
+								</div>
+								{% for hint in hints %}
+									<a class="challenge_hint_container <!-- load-hint --> " href="javascript:;" data-hint-id="{{ hint.id }}">
+										<img class="hint_key_img" src="themes/vka2025/static/img/png/hint_key_img.png" alt="hint_key_img">
+										<h3 class="challenge_text_hint">
+											{% if hint.content %}
+												<small>Посмотреть подсказку</small>
+											{% else %}
 											{% if hint.cost %}
-												<small>
-													Unlock Hint for {{ hint.cost }} points
-												</small>
+												<small>Открыть подсказку за {{ hint.cost }} баллов</small>
 											{% else %}
-												<small>
-													View Hint
-												</small>
+												<small>Посмотреть подсказку</small>
 											{% endif %}
-										{% endif %}
-									</a>
-								</div>
-							{% endfor %}
-						</div>
-
-						<div class="row challenge-files text-center pb-3">
-							{% for file in files %}
-								<div class='col-md-4 col-sm-4 col-xs-12 file-button-wrapper d-block'>
-									<a class='btn btn-info btn-file mb-1 d-inline-block px-2 w-100 text-truncate'
-									   href='{{ file }}'>
-										<i class="fas fa-download"></i>
-										<small>
-											{% set segments = file.split('/') %}
-											{% set file = segments | last %}
-											{% set token = file.split('?') | last %}
-											{% if token %}
-												{{ file | replace("?" + token, "") }}
-											{% else %}
-												{{ file }}
 											{% endif %}
-										</small>
+										</h3>
 									</a>
+								{% endfor %}
+								<div class="rectangle_input_flag">
+									{% block input %}
+										<input id="challenge-id" class="challenge-inpu_flag_form" type="hidden" value="{{ challenge.id }}">
+										<input id="challenge-input" class="challenge-inpu_flag_form" type="text" name="answer" placeholder="vka{dummy}"/>
+									{% endblock %}
 								</div>
-							{% endfor %}
-						</div>
-
-						{% if max_attempts > 0 %}
-						<div class="row text-center">
-							<div class="col-md-12">
-								<p>
-									{{ attempts }}/{{ max_attempts }} attempt{{ max_attempts|pluralize }}
-								</p>
-							</div>
-						</div>
-						{% endif %}
-
-						<div class="row submit-row">
-							<div class="col-md-9 form-group">
-								{% block input %}
-									<input id="challenge-id" class="challenge-id" type="hidden" value="{{ challenge.id }}">
-									<input id="challenge-input" class="challenge-input" type="text" name="answer" placeholder="Flag"/>
-								{% endblock %}
-							</div>
-							<div class="col-md-3 form-group key-submit">
-								{% block submit %}
-								<button id="challenge-submit" class="challenge-submit" type="submit">
-									Submit
-								</button>
-								{% endblock %}
-							</div>
-						</div>
-
-						<div class="row notification-row">
-							<div class="col-md-12">
-								<div id="result-notification" class="alert alert-dismissable text-center w-100"
-									 role="alert" style="display: none;">
-									<strong id="result-message"></strong>
+								<div class="rectangle_btn_submit_flag">
+									{% block submit %}
+										<button id="challenge-submit" class="rectangle_btn_submit_flag_text" type="submit">
+											Отправить
+										</button>
+										{% endblock %}
 								</div>
-							</div>
+ 							</div>
 						</div>
 					</div>
+				</div>
 
-					<div role="tabpanel" class="tab-pane fade" id="solves">
-						<div class="row">
-							<div class="col-md-12">
-								<table class="table table-striped text-center">
-									<thead>
-									<tr>
-										<td><b>Name</b>
-										</td>
-										<td><b>Date</b>
-										</td>
-									</tr>
-									</thead>
-									<tbody id="challenge-solves-names">
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
+				<div class="challenge_down_container">
+					<a href="/challenges" class="challenges_back_btn">
+						<div class="challenges_down_container_left-icon"></div>
+						<div class="challenges_down_container_left-text">назад в категории заданий</div>
+					</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+{% if solves or awards %}
+	<script defer src="{{ url_for('views.themes', path='js/graphs.js') }}"></script>
+	<script defer src="{{ url_for('views.themes', path='js/pages/stats.js') }}"></script>
+{% endif %}
+
+{% block entrypoint %}
+<script defer src="{{ url_for('views.themes', path='js/pages/teams/private.js') }}"></script>
+{% endblock %}
+

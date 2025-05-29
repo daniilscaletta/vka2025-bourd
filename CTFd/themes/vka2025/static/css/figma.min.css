@@ -378,7 +378,7 @@ body{
 }
 
 .red__union__rectangle-head{
-  width: 100%;
+  width: 32.5%;
   margin-top: 2vh;
   text-transform: uppercase;
   font-size: clamp(1.25rem, 3vw, 2rem);

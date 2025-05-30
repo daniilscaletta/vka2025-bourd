@@ -1,7 +1,7 @@
 
 <div class="modal-dialog modal-dialog-centered modal-lg">
-	<div class="modal-content">
-		<div class="modal-body">
+	<div class="modal-content modal_sdvig">
+		<div class="modal-body ">
 			<div class="challenge_container_task">
 				<div class="challenges_up_container_task">
 					{% if challenge.category == "web" %}
@@ -110,11 +110,21 @@
 										Уровень сложности:
 									</h3>
 									<div class="challenge_level_tags">
-										{% block tags %}
+										{% if tags | length == 0 %}
+											<span class="unknown_tag_color">Неизвестно</span>
+										{% else %}
 											{% for tag in tags %}
-												<span>{{ tag }}</span>
+												{% if tag == 'easy' %}
+													<span class="easy_tag_color_atom">Мирный атом</span>
+												{% elif tag == 'medium' %}
+													<span class="medium_tag_color">Локальный сбой</span>
+												{% elif tag == 'hard' %}
+													<span class="hard_tag_color">Армагеддон</span>
+												{% else %}
+													<span class="unknown_tag_color">Неизвестно</span>
+												{% endif %}
 											{% endfor %}
-										{% endblock %}
+										{% endif %}
 									</div>
 								</div>
 								<div class="challenge_desc_text_task">

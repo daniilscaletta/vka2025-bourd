@@ -114,9 +114,6 @@ body{
   text-decoration: none;
 }
 
-.header_logo_link:hover{
-    color: #762020 !important;
-}
 
 .header_link {
   width: 100%;
@@ -295,7 +292,7 @@ body{
   height: 60vh;
   background-image: url('../img/rules_fon1.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 105% 155%;
 }
 
 .bliznyashka{
@@ -378,7 +375,7 @@ body{
 }
 
 .red__union__rectangle-head{
-  width: 32.5%;
+  width: 70%;
   margin-top: 2vh;
   text-transform: uppercase;
   font-size: clamp(1.25rem, 3vw, 2rem);
@@ -392,13 +389,120 @@ body{
 
 
 
+.rules_fon2{
+  position: relative;
+  min-height: 90vh;
+  background-image: url('../img/jpg/rules_fon2_4x-ext.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 115%;
+  padding-top: 15vh;
+  padding-bottom: 5vh;
+  }
+
+.grid__rules{
+  position: relative;
+  margin-left: 25vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 3vh;
+  row-gap: 3vh;
+}
+
+.grid__block{
+  display: flex;
+  flex-direction: column;
+  padding: 4vh;
+  background-color: #FFFFFF;
+}
+
+
+.cart-head{
+  font-size: (1.25rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #9D241B;
+}
+
+.cart-body{
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 110%;
+  letter-spacing: 0%;
+  font-weight: 500;
+  color: #000;
+}
 
 
 
+.rules__footer{
+  margin-top: 0;
+  width: 100%;
+}
 
+.footer__wrapper{
+    max-width: 1340px;
+    margin: 0 auto;
+}
 
+.footer__flex{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 10vh;
+    flex-wrap: wrap;
+}
 
+.logo-tg-red{
+    height: 70px;
+    width: 70px;
+}
 
+.logo-tg-white{
+    width: 70px;
+}
+
+.footer__link{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+}
+
+.tg-label{
+    font-family: 'Blender-bold';
+    font-weight: 700;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+}
+
+.tg-white{
+    color: #FFFFFF;
+}
+
+.tg-red{
+    color: #9D241B;
+    padding-right: 5vw;
+}
+
+.footer__link:hover .logo-tg-red {
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.7));
+}
+
+.footer__link:hover .logo-tg-white {
+    filter: drop-shadow(0 0 5px rgb(255, 255, 255));
+}
+
+.footer__link:link,
+.footer__link:visited,
+.footer__link:hover,
+.footer__link:active {
+  color: inherit;
+  text-decoration: none;
+}
 
 
 
@@ -525,7 +629,7 @@ body{
     border-color: rgba(220, 53, 69, 0.4);
 }
 .alert span{
-    color: #C21916;
+    color: #000;
 }
 
 .alert .close {
@@ -819,8 +923,6 @@ width: 260px;
 .top_50_table_row_highlight{
     background: #810E0E4D;
 }
-
-
 
 .top_50_table_cell{
     color: #FFFFFF;
@@ -1491,10 +1593,10 @@ width: 200px;
 }
 
 .modal-content {
-  background-color: rgba(0, 0, 0, 0); /* чёрный с 70% непрозрачностью */
+  background-color: #000; /* чёрный с 70% непрозрачностью */
   border: none;
   box-shadow: none; /* если не хочешь тени */
-  margin: 0 75px !important;
+  margin-top: 17% !important;
 }
 
 .modal-dialog {
@@ -1572,7 +1674,7 @@ width: 200px;
   align-items: center;
   justify-content: space-between;
   padding-left: 30px;
-  background-color: #000;
+  background-color: #00000060;
 }
 
 .challenges_up_container_task h1{
@@ -1586,10 +1688,14 @@ width: 200px;
 }
 
 .challenge_container_task{
-  /* background-color: #000; */
+  background-color: #000000;
   max-width: 1160px;
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+.modal_sdvig{
+    transform: translateY(-200px);
 }
 
 .challenges_up_right_els_center-icon_capsul{
@@ -1863,6 +1969,9 @@ margin-bottom: 0px;
 }
 
 .challenge_desc_text_task p{
+  display: block !important;
+  font-size: 15px !important;
+  align-items: normal !important;
   font-family: Blender Pro;
   font-weight: 500;
   font-size: 15px;
@@ -1878,7 +1987,7 @@ margin-bottom: 0px;
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  margin-bottom: 30px;;
+  margin-bottom: 20px;;
 }
 
 
@@ -1913,7 +2022,7 @@ margin-bottom: 0px;
   transform: translate(2px, -2px);
 }
 
-.challenge_hint_container:hover small .hint_key_img {
+.challenge_hint_container:hover .hint_key_img {
   transform: translate(-1px, 1px);
   transition: transform 0.2s ease;
 }
@@ -1976,9 +2085,45 @@ margin-bottom: 0px;
 }
 
 
+.easy_tag_color_atom{
+    color: green;
+  font-weight: normal;
+  box-sizing: inherit;
+  font-size: 1em;
+  font-family: "Blender Pro", sans-serif;
+  text-align: left;
+  text-transform: none;
+}
 
+.medium_tag_color{
+    color: orange;
+  font-weight: normal;
+  box-sizing: inherit;
+  font-size: 1em;
+  font-family: "Blender Pro", sans-serif;
+  text-align: left;
+  text-transform: none;
+}
 
+.hard_tag_color{
+  color: red;
+  font-weight: normal;
+  box-sizing: inherit;
+  font-size: 1em;
+  font-family: "Blender Pro", sans-serif;
+  text-align: left;
+  text-transform: none;
+}
 
+.unknown_tag_color{
+    color: grey;
+  font-weight: normal;
+  box-sizing: inherit;
+  font-size: 1em;
+  font-family: "Blender Pro", sans-serif;
+  text-align: left;
+  text-transform: none;
+}
 
 
 
@@ -2203,7 +2348,6 @@ form#register,form#login {
 .alert {
     position: relative;
     padding: 8px 15px;
-    margin: 5px 0 15px;
     border: 1px solid #000;
     background: rgba(255, 255, 255, 0.9);
     font-family: 'Times New Roman', serif;
@@ -2520,10 +2664,154 @@ form#register,form#login {
   margin-left: auto;
 }
 
+/* Блок модального окна */
+.invite-modal__body {
+  padding: 1.5rem 0;
+}
+
+/* Группа формы */
+.invite-form__group {
+  margin-bottom: 1.75rem;
+  color:#fff
+}
+
+/* Лейбл */
+.invite-form__label {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.team-actions {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  margin: 20px 0;
+}
+
+.team-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.2s ease;
+  position: relative;
+  min-width: 70px;
+}
+
+.team-action-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(118, 32, 32, 0.2); /* Полупрозрачный #762020 */
+}
+
+.team-action__icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 6px;
+  filter: brightness(0) invert(1); /* Белые иконки */
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.team-action-btn:hover .team-action__icon {
+  opacity: 1;
+  filter: brightness(0) invert(76%) sepia(16%) saturate(1933%) hue-rotate(320deg) brightness(89%) contrast(89%); /* #762020 */
+}
+
+.team-action__label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+  color: #fff;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.team-action-btn:hover .team-action__label {
+  opacity: 1;
+  color: #ff4d4d; /* Ярко-красный для текста */
+}
+
+/* Убираем индивидуальные цвета, оставляем только красный при наведении */
+.team-action-btn--settings,
+.team-action-btn--captain,
+.team-action-btn--invite,
+.team-action-btn--danger {
+  /* Базовые стили одинаковы для всех */
+}
+
+/* Усиливаем эффект для опасной кнопки */
+.team-action-btn--danger:hover {
+  background: rgba(118, 32, 32, 0.3);
+}
+/* Обертка поля ввода */
+.invite-form__input-wrapper {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+/* Поле ввода */
+.invite-form__input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: #B2241C;
+  border-radius: 0.25rem 0 0 0.25rem;
+  border-right: none;
+  font-family: Blender-bold;
+}
+
+/* Блок действий */
+.invite-form__actions {
+  display: flex;
+}
+
+/* Кнопка копирования */
+.invite-form__copy-btn {
+  background-color: var(--accent-color);
+  color: white;
+  border: 1px solid var(--accent-color);
+  padding: 0 1.25rem;
+  cursor: pointer;
+  border-radius: 0 0.25rem 0.25rem 0;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.invite-form__copy-btn:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+/* Иконка */
+.icon--clipboard {
+  font-size: 1rem;
+}
+
+/* Подсказки */
+.invite-form__hint {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  margin: 0.25rem 0 0;
+  line-height: 1.4;
+}
+
 .one_team_page {
   background: url('../img/teams_page_bg.jpg') no-repeat center center fixed;
   background-size: cover;
-  min-height: 100vh;
+  min-height: 92.2vh;
   color: #B2241C; /* основной красный цвет */
   font-family: 'Blender-bold', sans-serif;
   font-size: 1.5em !important;
@@ -2680,6 +2968,9 @@ form#register,form#login {
   align-items: center;
   color:#fff;
   font-size: 1vw;
+  padding: 0 !important;
+  border: none;
+
 }
 
 .tables{
@@ -2771,6 +3062,7 @@ form#register,form#login {
     gap: 30px;
     color: #fff;
     margin-top: 4em;
+    overflow: hidden
 }
 
 .team-container h1 {
@@ -2779,7 +3071,7 @@ form#register,form#login {
 
 .form_and_team {
     display: flex;
-    gap: 60px;
+    gap: 1em;
     width: 100%;
 }
 
@@ -2797,7 +3089,7 @@ form#register,form#login {
     padding-left: 1em;
     font-size: 22px;
     height: 2.3em;
-    margin-bottom: 10px;
+    margin-bottom: 1em;
     text-align: left;
     cursor: pointer;
     background: linear-gradient(90deg, #5C0C0A 0%, #C21916 100%);
@@ -2807,9 +3099,15 @@ form#register,form#login {
     background-color: #762020;
 }
 
+.error_team{
+  width: 100%;
+}
+.error_team span{
+  color: #fff;
+}
 .team-form-container {
     display: flex;
-    flex: 70%;
+    flex-direction: column;
     width: 100%;
 }
 
@@ -2817,7 +3115,7 @@ form#register,form#login {
     display: flex;
     text-align: left;
     flex-direction: column;
-    gap: 30px;
+    gap: 2em;
     width: 100%; /
 }
 
@@ -2828,7 +3126,8 @@ form#register,form#login {
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     color: #fff;
-    font-size: 14px;
+    font-size: 1em;
+    font-weight: 500;
     width: 100%;
     outline: none;
     padding: 8px 0;
@@ -2849,13 +3148,14 @@ form#register,form#login {
 
 .team-label {
     text-align: left;
-    font-size: 14px;
+    font-size: 1em;
+    font-weight: 500;
     color: #ffffff;
     margin-bottom: 5px;
 }
 
 .team-hint {
-    font-size: 12px;
+    font-size: 0.6em;
     color: #474747;
     line-height: 1.4;
 }

@@ -15,13 +15,15 @@
                 </div>
 
                 <div class="team-form-container">
-                    {% include "components/errors.html" %}
+                    <div class="error_team">
+                        {% include "components/errors.html" %}
+                    </div>
 
                     {% with form = Forms.teams.TeamRegisterForm() %}
                     {% from "macros/forms.html" import render_extra_fields %}
                     <form method="POST" class="team-form">
                         <div class="input-group">
-                            <label for="name" class="team-label">Название команды {{ form.name(class="team-input", placeholder="user_name") }}</label>
+                            <label for="name" class="team-label">Название команды {{ form.name(class="team-input", placeholder="Введите название команды") }}</label>
                             
                         </div>
 

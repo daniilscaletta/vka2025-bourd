@@ -8,15 +8,16 @@
 <div class="one_team_page">
     <div class="wrapper">
         <div class="team-container">
-            <h1>КомандА</h1>
+            <h1>Команда</h1>
             <div class="form_and_team">
                 <div class="team-panel">
                     <button class="team-button">ПРИСОЕДИНИТЬСЯ</button>
                 </div>
 
                 <div class="team-form-container">
-                    {% include "components/errors.html" %}
-
+                    <div class="error_team">
+                        {% include "components/errors.html" %}
+                    </div>
                     {% with form = Forms.teams.TeamJoinForm() %}
                     <form method="POST" class="team-form">
                         <div class="input-group">

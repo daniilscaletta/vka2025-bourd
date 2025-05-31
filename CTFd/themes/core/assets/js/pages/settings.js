@@ -13,8 +13,8 @@ const error_template =
 
 const success_template =
   '<div class="alert alert-success alert-dismissable submit-row" role="alert">\n' +
-  "  <strong>Success!</strong>\n" +
-  "   Your profile has been updated\n" +
+  "  <strong>Успех!</strong>\n" +
+  "   Данные вышего профиля быои обновлены!\n" +
   '  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>\n' +
   "</div>";
 

@@ -237,27 +237,29 @@ function markSolves() {
 }
 
 function getSolves(id) {
+  console.log("getSolves called with ID:", id);
   return CTFd.api.get_challenge_solves({ challengeId: id }).then(response => {
     const data = response.data;
+
+    // Показать thead
+    document.querySelector(".simple_thead").classList.add("show");
+
     $(".challenge-solves").text(parseInt(data.length) + " Solves");
     const box = $("#challenge-solves-names");
     box.empty();
+
     for (let i = 0; i < data.length; i++) {
       const id = data[i].account_id;
       const name = data[i].name;
       const date = dayjs(data[i].date).fromNow();
       const account_url = data[i].account_url;
       box.append(
-        '<tr><td><a href="{0}">{2}</td><td>{3}</td></tr>'.format(
-          account_url,
-          id,
-          htmlEntities(name),
-          date
-        )
+        `<tr><td><a href="${account_url}">${htmlEntities(name)}</a></td><td>${date}</td></tr>`
       );
     }
   });
 }
+
 
 function loadChals() {
   return CTFd.api.get_challenge_list().then(function(response) {

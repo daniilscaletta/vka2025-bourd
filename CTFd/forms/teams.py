@@ -74,14 +74,14 @@ def attach_custom_team_fields(form_cls, **kwargs):
 class TeamJoinForm(BaseForm):
     name = StringField("Team Name", validators=[InputRequired()])
     password = PasswordField("Team Password", validators=[InputRequired()])
-    submit = SubmitField("Join")
+    submit = SubmitField("Присоединиться")
 
 
 def TeamRegisterForm(*args, **kwargs):
     class _TeamRegisterForm(BaseForm):
         name = StringField("Team Name", validators=[InputRequired()])
         password = PasswordField("Team Password", validators=[InputRequired()])
-        submit = SubmitField("Create")
+        submit = SubmitField("Создать")
 
         @property
         def extra(self):
@@ -156,8 +156,8 @@ def TeamSettingsForm(*args, **kwargs):
 
 class TeamCaptainForm(BaseForm):
     # Choices are populated dynamically at form creation time
-    captain_id = SelectField("Team Captain", choices=[], validators=[InputRequired()])
-    submit = SubmitField("Submit")
+    captain_id = SelectField("Капитан команды", choices=[], validators=[InputRequired()])
+    submit = SubmitField("Назначить")
 
 
 class TeamSearchForm(BaseForm):
@@ -243,7 +243,7 @@ def TeamEditForm(*args, **kwargs):
 
 
 class TeamInviteForm(BaseForm):
-    link = URLField("Invite Link")
+    link = URLField("Ссылка-приглашение")
 
 
 class TeamInviteJoinForm(BaseForm):

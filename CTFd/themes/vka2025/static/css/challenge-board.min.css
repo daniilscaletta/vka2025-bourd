@@ -9,34 +9,43 @@
 
 .challenges-board {
   display: grid;
-  grid-template-columns: 3fr 7fr;
+  grid-template-columns: 2.5fr 7.5fr;
   width: 100%;
   margin-top: 1em;
-  gap: 1em; 
+  gap: 1em;
 }
+
+.wrapper_left{
+  width: 100%;
+  padding-left: 1.7em;
+}
+
 .info_team_line_cat{
   width: 100%;
+  display: flex;
   height: 4.5em;
   border-width: 1em;
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
   margin-top: 1em;
   border: 2px solid #B2241C;
-  text-indent: 4.7em;
   text-transform: uppercase;
+  align-items: center;
+  letter-spacing: 0 !important;
 }
 
 .task-category-item {
     font-size: 1.8em;
     display: flex;
-    align-items: center;    
-    min-height: 2em;        
-    padding: 0 0 0 2.7em;     
-    margin: 0.1.8em 0;        
+    align-items: center;
+    min-height: 2em;
+    padding: 0px 0 0 1em;
+    margin: 0.1.8em 0;
     background: transparent;
-    color: white;
+    color: #fff;
     cursor: pointer;
     align-items: center;
+    text-transform: uppercase;
 }
 
 .task-categories-list {
@@ -64,6 +73,27 @@
   border-bottom-right-radius: 1em;
   border: 1px solid red;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #8b1e18 transparent;
+}
+
+.task-categories-content::-webkit-scrollbar {
+  width: 20px;
+}
+
+.task-categories-content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.task-categories-content::-webkit-scrollbar-thumb {
+  background-color: #8b1e18;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+.task-categories-content::-webkit-scrollbar-thumb:hover {
+  background-color: #681510;
 }
 
 .task-category-content{
@@ -73,6 +103,7 @@
   grid-template-columns: 5fr 5fr;
   gap: 1em;
   padding: 2em;
+
 }
 
 .task-card {
@@ -114,10 +145,22 @@
 .challenge-button .challenge-difficulty {
   font-size: 1em;
   font-weight: normal;
-  color: #aaa;
+  color: #fff;
 
 }
+.challenge-button label{
+  background-color: #888888;
+  width: 65%;
+  height: 2.5em;
+  border-radius: 1em;
+  text-align: center;
+  display: flex;
+  text-align: center;
+  padding-left: 0.8em;
+  margin-bottom: 0.5em;
+  color: #fff;
 
+}
 .challenge-button .challenge-difficulty span {
   font-weight: bold;
 }
@@ -135,50 +178,56 @@
   right: 8px;
   color: white;
 }
-
 .leaderboadr {
-  border: solid 2px #B2241C;
-  border-bottom-left-radius: 1em;
-  grid-column: 1;
-  grid-row: 2;
-  display: flex;
-  flex-direction: column;
-  padding: 1em; 
-  background-color: transparent;
-  align-items: center; 
+    height: 19vh;
+    border: solid 2px #B2241C;
+    border-bottom-left-radius: 1em;
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    background-color: transparent;
+    left: 100%;
+    padding: 1em 1em 1em 1.5em; /* Добавлено для выравнивания содержимого по левому краю */
 }
 
 .leaderboard-title {
-  font-size: 1.8em;
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 1em; 
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #fff;
+    text-align: left; /* Изменено с center на left */
+    margin-bottom: 0.5em;
+    width: 100%; /* Добавлено для занимания всей доступной ширины */
 }
 
 .leaderboard-button {
-  background: linear-gradient(90deg, #5E5E5E 0%, #242424 100%);
-  color: white;
-  text-decoration: none;
-  border-radius: 6px; 
-  width: 80%; 
-  height: 50px; 
-  min-height: 50px; 
-  margin-top: 1em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1em; 
-  font-weight: 500;
-  transition: all 0.3s ease; 
-  border: none; 
-  cursor: pointer;
+    background: url(../img/scoreboard-btn.png) no-repeat center center;
+    color: white;
+    text-decoration: none;
+    width: 80%;
+    height: 50px;
+    min-height: 50px;
+    margin-top: 0.4em;
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    /* margin-right: 6em; */
+    justify-content: center
 }
 
 .leaderboard-button:hover {
-  background: linear-gradient(90deg, #6E6E6E 0%, #343434 100%);
-  transform: translateY(-2px); 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+    transition: all 0.2s ease-out;
+    text-decoration: none;
+
 }
 
 .challenge-top-line {

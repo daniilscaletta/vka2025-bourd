@@ -1,8 +1,7 @@
-/* COMMON START */
+scrollbar/* COMMON START */
 ::-webkit-scrollbar {
     width: 0;
 }
-
 
 @font-face {
     font-family: 'Blender Pro';
@@ -37,6 +36,7 @@
     height: 100%;
     padding: 0;
     margin: 0;
+    scrollbar-width: none;
   }
 
   *, *::after, *::before{
@@ -51,7 +51,6 @@ body{
   font-weight: 700;
   color:rgb(255, 255, 255);
   background-color: #000000;
-
 }
 
 .container_full {
@@ -108,10 +107,17 @@ body{
   font-family: 'Blender Pro';
   font-weight: 700;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: #B2241C !important; /* Белый цвет для лого на красном фоне */
   text-decoration: none;
+}
+
+.admin_ico .header_link:hover {
+  color: #681510 !important;
+  text-decoration: none;
+  background: none;
+  box-shadow: none;
 }
 
 
@@ -122,7 +128,7 @@ body{
   font-family: 'Blender Pro';
   font-weight: 700;
   line-height: 142% !important;
-  letter-spacing: 0% !important;
+  letter-spacing: 0 !important;
   /* text-align: center !important; */
   text-transform: uppercase !important;
   color: #FFFFFF !important;
@@ -344,6 +350,7 @@ body{
   padding-top: 30vh;
   gap: 5vw;
   align-items:baseline;
+  text-align: justify;
 }
 
 .rules_desc-left{
@@ -385,6 +392,8 @@ body{
   margin-top: 2vh;
   font-size: clamp(1rem, 1.8vw, 1.25rem);
   font-weight: 500;
+  text-align: justify;
+
 }
 
 
@@ -412,6 +421,7 @@ body{
 .grid__block{
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   padding: 4vh;
   background-color: #FFFFFF;
 }
@@ -421,7 +431,7 @@ body{
   font-size: (1.25rem, 3vw, 2rem);
   font-weight: 700;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: #9D241B;
 }
@@ -429,9 +439,10 @@ body{
 .cart-body{
   font-size: clamp(1rem, 1.8vw, 1.25rem);
   line-height: 110%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   font-weight: 500;
   color: #000;
+  text-align: justify;
 }
 
 
@@ -475,7 +486,7 @@ body{
     font-weight: 700;
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     line-height: 100%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     text-transform: uppercase;
 }
 
@@ -530,7 +541,7 @@ body{
     font-family: Blender Pro;
     font-size: 32px;
     line-height: 100%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     text-transform: uppercase;
     color: #B2241C;
     margin-bottom: 40px;
@@ -551,7 +562,10 @@ body{
     font-size: 32px;
     line-height: 100%;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 .settings_profile_link{
@@ -559,7 +573,7 @@ body{
   font-weight: 500;
   font-size: 22px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-transform: uppercase;
 
 
@@ -658,7 +672,7 @@ body{
 	cursor: pointer;
 	z-index: 2;
 	transition: 0.2s all;
-	margin-left: 8px; /* Отступ от поля */
+	margin-left: 170px; /* Отступ от поля */
 }
 
 .edit_icon:hover,
@@ -679,8 +693,7 @@ body{
     color: white;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    margin-left: 30px;
+    margin-top: 80px;
     margin-bottom: 50px;
 }
 
@@ -693,22 +706,40 @@ body{
 }
 
 
-.form-group{
-    display: flex !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
-    width: 760px !important;
-    height: 30px;
+
+.form-group_notif {
+  font-family: Blender Pro;
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  width: 800px;
+  height: 2em;
+  color: red;
 }
 
-.form-group label {
-    font-family: Blender Pro;
-    font-weight: 500;
-    font-size: 20px;
-    width: 200px !important;
-    display: flex; /* фикс: делает элемент flex-элементом */
-    align-items: flex-end; /* вертикальное центрирование текста */
+.form-group {
+  font-family: Blender Pro;
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  width: auto !important;
+  height: 2em;
+  color: red;
 }
+
+.form_line_settings{
+   justify-content: space-between !important;
+   margin-left: 30px;
+   margin-bottom: 7px !important;
+  max-width: 710px !important;
+  font-family: Blender Pro;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 110.00000000000001%;
+  letter-spacing: 0%;
+
+}
+
 
 .form-control {
 background: transparent !important;
@@ -716,8 +747,16 @@ border: none !important;
 color: white !important;
 font-size: 16px;
 width: auto;
-outline: none;
+outline: none !important;
 width: 260px;
+box-shadow: none !important;
+}
+
+.form-control:focus, .form-control:hover, .form-control:active {
+  border: none;
+  outline: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .form-control::placeholder {
@@ -725,7 +764,7 @@ width: 260px;
     font-weight: 500;
     font-size: 20px;
     line-height: 110.00000000000001%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
 
 }
 
@@ -740,45 +779,51 @@ width: 260px;
 .btn_group{
     content: "Сохранить";
     display: flex !important;
-    justify-content: flex-start !important;
+    justify-content: center !important;
     align-items: center !important;
     width: 760px !important;
     height: 30px;
+    margin-top: 10px;
 }
 
 .btn {
-    background: transparent;
-    border: none;
-    color: #B2241C;
+    margin-top: 20px;
+    width: 290px;
+    height: 45px;
+    background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
     cursor: pointer;
     font-weight: 400;
     font-size: 20px;
     line-height: 110.00000000000001%;
-    letter-spacing: 0%;
-    text-decoration: underline;
-    text-decoration-style: solid;
-    text-decoration-thickness: 0%;
-    text-decoration-skip-ink: auto;
+    letter-spacing: 0;
     display: flex;
-    margin-left: 190px;
     content: "Сохранить";
+    justify-content: center;
+    border-color: #C21916;
+    color: white;
 }
 
-.btn:hover, .btn:active, .btn:focus{
-    background: transparent;
-    border: none;
-    color: #B2241C;
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 110.00000000000001%;
-    letter-spacing: 0%;
-    text-decoration: none;
-    text-decoration-style: solid;
-    text-decoration-thickness: 0%;
-    text-decoration-skip-ink: auto;
-    display: flex;
-    margin-left: 190px;
+.btn:hover{
+  border-color: #C21916;
+  background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  box-shadow: 0px 20px 40px 0px #DF0C0033;
+  transform: translateY(-5px);
+  background-color: #e5979481;
+  color: white;
+  text-decoration: underline;
+}
+
+.btn:focus{
+    box-shadow: 0px 20px 40px 0px #DF0C0033;
+}
+
+.btn:active{
+  background: linear-gradient(90deg, #A8100D 0%, #710A0A 100%);
+  border-color: #C21916;
+  transform: translateY(-5px);
+  background-color: #e5979481;
+    color: white;
+  text-decoration: underline;
 }
 
 /* SETTINGS PROFILE END */
@@ -796,13 +841,66 @@ width: 260px;
 /* TEAM PROFILE START */
 
 .tournament {
-    min-height: 200vh;
     background-image: url(../img/jpg/turnir_table_bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom center;
     background-attachment: scroll;
     text-align: center;
+}
+
+.scoreboard-freeze {
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 1000px;
+    margin-bottom: 50px;
+
+    scrollbar-color: #B2241C rgba(255, 255, 255, 0.1);
+    scrollbar-width: thin;
+}
+
+.scoreboard-freeze::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/jpg/turnir_table_bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    z-index: -1;
+    pointer-events: none;
+    margin-bottom: 50px;
+}
+
+.scoreboard-freeze::-webkit-scrollbar {
+    width: 10px; /* ширина вертикальной полосы */
+}
+
+.scoreboard-freeze::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* фон трека (дорожки) */
+    border-radius: 5px;
+}
+
+.scoreboard-freeze::-webkit-scrollbar-thumb {
+    background-color: #B2241C; /* сам ползунок */
+    border-radius: 5px;
+    border: 2px solid transparent; /* для "внутреннего" эффекта */
+    background-clip: content-box;
+}
+
+.scoreboard-freeze::-webkit-scrollbar-thumb:hover {
+    background-color: #D2361E; /* цвет при наведении */
+}
+
+.top_50_wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 100px;
 }
 
 
@@ -813,11 +911,10 @@ width: 260px;
     height: 100%;
     max-width: 80%;
     aspect-ratio: 16 / 9;
-    background-image: url('../img/png/blisnyashka_flag_1.png');
+    background-image: url('../img/png/bliz_flag-min.png');
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    margin-top: 10px;
     margin-bottom: -175px;
 }
 
@@ -879,8 +976,9 @@ width: 260px;
     font-weight: 700;
     font-size: 32px;
     line-height: 100%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     text-align: center;
+    justify-content: center;
     text-transform: uppercase;
     color: #FFFFFF;
     margin-bottom: 40px;
@@ -892,8 +990,18 @@ width: 260px;
     height: auto;
     border-collapse: collapse;
     background-color: #3404022c;
-    margin: 0 auto;
+    background-size: cover;
+    margin: auto auto;
     border: 1px solid #B2241C
+}
+
+.team_table {
+    font-size: 22px;
+    font-weight: 700;
+    max-width: 100%;
+    width: 100%;
+    background-size: cover;
+    padding-bottom: 5vh;
 }
 
 .top_50_table_head{
@@ -903,7 +1011,7 @@ width: 260px;
     font-weight: 500;
     font-size: 22px;
     line-height: 100%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     text-align: center;
     vertical-align: middle;
     text-transform: uppercase;
@@ -930,7 +1038,7 @@ width: 260px;
     font-weight: 300;
     font-size: 15px;
     line-height: 150%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     text-align: center;
 }
 
@@ -1015,11 +1123,18 @@ width: 260px;
 }
 
 .card-title {
+  display: inline; /* Важно: inline, чтобы фон был только за текстом */
+  background-color: rgb(135, 23, 20);
+
+  background-size: 100% 100%;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
   max-width: 100%;
   margin-bottom: 0; /* убираем нижний отступ чтобы не было двойного */
@@ -1073,7 +1188,7 @@ width: 260px;
   font-weight: 500;
   font-size: 20px;
   line-height: 1;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   margin-top: 0px;
   margin-bottom: 5px;
 }
@@ -1093,6 +1208,13 @@ width: 260px;
 
 
 /* CHALLENGES START */
+.task__header{
+  letter-spacing: 0;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  margin: 0;
+}
+
 
 .challenge_container{
   max-width: 1160px;
@@ -1121,7 +1243,7 @@ width: 260px;
   font-weight: 700;
   font-size: 32px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-transform: uppercase;
   margin-top: .5rem;
   margin-left: 40px;
@@ -1132,7 +1254,7 @@ width: 260px;
   font-weight: 500;
   font-size: 15px;
   line-height: 110.00000000000001%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   color: #505050;
   margin-top: 1rem;
 }
@@ -1148,7 +1270,7 @@ width: 260px;
   font-weight: 700;
   font-size: 22px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -1231,7 +1353,7 @@ width: 260px;
   font-weight: 700;
   font-size: 22px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-align: center;
   text-transform: uppercase;
 }
@@ -1247,10 +1369,13 @@ width: 260px;
 
 
 .challenges_back_btn:hover .challenges_down_container_left-icon {
+    width: 32px;
+  height: 32px;;
   transform: translateX(-5px);
 }
 
 .challenges_back_btn:hover .challenges_down_container_left-text {
+
   text-decoration: underline;
   color: #C21916;
 }
@@ -1269,10 +1394,28 @@ width: 260px;
   background-repeat: no-repeat;
   background-position: center;
   background-image: url('../img/svg/стрелка.svg');
-  width: 23px;
-  height: 11px;
+  width: 32px;
+  height: 24px;
   margin-right: 14px;
 }
+
+
+.invisible_thead {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.simple_thead.show {
+ visibility: visible !important;
+  opacity: 1;
+}
+
+.simple_thead th {
+  color: white !important;
+  text-align: center;
+}
+
 
 
 /* CHALLENGES END */
@@ -1333,7 +1476,7 @@ width: 260px;
   font-weight: 700;
   font-size: 22px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-align: center;
   text-transform: uppercase;
   color: #B2241C;
@@ -1360,7 +1503,7 @@ width: 260px;
   font-weight: 700;
   font-size: 18px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-align: center;
   text-transform: uppercase;
   text-align: center;
@@ -1379,7 +1522,7 @@ width: 260px;
   font-weight: 700;
   font-size: 18px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-align: center;
   text-transform: uppercase;
   text-align: center;
@@ -1484,7 +1627,7 @@ width: 260px;
   font-weight: 700;
   font-size: 32px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-align: center;
   text-transform: uppercase;
 
@@ -1510,7 +1653,7 @@ width: 260px;
 /* POP-UPS START */
 
 .window_edit_team_header{
-    margin: 80px auto 50px;
+    margin: 0px auto 50px;
 }
 
 
@@ -1519,7 +1662,7 @@ width: 260px;
   font-weight: 700;
   font-size: 32px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-align: center;
   text-transform: uppercase;
   text-align: center;
@@ -1534,7 +1677,7 @@ width: 260px;
   margin-bottom: 100px;
   background-color: #000;
   border: 2px solid #B2241C;
-   border-radius: 8px;
+  border-radius: 8px;
 }
 
 .window_edit_inner_container{
@@ -1569,7 +1712,7 @@ width: 260px;
   font-weight: 400;
   font-size: 18px;
   line-height: 110.00000000000001%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 
   color: #fff;
 }
@@ -1593,10 +1736,39 @@ width: 200px;
 }
 
 .modal-content {
-  background-color: #000; /* чёрный с 70% непрозрачностью */
+  background-color: #000;
   border: none;
-  box-shadow: none; /* если не хочешь тени */
-  margin-top: 17% !important;
+  box-shadow: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 50%;
+  min-width: 300px;
+  max-height: 80vh;
+  padding: 5vh 5vw 5vh 5vw;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: solid 1px #DF0C00;
+}
+
+
+.madal_change_content{
+  position: fixed !important;
+
+  margin: 70px auto !important;
+  justify-content: center !important;
+  margin-left: 15% !important;
+  top: 0% !important;
+  left: 0% !important;
+  transform: translate(0%, 0%) !important;
+  max-height: 80vh;
+  padding: 0vh 0vw 0vh 0vw !important;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0px !important;
+  border: none !important;
 }
 
 .modal-dialog {
@@ -1604,6 +1776,139 @@ width: 200px;
   max-width: 1360px;
 }
 
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-header .close {
+  position: absolute;
+  padding: 1rem;
+  margin: 0;
+  color: #fff; /* цвет крестика - белый */
+  opacity: 1; /* полная видимость */
+  font-size: 1.5rem; /* размер крестика */
+  line-height: 1;
+  z-index: 1; /* чтобы был поверх других элементов */
+  /* background: transparent; */
+  border: none;
+  cursor: pointer;
+}
+
+.close-cap-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.close-cap-modal span {
+  font-size: 30px;
+  line-height: 1;
+  color: #fff;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.close-cap-modal:hover span {
+  opacity: 1;
+}
+
+.close-cap-modal:focus {
+  outline: none;
+}
+
+.modal-header .close:hover {
+  opacity: 0.75;
+  color: #fff;
+}
+
+
+#team-captain-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  padding: 20px;
+}
+
+#team-captain-form .form-group {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin: 0;
+}
+
+#team-captain-form .button-red {
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 4px;
+  width: 100%;
+}
+
+#team-captain-form .form-group label {
+  margin: 0;
+  width: auto !important;
+  white-space: nowrap;
+  font-weight: bold;
+  color: #fff;
+}
+
+#team-captain-form option{
+  background-color: #000;
+  border: #000;
+}
+
+/* Стиль для выпадающего списка */
+#team-captain-form .form-control .custom-select {
+  flex-grow: 1;
+  min-width: 200px;
+  background-color: #000 !important;
+  color: #fff !important;
+  padding: 8px 15px;
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+.custom-select:disabled,
+.custom-select[readonly] {
+  border-color: #333;
+}
+
+#team-captain-form .button-red {
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: wrap;
+
+}
+
+#results {
+  display: none; /* или flex/block, когда нужно */
+  position: relative;
+  background: #000;
+  border: 1px solid #444;
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #fff;
+  border-radius: 4px;
+  margin-left: 27px;
+  width: 94%;
+}
 
 
 .custom_submit_button{
@@ -1682,7 +1987,7 @@ width: 200px;
   font-weight: 700;
   font-size: 32px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-transform: uppercase;
   margin-top: 8px;
 }
@@ -1694,9 +1999,6 @@ width: 200px;
   box-sizing: border-box;
 }
 
-.modal_sdvig{
-    transform: translateY(-200px);
-}
 
 .challenges_up_right_els_center-icon_capsul{
   width: 9px;
@@ -1805,7 +2107,7 @@ width: 200px;
   font-weight: 700;
   font-size: 22px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-transform: uppercase;
   position: relative;
   margin-top: 30px;
@@ -1827,7 +2129,7 @@ width: 200px;
   font-weight: 700;
   font-size: 18px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-transform: uppercase;
 
   display: flex;
@@ -1837,6 +2139,18 @@ width: 200px;
 
   color: white; /* если фон тёмный, текст должен быть читаемым */
   text-decoration: none;
+}
+
+.challenge_grey_btn_solves:hover {
+  background: linear-gradient(90deg, #707070 0%, #3a3a3a 100%);
+  transform: scale(1.03);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.challenge_grey_btn_solves:active {
+  background: linear-gradient(90deg, #505050 0%, #1e1e1e 100%);
+  transform: scale(0.98);
 }
 
 
@@ -1862,7 +2176,7 @@ width: 200px;
   font-weight: 500;
   font-size: 15px;
   line-height: 150%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   margin-left: 50px;
 
 
@@ -1875,7 +2189,7 @@ width: 200px;
   font-weight: 500;
   font-size: 15px;
   line-height: 150%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 
 }
 
@@ -1884,7 +2198,7 @@ width: 200px;
   font-weight: 500;
   font-size: 18px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   vertical-align: middle;
 
   color:#C21916;
@@ -1909,7 +2223,7 @@ width: 200px;
   font-weight: 500;
   font-size: 17px;
   line-height: 150%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-align: center;
   display: flex;
   align-items: center;
@@ -1934,7 +2248,7 @@ width: 200px;
   font-weight: 700;
   font-size: 32px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: #fff;
   margin-top: 30px;
@@ -1954,7 +2268,7 @@ font-family: Blender Pro;
 font-weight: 500;
 font-size: 15px;
 line-height: 110.00000000000001%;
-letter-spacing: 0%;
+letter-spacing: 0;
 margin-bottom: 0px;
 }
 
@@ -1963,7 +2277,7 @@ margin-bottom: 0px;
   font-weight: 500;
   font-size: 15px;
   line-height: 110.00000000000001%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   color: #00880B;
 
 }
@@ -1976,7 +2290,7 @@ margin-bottom: 0px;
   font-weight: 500;
   font-size: 15px;
   line-height: 110.00000000000001%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   width: 85%;
   text-align: justify;
   margin-bottom: 15px;
@@ -1996,7 +2310,7 @@ margin-bottom: 0px;
   font-weight: 500;
   font-size: 15px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   vertical-align: middle;
   text-decoration-style: solid;
   text-decoration-offset: 0%;
@@ -2009,7 +2323,7 @@ margin-bottom: 0px;
   font-weight: 500;
   font-size: 15px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   vertical-align: middle;
   text-decoration: none;
   text-decoration-style: solid;
@@ -2039,7 +2353,7 @@ margin-bottom: 0px;
   font-weight: 500;
   font-size: 15px;
   line-height: 110.00000000000001%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   color: #474747;
   width: 338px;
   height: 56px;;
@@ -2053,7 +2367,7 @@ margin-bottom: 0px;
   font-weight: 700;
   font-size: 18px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-align: center;
   text-transform: uppercase;
   background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
@@ -2067,7 +2381,7 @@ margin-bottom: 0px;
     font-weight: 700;
     font-size: 18px;
     line-height: 100%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     text-align: center;
     text-transform: uppercase;
     color: white;
@@ -2125,6 +2439,65 @@ margin-bottom: 0px;
   text-transform: none;
 }
 
+
+
+.table_up_container_challenge {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Blender Pro, sans-serif;
+  font-size: 16px;
+  color: white;
+  background-color: #0f0f0f; /* общий фон таблицы */
+}
+
+.table_up_container_challenge thead {
+   background: linear-gradient(0deg, #4C0F0C 0%, #B2241C 100%);
+  color: white;
+}
+
+.table_up_container_challenge th,
+.table_up_container_challenge td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #B2241C;
+  text-align: center; /* выравниваем по центру */
+}
+
+.table_up_container_challenge tbody tr:nth-child(even) {
+  background-color: #2a2a2a;
+}
+
+.table_up_container_challenge tbody tr:nth-child(odd) {
+  background-color: #1e1e1e;
+}
+
+.table_up_container_challenge a {
+  color: #ff4f4f;
+  text-decoration: none;
+}
+
+.table_up_container_challenge a:hover {
+  text-decoration: underline;
+}
+
+
+.table_up_container_challenge thead th {
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #fff;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.table_scroll_wrapper {
+  min-height: 360px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+}
 
 
 
@@ -2289,36 +2662,45 @@ form#register,form#login {
 /* Кнопка */
 .button-red {
   display: flex;
-  background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  background-image: url(../img/butn-fon.svg);
   font-size: clamp(14px, 1.3vw, 17px);
   color: #fff;
+  background-size: cover; /* или 100% 100% */
+  background-repeat: no-repeat;
+  margin-top: 2em;
+  border: none;
   height: 100%;
   width: 80%;
-  margin-top: 2em;
   align-items: center;
 
 }
 
 .button-red_search{
-    background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+    background-image: url(../img/butn-fon.svg);
     font-size: clamp(14px, 1.3vw, 17px);
+    background-size: cover;
+    background-repeat: no-repeat;
     color: #fff;
-    height: 100%;
-    width: 100%;
     border: none;
 }
 
 .button-red:hover,
 .button-red_search:hover{
-  color: #710A0A;
-  background: linear-gradient(90deg, #c51916 0%, #810E0E 100%);
+  background-image: url(../img/butn-fon.svg),(90deg, #C21916 0%, #810E0E 100%);
+  background-blend-mode: soft-light, normal;
   box-shadow: 0px 20px 40px 0px #DF0C0033;
+  background-size: cover;
+    background-repeat: no-repeat;
+    outline: none;
 }
 
 .button-red:active,
-.buyton-red_search:active{
-    background: linear-gradient(90deg, #A8100D 0%, #710A0A 100%);
-
+.button-red_search:active,
+.team-submit-button:active{
+  background-image: url(../img/butn-fon.svg),linear-gradient(90deg, #A8100D 0%, #710A0A 100%);
+  background-blend-mode: soft-light, normal;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .atomic-link {
@@ -2366,17 +2748,46 @@ form#register,form#login {
     background: rgba(240, 245, 255, 0.95);
 }
 
+#team-invite-link {
+  padding-left: 0rem;
+}
+
+
 .close {
-    position: absolute;
-    left: 45%;
-    color: #888;
-    font-size: 18px;
-    bottom: 40%     ;
-    cursor: pointer;
+  position: absolute;
+  top:0;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  padding: 0;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.2s;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.close:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.close:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .close:hover {
-    color: #000;
+  color: #000;
+  outline: none;
+  box-shadow: none;
 }
 @media (max-width: 768px) {
     .alert {
@@ -2411,6 +2822,7 @@ form#register,form#login {
     position: relative;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     padding-top: 20px;
+    letter-spacing: 0;
 
 }
 
@@ -2429,6 +2841,7 @@ form#register,form#login {
     display: flex;
     flex-wrap: wrap;
     height: 4em;
+    width: 100%;
 }
 
 .form-teams_search{
@@ -2441,6 +2854,7 @@ form#register,form#login {
     width: 100%;
     display: flex;
     flex-direction: row;
+    border-left: 1px solid;
 }
 
 .form-group-team:nth-child(1) {
@@ -2456,15 +2870,16 @@ form#register,form#login {
 }
 
 .form-control-team{
-    width: 100%;
-    font-weight: 500;
-    color: #fff;
-    border: 1px solid #B2241C;
-    box-sizing: border-box;
-    background: transparent;
-    outline: none;
-    padding-left: 1vw;
-
+  font-weight: 500;
+  color: #fff;
+  box-sizing: border-box;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: rgb(178, 36, 28);
+  background: transparent;
+  outline: none;
+  padding-left: 1vw;
+  border: none;
 }
 
 .form-control-team option{
@@ -2479,17 +2894,21 @@ form#register,form#login {
     font-size: 22px;
     font-weight: 700;
     width: 100%;
-    overflow-x: auto;
+    border-collapse: collapse;
     background-size: cover;
+    padding-bottom: 5vh;
 }
 
 .table_team {
     font-size: 15px;
     font-weight: 500;
     width: 100%;
-    border-collapse: collapse;
+    table-layout: fixed;
     color: #fff;
     align-items: center;
+}
+.team_table, .team_table * {
+    box-sizing: border-box;
 }
 
 .table_team thead {
@@ -2497,11 +2916,14 @@ form#register,form#login {
     font-size: 18px;
     text-transform: uppercase;
     align-items: center;
+
 }
 
 .table_team thead th {
     padding: 15px;
     align-items: center;
+    border: 1px solid #B2241C;
+
 }
 
 .table_team tbody{
@@ -2654,6 +3076,17 @@ form#register,form#login {
 
 /* TEAMS PAGE END */
 
+
+
+
+
+
+
+
+
+
+
+
 /* ONE TEAM PAGE PROFILE START*/
 .wrapper{
   width: 100%;
@@ -2666,12 +3099,12 @@ form#register,form#login {
 
 /* Блок модального окна */
 .invite-modal__body {
-  padding: 1.5rem 0;
+  padding: 1.5rem 0 0 0;
+  width: 100%;
 }
 
 /* Группа формы */
 .invite-form__group {
-  margin-bottom: 1.75rem;
   color:#fff
 }
 
@@ -2680,17 +3113,15 @@ form#register,form#login {
   display: block;
   margin-bottom: 0.75rem;
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  text-align: left;
 }
 .team-actions {
   display: flex;
-  gap: 12px;
   padding: 10px 0;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
   margin: 20px 0;
 }
 
@@ -2698,33 +3129,21 @@ form#register,form#login {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px 12px;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all 0.2s ease;
-  position: relative;
-  min-width: 70px;
-}
-
-.team-action-btn:hover {
-  transform: translateY(-2px);
-  background: rgba(118, 32, 32, 0.2); /* Полупрозрачный #762020 */
+  margin-right: 0.1em;
 }
 
 .team-action__icon {
-  width: 24px;
-  height: 24px;
-  margin-bottom: 6px;
-  filter: brightness(0) invert(1); /* Белые иконки */
-  opacity: 0.8;
-  transition: all 0.2s ease;
+  width: 2em;
+  height: 2em;
 }
 
 .team-action-btn:hover .team-action__icon {
-  opacity: 1;
-  filter: brightness(0) invert(76%) sepia(16%) saturate(1933%) hue-rotate(320deg) brightness(89%) contrast(89%); /* #762020 */
+  filter: brightness(1)               /
+    drop-shadow(0 0 0 black) saturate(100%) invert(12%) sepia(24%) saturate(7451%) hue-rotate(350deg) brightness(94%) contrast(95%);   /* Возвращаем черный цвет */
 }
 
 .team-action__label {
@@ -2734,78 +3153,81 @@ form#register,form#login {
   margin-top: 2px;
   color: #fff;
   opacity: 0.7;
-  transition: opacity 0.2s ease;
 }
 
 .team-action-btn:hover .team-action__label {
   opacity: 1;
-  color: #ff4d4d; /* Ярко-красный для текста */
+  color: #ff4d4d;
 }
 
-/* Убираем индивидуальные цвета, оставляем только красный при наведении */
-.team-action-btn--settings,
-.team-action-btn--captain,
-.team-action-btn--invite,
-.team-action-btn--danger {
-  /* Базовые стили одинаковы для всех */
-}
-
-/* Усиливаем эффект для опасной кнопки */
-.team-action-btn--danger:hover {
-  background: rgba(118, 32, 32, 0.3);
-}
 /* Обертка поля ввода */
 .invite-form__input-wrapper {
   display: flex;
-  margin-bottom: 0.5rem;
+  gap: 2vw;
+  margin-bottom: 1rem;
 }
 
-/* Поле ввода */
 .invite-form__input {
   flex: 1;
-  padding: 0.75rem 1rem;
+  /* padding: 0.75rem 1rem; */
   background-color: var(--bg-input);
   border: 1px solid var(--border-color);
   color: #B2241C;
   border-radius: 0.25rem 0 0 0.25rem;
   border-right: none;
-  font-family: Blender-bold;
+  font-family: 'Blender Pro';
+  font-weight: 500;
+  text-align: left;
+  text-decoration: underline;
 }
 
-/* Блок действий */
 .invite-form__actions {
   display: flex;
 }
 
-/* Кнопка копирования */
 .invite-form__copy-btn {
-  background-color: var(--accent-color);
-  color: white;
-  border: 1px solid var(--accent-color);
-  padding: 0 1.25rem;
+  background: none;
+  border: none;
   cursor: pointer;
-  border-radius: 0 0.25rem 0.25rem 0;
-  transition: all 0.2s ease;
+  padding: 0;
+  margin: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.invite-form__copy-btn:hover {
+.copy-btn__square {
+  width: 40px;
+  height: 40px;
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 0 0.25rem 0.25rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.invite-form__copy-btn:hover .copy-btn__square {
   background-color: var(--accent-hover);
   border-color: var(--accent-hover);
 }
 
-/* Иконка */
-.icon--clipboard {
-  font-size: 1rem;
+.invite-form__copy-icon {
+  width: 60px;
+  height: 60px;
 }
 
-/* Подсказки */
 .invite-form__hint {
-  color: var(--text-secondary);
-  font-size: 0.75rem;
+  width: 90%;
+  color: #909090;
+  font-size: 0.9rem;
+  font-weight: 500;
   margin: 0.25rem 0 0;
-  line-height: 1.4;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: left;
+  text-transform: none;
 }
 
 .one_team_page {
@@ -2842,15 +3264,23 @@ form#register,form#login {
   border-bottom: solid #474747;
 }
 
-.info_team_line h1{
+.info_team_line h1 {
   font-family: 'Blender-bold';
   color: #B2241C;
   font-weight: 700;
   font-size: 1.7vw;
+  max-width: 30%;
+  white-space: nowrap;
+  overflow: hidden; /* скрытие выходящего за границы текста */
+  text-overflow: ellipsis; /* добавление троеточия */
+  letter-spacing: 0;
 }
 
 .text-center{
   color: #fff;
+  line-height: 100%;
+  letter-spacing: 0;
+
 }
 
 .team-controls {
@@ -2981,26 +3411,28 @@ form#register,form#login {
   font-family: Blender-bold;
   font-weight: 700;
   color: #fff;
+  letter-spacing: 0;
 }
 
 .table_profile_team {
-    font-size: 15px;
+    font-size: 0.7em;
     font-weight: 500;
     width: 100%;
     border-collapse: collapse;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 1em;
 }
 
 .table_profile_team thead {
     background-color: #B2241C;
-    font-size: 18px;
+    font-size: 1em;
     text-transform: uppercase;
 }
 
 .table_profile_team thead tr td {
-    padding: 15px;
-    text-align: center;
+    padding: 1em;
+    text-align: left;
+    width: 70%;
 }
 
 .table_profile_team tbody {
@@ -3010,13 +3442,12 @@ form#register,form#login {
 }
 
 .table_profile_team tbody tr {
-    height: 50px;
+    height: 2em;
 }
 
 .table_profile_team td {
-    padding: 15px 20px;
-    font-size: 16px;
-    text-align: center;
+    padding: 1em 1em;
+    text-align: left;
     border: none;
 }
 
@@ -3028,15 +3459,60 @@ form#register,form#login {
     background: #810E0E4D;
 }
 
+.table_profile_team-2 {
+    font-size: 0.7em;
+    font-weight: 500;
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+    margin-bottom: 1em;
+}
+
+.table_profile_team-2 thead {
+    background-color: #B2241C;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+.table_profile_team-2 thead tr td {
+    padding: 1em;
+    text-align: left;
+    width: 70%;
+}
+
+.table_profile_team-2 tbody {
+    border: 1px solid #B2241C;
+    color: #fff;
+    text-transform: none;
+}
+
+.table_profile_team-2 tbody tr {
+    height: 2em;
+}
+
+.table_profile_team-2 td {
+    padding: 1em 1em;
+    text-align: left;
+    border: none;
+}
+
+.table_profile_team-2 tbody tr:nth-child(odd) {
+    background: transparent;
+}
+
+.table_profile_team-2 tbody tr:nth-child(even) {
+    background: #810E0E4D;
+}
+
 .table_with_memb {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 2em;
 }
 
 .table_with_memb h1 {
     color: #fff;
-    font-size: 24px;
-    margin-bottom: 15px;
+  letter-spacing: 0;
+    margin-bottom: 1em;
     text-align: left;
     padding-left: 10px;
 }
@@ -3161,18 +3637,16 @@ form#register,form#login {
 }
 
 .team-submit-button {
-    background: linear-gradient(90deg, #5C0C0A 0%, #C21916 100%);
+    background-image: url(../img/big-btn-fon.svg);
     border: none;
-    padding: 16px 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1em 0;
     color: #fff;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 1em;
     width: 100%;
     cursor: pointer;
     text-align: center;
-    letter-spacing: 1px;
-}
-
-.team-submit-button:hover {
-    background-color: #762020;
+    letter-spacing: 0;
 }

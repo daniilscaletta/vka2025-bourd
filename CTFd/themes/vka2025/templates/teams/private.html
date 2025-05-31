@@ -104,7 +104,7 @@
 						{% with form = Forms.teams.TeamCaptainForm(captain_id=team.captain_id) %}
 						<form id="team-captain-form" method="POST">
 							<div class="form-group">
-							<!--	{{ form.captain_id.label }} -->
+								{{ form.captain_id.label }}
 								{% for member in team.members %}
 									{% set _ = form.captain_id.choices.append((member.id, member.name)) %}
 								{% endfor %}

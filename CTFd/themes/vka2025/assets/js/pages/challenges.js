@@ -248,7 +248,7 @@ function getSolves(id) {
       const date = dayjs(data[i].date).fromNow();
       const account_url = data[i].account_url;
       box.append(
-        '<tr><td><a href="{0}">{2}</td><td>{3}</td></tr>'.format(
+        '<tr style="color: green;"><td><a href="{0}" style="color: green;">{2}</a></td><td>{3}</td></tr>'.format(
           account_url,
           id,
           htmlEntities(name),

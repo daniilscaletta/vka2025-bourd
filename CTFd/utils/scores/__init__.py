@@ -29,7 +29,7 @@ def get_standings(count=None, admin=False, fields=None):
             db.func.max(Solves.date).label("date"),
         )
         .join(Challenges)
-        .filter(Challenges.value != 0)
+        # .filter(Challenges.value != 0)
         .group_by(Solves.account_id)
     )
 
@@ -40,7 +40,7 @@ def get_standings(count=None, admin=False, fields=None):
             db.func.max(Awards.id).label("id"),
             db.func.max(Awards.date).label("date"),
         )
-        .filter(Awards.value != 0)
+        # .filter(Awards.value != 0) # Нужен ли фильтр
         .group_by(Awards.account_id)
     )
 
@@ -111,10 +111,7 @@ def get_standings(count=None, admin=False, fields=None):
     """
     Only select a certain amount of users if asked.
     """
-    if count is None:
-        standings = standings_query.all()
-    else:
-        standings = standings_query.limit(count).all()
+    standings = standings_query.all()
 
     return standings
 
@@ -131,7 +128,7 @@ def get_team_standings(count=None, admin=False, fields=None):
             db.func.max(Solves.date).label("date"),
         )
         .join(Challenges)
-        .filter(Challenges.value != 0)
+        # .filter(Challenges.value != 0)
         .group_by(Solves.team_id)
     )
 
@@ -142,7 +139,7 @@ def get_team_standings(count=None, admin=False, fields=None):
             db.func.max(Awards.id).label("id"),
             db.func.max(Awards.date).label("date"),
         )
-        .filter(Awards.value != 0)
+        # .filter(Awards.value != 0)
         .group_by(Awards.team_id)
     )
 
@@ -213,7 +210,7 @@ def get_user_standings(count=None, admin=False, fields=None):
             db.func.max(Solves.date).label("date"),
         )
         .join(Challenges)
-        .filter(Challenges.value != 0)
+        # .filter(Challenges.value != 0)
         .group_by(Solves.user_id)
     )
 
@@ -224,7 +221,7 @@ def get_user_standings(count=None, admin=False, fields=None):
             db.func.max(Awards.id).label("id"),
             db.func.max(Awards.date).label("date"),
         )
-        .filter(Awards.value != 0)
+        # .filter(Awards.value != 0)
         .group_by(Awards.user_id)
     )
 

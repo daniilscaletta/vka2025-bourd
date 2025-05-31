@@ -57,7 +57,6 @@ from CTFd.utils.security.signing import (
 )
 from CTFd.utils.uploads import get_uploader, upload_file
 from CTFd.utils.user import authed, get_current_team, get_current_user, is_admin
-
 views = Blueprint("views", __name__)
 
 
@@ -277,6 +276,8 @@ def setup():
                 ),
             )
 
+
+             
             set_config("setup", True)
 
             try:
@@ -345,7 +346,8 @@ def integrations():
 @views.route("/notifications", methods=["GET"])
 def notifications():
     notifications = Notifications.query.order_by(Notifications.id.desc()).all()
-    return render_template("notifications.html", notifications=notifications)
+    user = get_current_user()
+    return render_template("notifications.html", notifications=notifications, user=user)
 
 
 @views.route("/settings", methods=["GET"])

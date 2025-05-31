@@ -13,7 +13,7 @@ from CTFd.utils.decorators.visibility import (
 )
 from CTFd.utils.helpers import get_errors, get_infos
 from CTFd.utils.humanize.words import pluralize
-from CTFd.utils.user import get_current_user, get_current_user_attrs
+from CTFd.utils.user import get_current_user, get_current_user_attrs, authed
 
 teams = Blueprint("teams", __name__)
 
@@ -41,6 +41,9 @@ def listing():
 
     args = dict(request.args)
     args.pop("page", 1)
+
+    if not authed():
+        return redirect(url_for("auth.login"))
 
     return render_template(
         "teams/teams.html",
@@ -325,6 +328,9 @@ def private():
     if config.is_scoreboard_frozen():
         infos.append("Scoreboard has been frozen")
 
+    if not authed():
+        return redirect(url_for("auth.login"))
+
     return render_template(
         "teams/private.html",
         solves=solves,
@@ -358,6 +364,9 @@ def public(team_id):
 
     if config.is_scoreboard_frozen():
         infos.append("Scoreboard has been frozen")
+
+    if not authed():
+        return redirect(url_for("auth.login"))
 
     return render_template(
         "teams/public.html",

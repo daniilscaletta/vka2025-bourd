@@ -8,14 +8,13 @@
 	<div class="wrapper">
 		<div id="team-edit-modal" class="modal fade" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered modal-lg">
-				<div class="modal-content">
-						<div class="window_edit_team">
+						<div class="window_edit_team  modal-content">
 							<div class="window_edit_team_header">
 								<h2 class="edit_tram_model_window_title">редактировать команду</h2>
 							</div>
 							{% with form = Forms.teams.TeamSettingsForm(obj=team) %}
 							{% from "macros/forms.html" import render_extra_fields %}
-							<form id="team-info-form" method="POST"> 
+							<form id="team-info-form" method="POST">
 								<div class="window_edit_inner_container">
 									<div class="window_edit_team_micro_row_container">
 										<p class="lable_name_window_edit_team">
@@ -34,7 +33,7 @@
 										<div class="form-input-wrapper_edit_win">
 											{{ form.confirm(class="form-control",placeholder="********", readonly=True) }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
-										</div>	
+										</div>
 									</div>
 									<div class="line_between_micro_edit_team"></div>
 									<div class="window_edit_team_micro_row_container">
@@ -54,7 +53,7 @@
 										<div class="form-input-wrapper_edit_win">
 											{{ form.affiliation(class="form-control",placeholder="-",value=affiliation or "", readonly=True) }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
-										</div>	
+										</div>
 									</div>
 									<div class="line_between_micro_edit_team"></div>
 									<div class="window_edit_team_micro_row_container">
@@ -64,7 +63,7 @@
 										<div class="form-input-wrapper_edit_win">
 											{{ form.website(class="form-control", placeholder="-", readonly=True) }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
-										</div>	
+										</div>
 									</div>
 									<div class="line_between_micro_edit_team"></div>
 									<div class="window_edit_team_micro_row_container">
@@ -74,7 +73,7 @@
 										<div class="form-input-wrapper_edit_win">
 											{{ form.country(class="form-control custom-select", value=country, readonly=True) }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
-										</div>	
+										</div>
 									</div>
 									<div class="line_between_micro_edit_team"></div>
 
@@ -90,9 +89,6 @@
 							</form>
 							{% endwith %}
 				        </div>
-					
-				</div>
-
 			</div>
 		</div>
 
@@ -100,25 +96,23 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h2 class="modal-action text-center w-100">Выбрать капитана команды</h2>
+						<h2 class="modal-action text-center w-100">Назначить капитана</h2>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body clearfix">
 						{% with form = Forms.teams.TeamCaptainForm(captain_id=team.captain_id) %}
 						<form id="team-captain-form" method="POST">
 							<div class="form-group">
-								{{ form.captain_id.label }}
+							<!--	{{ form.captain_id.label }} -->
 								{% for member in team.members %}
-									{# Append members to the select choices #}
 									{% set _ = form.captain_id.choices.append((member.id, member.name)) %}
 								{% endfor %}
 								{{ form.captain_id(class="form-control custom-select") }}
 							</div>
 							<div id="results">
 							</div>
-							{{ form.submit(class="btn btn-primary btn-outlined float-right modal-action") }}
+							{{ form.submit(class="button-red") }}
 						</form>
 						{% endwith %}
 					</div>
@@ -132,7 +126,7 @@
 					<div class="modal-header">
 						<h2 class="modal-action text-center w-100">Пригласить пользователя</h2>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
+							<!-- <span aria-hidden="true">&times;</span> -->
 						</button>
 					</div>
 					<div class="invite-modal__body">
@@ -143,13 +137,15 @@
 						<div class="invite-form__input-wrapper">
 							{{ form.link(id="team-invite-link", class="invite-form__input", readonly=True) }}
 							<div class="invite-form__actions">
-							<button id="team-invite-link-copy" class="invite-form__copy-btn" type="button">
-								<i class="icon icon--clipboard invite-form__copy-icon"></i>
-							</button>
+								<button id="team-invite-link-copy" class="invite-form__copy-btn" type="button">
+								<div class="copy-btn__square">
+									<img src="themes/vka2025/static/img/svg/copy.svg" alt="" class="invite-form__copy-icon">
+								</div>
+								</button>
 							</div>
 						</div>
 						<p class="invite-form__hint">
-							Поделитесь этой ссылкой с членами вашей команды, чтобы они присоединились к вашей команде
+							Поделитесь этой ссылкой с членами вашей команды, чтобы они присоединились к вам
 						</p>
 						<p class="invite-form__hint">
 							Cсылки могут быть использованы повторно, срок их действия истекает через 1 день
@@ -161,66 +157,80 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="info_team_line">
 			<h1 id="team_name" team-id="{{ team.id }}">{{ team.name }}</h1>
 			<div class="pt-3">
 				<a class="edit-team">
 					{% if team.captain_id == user.id %}
 						<div class="team-actions">
-							
-							<button class="team-action-btn team-action-btn--settings" 
-									data-toggle="tooltip" 
+
+							<button class="team-action-btn team-action-btn--settings"
+									data-toggle="tooltip"
 									data-placement="top"
 									title="Редактировать настройки команды">
-								<img src="themes/vka2025/static/img/setting.png" alt="Настройки" class="team-action__icon">
+								<img src="themes/vka2025/static/img/setting.svg" alt="Настройки" class="team-action__icon">
 								<span class="team-action__label"></span>
 							</button>
 
-							
-							<button class="team-action-btn team-action-btn--captain" 
-									data-toggle="tooltip" 
+						<a class="edit-captain">
+							<button class="team-action-btn team-action-btn--captain"
+									data-toggle="tooltip"
 									data-placement="top"
 									title="Выбрать капитана команды">
-								<img src="/static/images/icons/.svg" alt="Капитан" class="team-action__icon">
+								<img src="themes/vka2025/static/img/cap.svg" alt="Капитан" class="team-action__icon">
 								<span class="team-action__label"></span>
 							</button>
-
-						
-							<button class="team-action-btn team-action-btn--invite" 
-									data-toggle="tooltip" 
-									data-placement="top"
-									title="Пригласить пользователя">
-								<img src="themes/vka2025/static/img/invite_us.png" alt="Пригласить" class="team-action__icon">
-								<span class="team-action__label"></span>
-							</button>
-
-
-							<button class="team-action-btn team-action-btn--danger" 
-									data-toggle="tooltip" 
-									data-placement="top"
-									title="Disband Team">
-								<img src="themes/vka2025/static/img/delete.png" alt="Удалить" class="team-action__icon">
-								<span class="team-action__label"></span>
-							</button>
-						</div>
-					{% else %}
-						<i class="btn-fa fas fa-cogs fa-2x px-2 fa-disabled"
-						   data-toggle="tooltip"
-						   data-placement="top"
-						   title="Только капитаны команд могут редактировать информацию о команде"></i>
-						<a class="edit-captain">
-							<i class="btn-fa fas fa-user-tag fa-2x px-2 fa-disabled"
-							   data-toggle="tooltip"
-							   data-placement="top"
-							   title="Только капитаны команд могут выбрать нового капитана"></i>
 						</a>
 						<a class="invite-members">
-							<i class="btn-fa fas fa-ticket-alt fa-2x px-2"
-								data-toggle="tooltip"
-								data-placement="top"
-								title="Только капитаны команд могут создавать ссылки для приглашений"></i>
+							<button class="team-action-btn team-action-btn--invite"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Пригласить пользователя">
+								<img src="themes/vka2025/static/img/invite-link.svg" alt="Пригласить" class="team-action__icon">
+								<span class="team-action__label"></span>
+							</button>
 						</a>
+						<!-- <a class="disband-team">
+							<button class="team-action-btn team-action-btn--danger"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Расформировать команду">
+								<img src="themes/vka2025/static/img/delete.svg" alt="Удалить" class="team-action__icon">
+								<span class="team-action__label"></span>
+							</button>
+						</a> -->
+						</div>
+					{% else %}
+						<div class="team-actions">
+
+							<button class="team-action-btn team-action-btn--settings"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Только капитан команды может её редактировать ">
+								<img src="themes/vka2025/static/img/setting.svg" alt="Настройки" class="team-action__icon" style="filter: brightness(0.8);">
+								<span class="team-action__label"></span>
+							</button>
+
+							<a class="edit-captain">
+								<button class="team-action-btn team-action-btn--captain"
+										data-toggle="tooltip"
+										data-placement="top"
+										title="Только капитан команды может выбрать нового капитана">
+									<img src="themes/vka2025/static/img/cap.svg" alt="Капитан" class="team-action__icon" style="filter: brightness(0.8);">
+									<span class="team-action__label"></span>
+								</button>
+							</a>
+							<a class="invite-members">
+								<button class="team-action-btn team-action-btn--invite"
+										data-toggle="tooltip"
+										data-placement="top"
+										title="Только капитан команды может пригласить нового пользователя">
+									<img src="themes/vka2025/static/img/invite-link.svg" alt="Пригласить" class="team-action__icon" style="filter: brightness(0.8);">
+									<span class="team-action__label"></span>
+								</button>
+							</a>
+						</div>
 					{% endif %}
 				</a>
 				{% if team.website and (team.website.startswith('http://') or team.website.startswith('https://')) %}
@@ -241,11 +251,11 @@
 					{% endif %}
 					</div>
 				</div>
-			</div>	
+			</div>
 			<div class="team-score-wrapper">
 				<small class="score-label">Заработано очков</small>
 					<div class="score-boxes">
-						<div class="team-stat-box middle-box 
+						<div class="team-stat-box middle-box
 							{% if score >= 19000 %}
 								middle-high
 							{% elif score >= 5000 %}
@@ -266,8 +276,8 @@
 		</div>
 
 
-			
-		
+
+
 
 			{% include "components/errors.html" %}
 
@@ -300,13 +310,13 @@
 						</tbody>
 					</table>
 				</div>
-			
+
 			{% if solves %}
 
 				<div class="table_with_memb">
-					
+
 						<h1>Решения</h1>
-						<table class="table_profile_team">
+						<table class="table_profile_team-2">
 							<thead>
 							<tr>
 								<td><b>Задание</b></td>
@@ -366,7 +376,7 @@ function enableInput(icon) {
 		"name": team.name,
 		"account_id": "me"
 	} | tojson }};
-	
+
 	var team_captain = {{ (user.id == team.captain_id) | tojson }};
 </script>
 

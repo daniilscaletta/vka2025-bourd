@@ -3,7 +3,7 @@
 {% block content %}
 <section class="notif">
 	<div class="container_full">
-		<h1 class="title_settings">почта</h1>
+		<h1 class="title_settings">уведомления</h1>
 	</div>
 	<div class="container">
 		<div class="container_settings_form">
@@ -33,9 +33,13 @@
 							<h3 class="card-title">{{ notification.title }}</h3>
 							<div class="underline"></div>
 							<div class="notification-meta">
-								<p>Дата:  <span data-time="{{ notification.date | isoformat }}"></span> </p>
-								<p>От кого: рук. комплекса «Вавилов» С. Вавилов</p>
-								<p>Кому: участнику соревнований VKACTF 2025</p>
+								<p>Дата:&nbsp;<span data-time="{{ notification.date | isoformat }}"></span></p>
+								<p>От кого: рук. комплекса «Вавилов» С. Вавилов, по линии спецотряда Red Cadets</p>
+								{% if user != None %}
+									<p>Кому: {{ user.name }}</p>
+								{% else %}
+									<p>Кому: участнику соревнований VKACTF 2025</p>
+								{% endif %}
 							</div>
 							<div class="notification-text">
 								{{ notification.html }}

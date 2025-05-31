@@ -1,12 +1,11 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect, url_for
 
 from CTFd.utils import config
 from CTFd.utils.config.visibility import scores_visible
 from CTFd.utils.decorators.visibility import check_score_visibility
 from CTFd.utils.helpers import get_infos
 from CTFd.utils.scores import get_standings
-from CTFd.utils.user import is_admin, get_current_user
-
+from CTFd.utils.user import is_admin, get_current_user, authed
 scoreboard = Blueprint("scoreboard", __name__)
 
 
@@ -27,5 +26,8 @@ def listing():
     user = get_current_user()
     place = user.get_place(numeric=True) if user else 0
     place = place if place else 0
+
+    if not authed():
+        return redirect(url_for("auth.login"))
 
     return render_template("scoreboard.html", standings=standings, infos=infos, current_user=user, place=place, top50=top50)

@@ -1,8 +1,11 @@
 
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ url_for('views.themes', path='css/challenge-board.css') }}">
+{% endblock %}
+
 <div class="modal-dialog modal-dialog-centered modal-lg">
-	<div class="modal-content modal_sdvig">
-		<div class="modal-body ">
-			<div class="challenge_container_task">
+			<div class="modal-content madal_change_content challenge_container_task modal-body">
 				<div class="challenges_up_container_task">
 					{% if challenge.category == "web" %}
 					<div class="challenge_up_left_name_and_img">
@@ -51,15 +54,29 @@
 				</div>
 
 				<div class="challenge_mid_container_bg_black">
-					<div class="challenge_mid_container_left-column">
-						<div class="box_ramka_red left-top_box_ramka"></div>
-						<div class="box_ramka_red left-bottom_box_ramka">
+					<div class="challenge_mid_container_left-column ">
+						<div class="box_ramka_red left-top_box_ramka">
+							<div class="table_scroll_wrapper">
+								<table class="table_up_container_challenge">
+									<thead class="simple_thead">
+										<tr>
+										<th><b>имя</b></th>
+										<th><b>время</b></th>
+										</tr>
+									</thead>
+									<tbody id="challenge-solves-names" class="set_properties_for_solves">
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+							<div class="box_ramka_red left-bottom_box_ramka">
 							<h3 class="chellange_count_solve_header">
 								{% if solves != None %}
-									{{ solves }} {% if solves == 1 %}Готовое решение{% else %}Готовых решений{% endif %}
+								{{ solves }} {% if solves == 1 %}Готовое решение{% else %}Готовых решений{% endif %}
 								{% endif %}
 							</h3>
-							<a class="challenge_grey_btn_solves" href="#solves">
+							<a class="challenge_grey_btn_solves challenge-solves">
 								смотреть таблицу
 							</a>
 						</div>
@@ -69,7 +86,11 @@
 							<div class="right-box_box_ramka-column-left">
 								<img class="task_icon_left" src="themes/vka2025/static/img/task_img.gif" alt="task_img">
 								<div class="left-box_connection_info_up">
-									Задействуй потенциал
+									{% if files | length != 0 %}
+										Задействуй потенциал
+									{% else %}
+
+									{% endif %}
  								</div>
 								<span class="challenge-connection-info_string">
 								{% block connection_info %}
@@ -131,7 +152,7 @@
 									{{ challenge.html }}
 								</div>
 								{% for hint in hints %}
-									<a class="challenge_hint_container <!-- load-hint --> " href="javascript:;" data-hint-id="{{ hint.id }}">
+									<a class="challenge_hint_container load-hint " href="javascript:;" data-hint-id="{{ hint.id }}">
 										<img class="hint_key_img" src="themes/vka2025/static/img/png/hint_key_img.png" alt="hint_key_img">
 										<h3 class="challenge_text_hint">
 											{% if hint.content %}
@@ -167,13 +188,31 @@
 				<div class="challenge_down_container">
 					<a href="/challenges" class="challenges_back_btn">
 						<div class="challenges_down_container_left-icon"></div>
-						<div class="challenges_down_container_left-text">назад в категории заданий</div>
+						<div class="challenges_down_container_left-text">в категории заданий</div>
 					</a>
 				</div>
 			</div>
-		</div>
-	</div>
 </div>
+
+
+
+{% block scripts %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const button = document.querySelector(".challenge_grey_btn_solves.challenge-solves");
+    const thead = document.querySelector(".table_up_container_challenge thead");
+
+    button.addEventListener("click", function () {
+      // Показываем thead
+      thead.classList.remove("invisible_thead");
+
+      // Вызываем функцию с ID нужного челленджа
+      const challengeId = parseInt(CTFd._internal.challenge.id); // или свой способ получить ID
+      getSolves(challengeId);
+    });
+  });
+</script>
+{% endblock %}
 
 {% if solves or awards %}
 	<script defer src="{{ url_for('views.themes', path='js/graphs.js') }}"></script>
@@ -182,5 +221,6 @@
 
 {% block entrypoint %}
 <script defer src="{{ url_for('views.themes', path='js/pages/teams/private.js') }}"></script>
+<script defer src="{{ url_for('views.themes', path='js/pages/challenges.js') }}"></script>
 {% endblock %}
 

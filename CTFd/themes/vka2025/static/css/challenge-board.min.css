@@ -13,6 +13,7 @@
   width: 100%;
   margin-top: 1em;
   gap: 1em;
+  margin-bottom: 1em;
 }
 
 .wrapper_left{
@@ -189,16 +190,16 @@
     padding: 1em;
     background-color: transparent;
     left: 100%;
-    padding: 1em 1em 1em 1.5em; /* Добавлено для выравнивания содержимого по левому краю */
+    padding: 1em 1em 1em 1.5em; 
 }
 
 .leaderboard-title {
     font-size: 1.8em;
     font-weight: 700;
     color: #fff;
-    text-align: left; /* Изменено с center на left */
+    text-align: left; 
     margin-bottom: 0.5em;
-    width: 100%; /* Добавлено для занимания всей доступной ширины */
+    width: 100%; 
 }
 
 .leaderboard-button {
@@ -217,7 +218,6 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    /* margin-right: 6em; */
     justify-content: center
 }
 

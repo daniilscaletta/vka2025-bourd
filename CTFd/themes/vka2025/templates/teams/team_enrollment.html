@@ -5,10 +5,12 @@
 
 {% block content %}
 <div class="container_main_page_if_wo_team">
+
 	<div class="container_inner_main_page">
-		<div class="welcome_text"></div>
+		<div class="welcome_text">здравствуй, товарищ!</div>
+		<div class="welcome_text--ripple">здравствуй, товарищ!</div>
 		<div class="container_main_page_form_for_2_buttons">
-			<p class="text_into_form_team">Для участия в соревнованиях присоединитесь к команде или создайте новую команду</p>
+			<p class="text_into_form_team">Для участия в соревнованиях присоединитесь к команде<br> или создайте новую команду</p>
 			<div class="comtainer_main_form_with_2_team_button">
 				<a href="{{ url_for('teams.join') }}" class="to_join_team-btn-link inverse_link_for_main_left_btn">присоединиться к команде</a>
   				<a href="{{ url_for('teams.new') }}" class="to_create_team-btn-link inverse_link_for_main_right_btn">создать команду</a>

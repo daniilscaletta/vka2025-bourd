@@ -38,7 +38,7 @@
 									<div class="form-group form_line_settings">
 										{{ form.name.label }}
 										<div class="form-input-wrapper">
-											{{ form.name(class="form-control", value=name, readonly=True) }}
+											{{ form.name(class="form-control form_control_for_settings", value=name) }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
 									</div>
@@ -46,7 +46,7 @@
 									<div class="form-group form_line_settings">
 										{{ form.email.label }}
 										<div class="form-input-wrapper">
-											{{ form.email(class="form-control", placeholder="example@mail.ru", readonly=True) }}
+											{{ form.email(class="form-control form_control_for_settings", placeholder="example@mail.ru") }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
 									</div>
@@ -54,7 +54,7 @@
 									<div class="form-group form_line_settings">
 										{{ form.confirm.label }}
 										<div class="form-input-wrapper">
-											{{ form.confirm(class="form-control", placeholder="********", readonly=True) }}
+											{{ form.confirm(class="form-control form_control_for_settings", placeholder="********") }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
 									</div>
@@ -62,7 +62,7 @@
 									<div class="form-group form_line_settings">
 										{{ form.password.label }}
 										<div class="form-input-wrapper">
-											{{ form.password(class="form-control",placeholder="********", readonly=True) }}
+											{{ form.password(class="form-control form_control_for_settings",placeholder="********") }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
 									</div>
@@ -71,20 +71,20 @@
 									<div class="form-group form_line_settings">
 										{{ form.country.label }}
 										<div class="form-input-wrapper">
-											{{ form.country(class="form-control custom-select", value=country, readonly=True) }}
+											{{ form.country(class="form-control custom-select form_control_for_settings", value=country) }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
 									</div>
 
 									{{ render_extra_fields(form.extra) }}
 
-									<div id="results" class="form-group_notif">
+										<div id="results" class="form-group_notif">
 
-									</div>
+										</div>
 
-									<div class="btn_group">
-										{{ form.submit(class="btn btn-md btn-outlined float-right") }}
-									</div>
+										<div class="btn_group">
+											{{ form.submit(class="btn btn-md btn-outlined float-right", id="btn_id_find") }}
+										</div>
 								</form>
 								{% endwith %}
 							</div>
@@ -97,6 +97,16 @@
 {% endblock %}
 
 {% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("btn_id_find");
+  const results = document.getElementById("results");
+
+  btn.addEventListener("click", function () {
+    results.style.display = "flex";
+  });
+});
+</script>
 {% endblock %}
 
 {% block entrypoint %}

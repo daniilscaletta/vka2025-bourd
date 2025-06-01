@@ -3,6 +3,46 @@ scrollbar/* COMMON START */
     width: 0;
 }
 
+*,
+*:hover,
+*:active,
+*:focus {
+  cursor: url('../img/svg/Курсор.svg') 16 16, default !important;
+}
+
+
+a,
+a:hover,
+a:active,
+a:focus,
+button,
+button:hover,
+button:active,
+button:focus,
+input,
+input:hover,
+input:active,
+input:focus,
+select,
+select:hover,
+select:active,
+select:focus,
+textarea,
+textarea:hover,
+textarea:active,
+textarea:focus,
+form,
+form:hover,
+form:active,
+form:focus
+label,
+label:hover,
+label:active,
+label:focus {
+  cursor: url('../img/svg/Курсор.svg') 16 16, default !important;
+}
+
+
 @font-face {
     font-family: 'Blender Pro';
     src: local('Blender Pro Medium'), local('Blender-Pro-Medium'),
@@ -149,15 +189,21 @@ body{
   padding-left: 40px !important;
   background-repeat: no-repeat;
   background-position: center;
+  outline: none !important;
+  box-shadow: none !important;
   /* background-size: contain; */
 }
 
 .header_link.with-icon:hover {
   filter: brightness(0) saturate(100%) invert(12%) sepia(24%) saturate(7451%) hue-rotate(350deg) brightness(94%) contrast(95%);
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .header_link.icon-rectangle.with-icon:hover {
   filter: brightness(0) saturate(100%) invert(92%) sepia(92%) saturate(31%) hue-rotate(202deg) brightness(107%) contrast(100%);
+  outline: none !important;
+  box-shadow: none !important;
 }
 /* Конкретные иконки */
 .header_link.icon-team {
@@ -171,22 +217,25 @@ body{
 
 .header_link.icon-settings {
   background-image: url('../img/svg/настройки.svg');
-
+  outline-color: none !important;
+  box-shadow: none !important;
 }
 
 .header_link.icon-logout {
   background-image: url('../img/svg/выход.svg');
-
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .header_link.icon-notifications {
   background-image: url('../img/svg/notif.svg');
-
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .header_link.icon-rectangle {
   background-image: url('../img/svg/Rectangle_25.svg');
-  z-index: 10000;;
+  z-index: 10000;
 }
 
 .header_item .header_link:hover {
@@ -242,7 +291,7 @@ body{
     border: 0;
     background-size: contain;
     background-repeat: no-repeat;
-    cursor: pointer;
+    /**//**/
     z-index: 10000;
   }
 
@@ -377,19 +426,19 @@ body{
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: start;
+  align-items: center;
   gap: 5vw;
 }
 
 .red__union__rectangle-head{
   width: 70%;
-  margin-top: 2vh;
+  /* margin-top: 2vh; */
   text-transform: uppercase;
   font-size: clamp(1.25rem, 3vw, 2rem);
 }
 
 .red__union__rectangle-body{
-  margin-top: 2vh;
+  /* margin-top: 2vh; */
   font-size: clamp(1rem, 1.8vw, 1.25rem);
   font-weight: 500;
   text-align: justify;
@@ -633,6 +682,10 @@ body{
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
+.alert-success{
+  color: white !important;
+}
+
 .alert-info {
     background-color: rgba(184, 10, 10, 0.2); /* полупрозрачный синий */
     border-color: rgba(0, 123, 255, 0.4);
@@ -640,7 +693,8 @@ body{
 
 .alert-danger {
     background-color: rgba(220, 53, 69, 0.2); /* полупрозрачный красный */
-    border-color: rgba(220, 53, 69, 0.4);
+    border-color: rgba(238, 5, 29, 0.4);
+    color: red !important;
 }
 .alert span{
     color: #000;
@@ -662,17 +716,16 @@ body{
 /* Заменили <img> на <span> с фоном */
 .edit_icon {
 	display: inline-block;
-	width: 16px;
-	height: 16px;
+	min-width: 16px;
+	height: 32px;
 	background-image: url('../img/svg/pencil_edit.svg');
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
 	position: relative;
-	cursor: pointer;
+	/**//**/
 	z-index: 2;
 	transition: 0.2s all;
-	margin-left: 170px; /* Отступ от поля */
 }
 
 .edit_icon:hover,
@@ -709,22 +762,48 @@ body{
 
 .form-group_notif {
   font-family: Blender Pro;
-  display: flex !important;
   justify-content: flex-start !important;
   align-items: center !important;
   width: 800px;
   height: 2em;
   color: red;
+  background: transparent !important;
 }
 
 .form-group {
   font-family: Blender Pro;
   display: flex !important;
+  flex-direction: row;
   justify-content: flex-start !important;
   align-items: center !important;
   width: auto !important;
   height: 2em;
   color: red;
+  border-bottom: 2px solid #2B2B2B;
+}
+
+.form-control-label{
+  font-weight: 500;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+}
+
+.form_control_for_settings {
+  font-family: Blender Pro;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 110.00000000000001%;
+  letter-spacing: 0;
+  font-family: Blender Pro;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 110.00000000000001%;
+  letter-spacing: 0%;
+  color: white !important;
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 130px;
+  width: 300px !important;
 }
 
 .form_line_settings{
@@ -737,18 +816,30 @@ body{
   font-size: 20px;
   line-height: 110.00000000000001%;
   letter-spacing: 0%;
+  color: white
+
 
 }
+
+
+.form_control_for_settings:focus,
+.form_control_for_settings:hover,
+.form_control_for_settings:active {
+  border: 2px solid #ff0000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
 
 
 .form-control {
 background: transparent !important;
 border: none !important;
-color: white !important;
 font-size: 16px;
 width: auto;
 outline: none !important;
-width: 260px;
+width: 100%;
 box-shadow: none !important;
 }
 
@@ -776,6 +867,10 @@ box-shadow: none !important;
     color: #005;
 }
 
+.sdvid_country{
+  width: 110% !important;
+}
+
 .btn_group{
     content: "Сохранить";
     display: flex !important;
@@ -791,7 +886,7 @@ box-shadow: none !important;
     width: 290px;
     height: 45px;
     background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
-    cursor: pointer;
+    /**//**/
     font-weight: 400;
     font-size: 20px;
     line-height: 110.00000000000001%;
@@ -822,127 +917,131 @@ box-shadow: none !important;
   border-color: #C21916;
   transform: translateY(-5px);
   background-color: #e5979481;
-    color: white;
+  color: white;
   text-decoration: underline;
 }
 
 /* SETTINGS PROFILE END */
 
-
-
-
 /* -------------------------------------------------------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------------------------------------------------- */
-
-
-
-
 
 /* TEAM PROFILE START */
 
 .tournament {
-    background-image: url(../img/jpg/turnir_table_bg.jpg);
+    background: url(../img/jpg/turnir_table_bg.jpg) no-repeat center center fixed;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-attachment: scroll;
+    min-height: 100vh;
+    color: #B2241C;
+    font-family: Blender-bold;
+    font-size: 1.4vw;
     text-align: center;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
 }
 
-.scoreboard-freeze {
+/* .scoreboard-freeze {
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 1000px;
+    max-height: 700px;
     margin-bottom: 50px;
 
     scrollbar-color: #B2241C rgba(255, 255, 255, 0.1);
     scrollbar-width: thin;
-}
+} */
 
-.scoreboard-freeze::before {
+#score-graph{
+  margin-top: 1.7em;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5em;
+  border: 1px solid #B2241C;
+}
+/* .scoreboard-freeze::before {
     content: "";
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     background-image: url(../img/jpg/turnir_table_bg.jpg);
     background-size: cover;
     background-position: center center;
     z-index: -1;
     pointer-events: none;
-    margin-bottom: 50px;
-}
+    margin-bottom: 50px; */
 
-.scoreboard-freeze::-webkit-scrollbar {
-    width: 10px; /* ширина вертикальной полосы */
-}
 
-.scoreboard-freeze::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1); /* фон трека (дорожки) */
-    border-radius: 5px;
-}
-
-.scoreboard-freeze::-webkit-scrollbar-thumb {
-    background-color: #B2241C; /* сам ползунок */
-    border-radius: 5px;
-    border: 2px solid transparent; /* для "внутреннего" эффекта */
-    background-clip: content-box;
-}
-
-.scoreboard-freeze::-webkit-scrollbar-thumb:hover {
-    background-color: #D2361E; /* цвет при наведении */
-}
 
 .top_50_wrapper {
     position: relative;
     z-index: 2;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 100vh;
     margin-bottom: 100px;
 }
-
 
 .top_girl_flag {
     position: relative;
     display: inline-block;
-    width: 58%;
-    height: 100%;
+    width: 65%;
     max-width: 80%;
     aspect-ratio: 16 / 9;
     background-image: url('../img/png/bliz_flag-min.png');
     background-size: cover;
     background-position: center;
     border-radius: 10px;
+    height: auto;          /* Сделал height:auto, чтобы не конфликтовать с aspect-ratio */
     margin-bottom: -175px;
 }
 
-.top_girl_flag_title {
+.top_girl_flag_header {
     position: absolute;
-    top: 47%;
+    top: 43%;
+    left: 0;
+    width: 93%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    pointer-events: none;
+    padding: 0 2em;
+    z-index: 10;
+}
+
+.top_girl_flag_title {
     font-weight: 700;
-    font-size: 32px;
+    font-size: 1.2em;
     text-transform: uppercase;
     color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     max-width: 40%;
     word-break: break-word;
+    /* position: absolute убираем! */
+    /* Лишний display не нужен */
+    /* Не ставь width — flex сам растянет по контенту */
+    /* Можно добавить переход для плавности, если нужно: */
+    /* transition: color 0.2s, text-shadow 0.2s; */
 }
 
 .top_girl_flag_title_pos_left {
-    left: 88px;
     text-align: left;
 }
 
 .top_girl_flag_title_pos_right {
-    right: 126px;
     text-align: right;
 }
 
 
+
 .result_graphics_form{
-    width: 1159px;
+    width: 80vw;
     height: 500px;
     background-color: #ffffff;
     margin: 0 auto;
@@ -954,34 +1053,28 @@ box-shadow: none !important;
 }
 
 #score-graph {
-    margin-top: 20px;
-    width: 100%;    /* занимает всю ширину контейнера с отступами */
-    height: 100%;   /* занимает всю высоту контейнера */
+    margin-top: 1em;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
 }
 
-/* Если в #score-graph будет canvas или svg, можно подстроить: */
-#score-graph > canvas,
-#score-graph > svg {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* если применимо */
-}
 
 .top_50_title{
     font-family: Blender Pro;
     font-weight: 700;
-    font-size: 32px;
+    font-size: 1.7em;
     line-height: 100%;
     letter-spacing: 0;
     text-align: center;
     justify-content: center;
     text-transform: uppercase;
     color: #FFFFFF;
-    margin-bottom: 40px;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
 .top_50_table {
@@ -991,7 +1084,7 @@ box-shadow: none !important;
     border-collapse: collapse;
     background-color: #3404022c;
     background-size: cover;
-    margin: auto auto;
+    margin: auto 250px;
     border: 1px solid #B2241C
 }
 
@@ -1021,6 +1114,7 @@ box-shadow: none !important;
 .top_50_table_head th {
     padding: 21px; /* Добавляем отступы для заголовков */
     height: 66px; /* Фиксированная высота для заголовков */
+    border: 1px solid #B2241C;
 }
 
 .top_50_table_body td{
@@ -1123,9 +1217,10 @@ box-shadow: none !important;
 }
 
 .card-title {
-  display: inline; /* Важно: inline, чтобы фон был только за текстом */
-  background-color: rgb(135, 23, 20);
+  /* display: inline;
+  background-color: rgb(135, 23, 20); */
 
+  color: #C21916;
   background-size: 100% 100%;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -1134,7 +1229,7 @@ box-shadow: none !important;
   text-overflow: ellipsis;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  /* text-align: center; */
 
   max-width: 100%;
   margin-bottom: 0; /* убираем нижний отступ чтобы не было двойного */
@@ -1193,6 +1288,9 @@ box-shadow: none !important;
   margin-bottom: 5px;
 }
 
+.hidden_info_fon {
+  display: none !important;
+}
 
 /* NOTIFICATIONS END */
 
@@ -1217,20 +1315,18 @@ box-shadow: none !important;
 
 
 .challenge_container{
-  max-width: 1160px;
+  max-width: 70vw;
   margin: 0 auto;
   box-sizing: border-box;
 }
 
 .challenges_up_container{
-  width: 1160px;
-  height: 74px;
-  top: 82px;
-  left: 103px;
+  width: 70vw;
+  height: 10vh;
   border-width: 2px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  margin-top: 40px;
+  margin-top: 1em;
   border: 2px solid #B2241C;
   display: flex;
   align-items: center;
@@ -1302,8 +1398,8 @@ box-shadow: none !important;
 }
 
 .challenge_mid_container{
-  width: 1160px;
-  height: 568px;
+  width: 70vw;
+  height: 60vh;
   top: 166px;
   left: 103px;
   border-width: 2px;
@@ -1312,28 +1408,32 @@ box-shadow: none !important;
 }
 
 .challenge_down_container{
-  width: 1160px;
-  height: 74px;
+  width: 70vw;
+  height: 10vh;
   top: 744px;
   left: 103px;
   border-width: 2px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
   border: 2px solid #B2241C;
+  align-items: center;
+  display: flex;
+  margin-bottom: 3em;
 }
 
 .challenge_mid_container_locker {
-  width: 25px;
+  width: auto;
   height: 31px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   background-image: url('../img/svg/замок.svg');
-  margin-left: 568px;
-  margin-top: 203px;
+  margin-top: 20vh;
   margin-bottom: 30px;
-
   transition: transform 0.2s ease-in-out;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
 }
 
 .challenge_mid_container_locker:hover {
@@ -1362,15 +1462,12 @@ box-shadow: none !important;
   display: flex;
   align-items: center;
   text-decoration: none;
-  margin-top: 24px;
   margin-left: 20px;
-  cursor: pointer;
+  /**//**/
 }
 
 
 .challenges_back_btn:hover .challenges_down_container_left-icon {
-    width: 32px;
-  height: 32px;;
   transform: translateX(-5px);
 }
 
@@ -1444,58 +1541,98 @@ box-shadow: none !important;
 }
 
 .container_inner_main_page{
-  width: 762px;
+  width: 1050px;
   margin: 0 auto;
   padding-top: 90px;;
+  display: flex;
+  justify-content: center;
 }
 
 .welcome_text{
-
-    width: 526px;
-    height: 106px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url('../img/png/welcome.png');
-    margin: 0 auto;
-    margin-bottom: 20px;;
+    font-family: 'Gotham Pro', sans-serif;
+    font-size: clamp(2rem, 6vw, 4.75rem);
+    font-weight: 700;
+    line-height: 110%;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: white;
+    position: absolute;
+    z-index: 1;
 }
 
-.container_main_page_form_for_2_buttons{
+.welcome_text--ripple{
+    font-family: 'Gotham Pro', sans-serif;
+    font-size: clamp(2rem, 6vw, 4.75rem);
+    font-weight: 700;
+    line-height: 110%;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    position: absolute;
+
+    background-image: url('../img/texture.png');
+    color: transparent;
+    opacity: .7;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    z-index: 2;
+}
+
+  .container_main_page_form_for_2_buttons {
     position: relative;
-    width: 762px;
-    height: 315px;
-    background-image: url('../img/png/bumaga_rvana.png');
+    width: 60vw;
+    max-width: 90vw;
+    min-width: 60vw;
+    height: 60vh;
+    min-height: 60vh;
+    max-height: 90vh;
+    background-image: url('../img/png/bumaga_rvana_stara-min.png');
     background-repeat: no-repeat;
-    background-position:top;
+    background-position: top;
     background-size: contain;
-    padding-top: 50px;
-}
-.text_into_form_team{
-  font-family: Blender Pro;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 100%;
-  letter-spacing: 0;
-  text-align: center;
-  text-transform: uppercase;
-  color: #B2241C;
-  margin-left: 130px;;
-  width: 496px;
-  word-wrap: break-word;
+    padding-top: 17vh;
+    margin-top: 50px;
+    /* Новый padding — добавит внутренние отступы */
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    clip-path: inset(10vh 0 0 0);
+
 }
 
-.comtainer_main_form_with_2_team_button{
-  width: 560px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  margin: 40px auto 0 auto;
+.text_into_form_team {
+    font-family: 'Blender Pro', sans-serif;
+    font-weight: 700;
+    font-size: (1rem, 1.8vw, 1.25rem);
+    line-height: 120%;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: #B2241C;
+    /* Убрал margin-left и width, добавил max-width и auto-margin */
+    margin: 0 auto 24px auto;
+    max-width: 100%;
+    word-break: break-word;
+    /* Можно добавить белую/полупрозрачную подложку, если текст плохо читается */
 }
+
+
+  .comtainer_main_form_with_2_team_button{
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3vw;
+    margin: 40px auto 0 auto;
+  }
 
 .to_join_team-btn-link{
-  width: 260px;
+  width: 20vw;
   height: 58px;
   border: 2px solid #B2241C;
   color: #B2241C;
@@ -1513,8 +1650,12 @@ box-shadow: none !important;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+.to_join_team-btn-link:hover, .to_join_team-btn-link:active{
+  color:#B2241C;
+}
+
 .to_create_team-btn-link{
-  width: 260px;
+  width: 20vw;
   height: 58px;
   background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
   color: #FFFFFF;
@@ -1532,30 +1673,75 @@ box-shadow: none !important;
   transition: transform 0.2s ease, background-color 0.2s ease;
 
 }
-
+/*
 .to_create_team-btn-link:hover{
   transform: translateY(-5px);
   background-color: #e5979481;
-}
+} */
 
-.inverse_link_for_main_left_btn{
+/* .inverse_link_for_main_left_btn{
   	color: #C21916;
     text-decoration: none;
     font-weight: bold;
+} */
+
+.inverse_link_for_main_right_btn {
+  display: flex;
+  background-image: url(../img/butn-fon.svg);
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: #fff;
+  background-size: cover; /* или 100% 100% */
+  background-repeat: no-repeat;
+  /* margin-top: 2em; */
+  border: none;
+  height: 100%;
+  /* width: 50%; */
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+
 }
 
-.inverse_link_for_main_left_btn:hover{
+.inverse_link_for_main_right_btn:hover {
+  background-image: url(../img/butn-fon.svg),linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  background-blend-mode: soft-light, normal;
+  box-shadow: 0px 20px 40px 0px #DF0C0033;
+  background-size: cover;
+  background-repeat: no-repeat;
+  outline: none;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FFFFFF;
+
+}
+
+.inverse_link_for_main_right_btn:active {
+  background-image: url(../img/butn-fon.svg),linear-gradient(90deg, #A8100D 0%, #710A0A 100%);
+  background-blend-mode: soft-light, normal;
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+/* .inverse_link_for_main_left_btn:hover{
   text-decoration: underline;
   color: #C21916;
-}
+} */
 
-.to_join_team-btn-link:hover{
+/* .to_join_team-btn-link:hover{
   transform: translateY(-5px);
-}
+} */
 
 
 
-.inverse_link_for_main_right_btn{
+/* .inverse_link_for_main_right_btn{
   	color: white;
     text-decoration: none;
     font-weight: bold;
@@ -1564,7 +1750,7 @@ box-shadow: none !important;
 .inverse_link_for_main_right_btn:hover{
   text-decoration: underline;
   color: #ffffff;
-}
+} */
 
 /* WELCOME PAGE WO TEAM END */
 
@@ -1653,7 +1839,7 @@ box-shadow: none !important;
 /* POP-UPS START */
 
 .window_edit_team_header{
-    margin: 0px auto 50px;
+    margin: 10px auto 15px;
 }
 
 
@@ -1671,8 +1857,6 @@ box-shadow: none !important;
 }
 
 .window_edit_team{
-  width: 800px;
-  height: 684px;
   margin-left:25px;
   margin-bottom: 100px;
   background-color: #000;
@@ -1681,7 +1865,6 @@ box-shadow: none !important;
 }
 
 .window_edit_inner_container{
-  width: 620px;
   margin: 0 auto;
   overflow-wrap: break-word; /* переносит длинные слова */
   word-break: break-word;    /* принудительный разрыв при переполнении */
@@ -1713,8 +1896,10 @@ box-shadow: none !important;
   font-size: 18px;
   line-height: 110.00000000000001%;
   letter-spacing: 0;
-
+  min-width: 170px;
   color: #fff;
+
+
 }
 
 .form-input-wrapper_edit_win {
@@ -1723,6 +1908,8 @@ box-shadow: none !important;
     position: relative;
     color: #005;
     gap: 100px;
+    justify-content: space-between;
+    max-width: 400px !important;
 }
 
 .form-control_edit_win {
@@ -1743,14 +1930,14 @@ width: 200px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 50%;
-  min-width: 300px;
-  max-height: 80vh;
+  max-width: 70vw;
   padding: 5vh 5vw 5vh 5vw;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
   border: solid 1px #DF0C00;
+  width: 50vw;
+  max-height: 95vh;
 }
 
 
@@ -1791,7 +1978,7 @@ width: 200px;
   z-index: 1; /* чтобы был поверх других элементов */
   /* background: transparent; */
   border: none;
-  cursor: pointer;
+  /**//**/
 }
 
 .close-cap-modal {
@@ -1804,7 +1991,7 @@ width: 200px;
   margin: 0;
   background: transparent;
   border: none;
-  cursor: pointer;
+  /**//**/
   z-index: 1050;
   display: flex;
   align-items: center;
@@ -1849,23 +2036,29 @@ width: 200px;
   margin: 0;
 }
 
+.correct_btn_send_flag{
+  padding: 0px 0px !important;
+}
+
 #team-captain-form .button-red {
   border: none;
-  cursor: pointer;
+  /**//**/
   transition: background-color 0.3s;
   white-space: nowrap;
   padding: 10px 20px;
   color: white;
-  border-radius: 4px;
   width: 100%;
+  text-transform: uppercase;
 }
 
 #team-captain-form .form-group label {
   margin: 0;
   width: auto !important;
   white-space: nowrap;
-  font-weight: bold;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-weight: 500;
   color: #fff;
+  text-transform: initial;
 }
 
 #team-captain-form option{
@@ -1874,14 +2067,14 @@ width: 200px;
 }
 
 /* Стиль для выпадающего списка */
-#team-captain-form .form-control .custom-select {
+/* #team-captain-form .form-control  */
+.custom-select {
   flex-grow: 1;
-  min-width: 200px;
-  background-color: #000 !important;
-  color: #fff !important;
+  color: #9c9c9c !important;
   padding: 8px 15px;
   border: 1px solid #444;
   border-radius: 4px;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
 }
 .custom-select:disabled,
 .custom-select[readonly] {
@@ -1889,18 +2082,40 @@ width: 200px;
 }
 
 #team-captain-form .button-red {
+  display: flex;
+  background-image: url(../img/butn-fon.svg);
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: #fff;
+  background-size: cover; /* или 100% 100% */
+  background-repeat: no-repeat;
+  margin-top: 2em;
   border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  white-space: wrap;
+  height: 100%;
+  width: 100%;
+  align-items: center;
 
+}
+
+#team-captain-form .button-red:hover {
+  background-image: url(../img/butn-fon.svg),linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  background-blend-mode: soft-light, normal;
+  box-shadow: 0px 20px 40px 0px #DF0C0033;
+  background-size: cover;
+  background-repeat: no-repeat;
+  outline: none;
+}
+
+#team-captain-form .button-red:active {
+  background-image: url(../img/butn-fon.svg),linear-gradient(90deg, #A8100D 0%, #710A0A 100%);
+  background-blend-mode: soft-light, normal;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #results {
   display: none; /* или flex/block, когда нужно */
   position: relative;
   background: #000;
-  border: 1px solid #444;
   padding: 10px;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -1911,9 +2126,9 @@ width: 200px;
 }
 
 
-.custom_submit_button{
-   width: 620px;
-  height: 58px;
+/* .custom_submit_button{
+  min-width: 100%;
+  min-height: 50px;
   background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
   border: none;
   border-radius: 8px;
@@ -1921,14 +2136,45 @@ width: 200px;
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  cursor: pointer;
   transition: background 0.3s ease;
   content: 'РЕДАКТИРОВАТЬ';
+} */
+
+#team-info-form .custom_submit_button {
+  display: flex;
+  background-image: url(../img/butn-fon.svg);
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: #fff;
+  background-size: cover; /* или 100% 100% */
+  background-repeat: no-repeat;
+  border: none;
+  height: 6vh;
+  width: 101%;
+  align-items: center;
+  text-transform: uppercase;
 }
 
-.custom_submit_button:hover {
-  background: linear-gradient(90deg, #e02d2a 0%, #a61818 100%);
-  text-decoration: underline;
+#team-info-form .custom_submit_button:hover {
+  background-image: url(../img/butn-fon.svg),linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  background-blend-mode: soft-light, normal;
+  box-shadow: 0px 20px 40px 0px #DF0C0033;
+  background-size: cover;
+  background-repeat: no-repeat;
+  outline: none;
+}
+
+#team-info-form .custom_submit_button:active {
+  background-image: url(../img/butn-fon.svg),linear-gradient(90deg, #A8100D 0%, #710A0A 100%);
+  background-blend-mode: soft-light, normal;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.correct_line_popup{
+  width: 100% !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  margin-top: 5px !important;
 }
 
 
@@ -2145,7 +2391,7 @@ width: 200px;
   background: linear-gradient(90deg, #707070 0%, #3a3a3a 100%);
   transform: scale(1.03);
   transition: all 0.2s ease-in-out;
-  cursor: pointer;
+  /**//**/
 }
 
 .challenge_grey_btn_solves:active {
@@ -2300,7 +2546,7 @@ margin-bottom: 0px;
   display: flex;
   align-items: center;
   gap: 10px;
-  cursor: pointer;
+  /**//**/
   margin-bottom: 20px;;
 }
 
@@ -2393,7 +2639,7 @@ margin-bottom: 0px;
 .rectangle_btn_submit_flag_text:hover {
   background: linear-gradient(90deg, #cb4945 0%, #dc3636 100%);
   transform: translateY(-2px);
-  cursor: pointer;
+  /**//**/
   transition: all 0.2s ease;
   color:white;
 }
@@ -2526,29 +2772,67 @@ margin-bottom: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .passport-container {
-    position: relative;
-    width: min(45vw, 940px);
-    aspect-ratio: 940 / 666;
-    max-height: 70vh;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    border-radius: 30px;
-    overflow: hidden;
-    font-family: Blender-bold;
+  position: relative;
+  width: min(45vw, 940px);
+  aspect-ratio: 940 / 666;
+  max-height: 70vh;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+  overflow: hidden;
+  font-family: Blender-bold;
 	font-weight: 700;
 	text-align: center;
+  clip-path: inset(0 1px 0 1.5px);
+  outline: none;
 }
+
+.passport-container form:active input:active{
+  outline: none;
+
+}
+
+.passport-container input,
+.passport-container textarea,
+.passport-container select,
+.passport-container button {
+  outline: none !important;
+}
+
+.passport-container input:focus,
+.passport-container textarea:focus,
+.passport-container select:focus,
+.passport-container button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 
 .passport-bg {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
+.error-box {
+  width: 100%;
+  height: 2em;
+  background: #B2241C80;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  border: none;
+  font-family: Blender-bold;
+  font-size: 0.7em;
+  margin: 10px auto;
+}
 
-
-
+.error-text {
+    display: inline-block;
+    text-align: center;
+}
 .error {
     width: 100%;
     height: 1.5em;
@@ -2686,7 +2970,7 @@ form#register,form#login {
 
 .button-red:hover,
 .button-red_search:hover{
-  background-image: url(../img/butn-fon.svg),(90deg, #C21916 0%, #810E0E 100%);
+  background-image: url(../img/butn-fon.svg),linear-gradient(90deg, #C21916 0%, #810E0E 100%);
   background-blend-mode: soft-light, normal;
   box-shadow: 0px 20px 40px 0px #DF0C0033;
   background-size: cover;
@@ -2730,12 +3014,12 @@ form#register,form#login {
 .alert {
     position: relative;
     padding: 8px 15px;
-    border: 1px solid #000;
-    background: rgba(255, 255, 255, 0.9);
     font-family: 'Times New Roman', serif;
     font-size: 14px;
     text-align: center;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    background-color: transparent !important;
+    border: none !important;
 }
 
 .alert-danger {
@@ -2755,10 +3039,10 @@ form#register,form#login {
 
 .close {
   position: absolute;
-  top:0;
-  right: 0;
-  width: 1em;
-  height: 1em;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
   padding: 0;
   background: none;
   border: none;
@@ -2768,8 +3052,8 @@ form#register,form#login {
   cursor: pointer;
   outline: none;
   transition: background 0.2s;
-
-  background-size: contain;
+  background-image: url('../img/svg/close.svg');
+  /* background-size: contain; */
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -2789,6 +3073,7 @@ form#register,form#login {
   outline: none;
   box-shadow: none;
 }
+
 @media (max-width: 768px) {
     .alert {
         padding: 6px 12px;
@@ -2940,7 +3225,6 @@ form#register,form#login {
 }
 
 .table_team td {
-    padding: 15px 13vw;
     font-size: 16px;
     align-items: center;
 }
@@ -2987,7 +3271,7 @@ form#register,form#login {
 }
 
 .arrow {
-  cursor: pointer;
+  /**//**/
   width: 0.7em;
   margin-left: 0.7em;
   margin-right: 0.7em;
@@ -3128,7 +3412,7 @@ form#register,form#login {
 .team-action-btn {
   background: none;
   border: none;
-  cursor: pointer;
+  /**//**/
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -3167,6 +3451,26 @@ form#register,form#login {
   margin-bottom: 1rem;
 }
 
+#team-info-form form:active input:active{
+  outline: none;
+
+}
+
+#team-info-form input,
+#team-info-form textarea,
+#team-info-form select,
+#team-info-form button {
+  outline: none !important;
+}
+
+#team-info-form input:focus,
+#team-info-form textarea:focus,
+#team-info-form select:focus,
+#team-info-form button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 .invite-form__input {
   flex: 1;
   /* padding: 0.75rem 1rem; */
@@ -3188,7 +3492,7 @@ form#register,form#login {
 .invite-form__copy-btn {
   background: none;
   border: none;
-  cursor: pointer;
+  /**//**/
   padding: 0;
   margin: 0;
   display: flex;
@@ -3274,6 +3578,7 @@ form#register,form#login {
   overflow: hidden; /* скрытие выходящего за границы текста */
   text-overflow: ellipsis; /* добавление троеточия */
   letter-spacing: 0;
+  text-transform: none;
 }
 
 .text-center{
@@ -3300,7 +3605,7 @@ form#register,form#login {
   border: none;
   outline: none;
   transition: transform 0.2s, opacity 0.3s;
-  cursor: pointer;
+  /**//**/
 }
 
 .btn-edit {
@@ -3458,7 +3763,6 @@ form#register,form#login {
 .table_profile_team tbody tr:nth-child(even) {
     background: #810E0E4D;
 }
-
 .table_profile_team-2 {
     font-size: 0.7em;
     font-weight: 500;
@@ -3474,10 +3778,12 @@ form#register,form#login {
     text-transform: uppercase;
 }
 
-.table_profile_team-2 thead tr td {
+/* Равномерное распределение: 25% на каждую колонку */
+.table_profile_team-2 td {
+    width: 25%;
     padding: 1em;
     text-align: left;
-    width: 70%;
+    border: none;
 }
 
 .table_profile_team-2 tbody {
@@ -3490,18 +3796,18 @@ form#register,form#login {
     height: 2em;
 }
 
-.table_profile_team-2 td {
-    padding: 1em 1em;
-    text-align: left;
-    border: none;
-}
-
+/* Чередование фона строк */
 .table_profile_team-2 tbody tr:nth-child(odd) {
     background: transparent;
 }
-
 .table_profile_team-2 tbody tr:nth-child(even) {
     background: #810E0E4D;
+}
+
+.table_profile_team-2 td:nth-child(2),
+.table_profile_team-2 td:nth-child(3),
+.table_profile_team-2 td:nth-child(4) {
+    text-align: center;
 }
 
 .table_with_memb {
@@ -3514,7 +3820,7 @@ form#register,form#login {
   letter-spacing: 0;
     margin-bottom: 1em;
     text-align: left;
-    padding-left: 10px;
+
 }
 
 .team-name {
@@ -3527,6 +3833,80 @@ form#register,form#login {
     display: inline-block;
     color: inherit;
 }
+
+
+.table_profile_team-3 {
+    font-size: 0.7em;
+    font-weight: 500;
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+    margin-bottom: 5vh;
+}
+
+.table_profile_team-3 thead {
+    background-color: #B2241C;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+/* Равномерное распределение: 25% на каждую колонку */
+.table_profile_team-3 td {
+    width: 25%;
+    padding: 1em;
+    text-align: left;
+    border: none;
+}
+
+.table_profile_team-3 tbody {
+    border: 1px solid #B2241C;
+    color: #fff;
+    text-transform: none;
+}
+
+.table_profile_team-3 tbody tr {
+    height: 2em;
+}
+
+/* Чередование фона строк */
+.table_profile_team-3 tbody tr:nth-child(odd) {
+    background: transparent;
+}
+.table_profile_team-3 tbody tr:nth-child(even) {
+    background: #810E0E4D;
+}
+.table_profile_team-3 td:nth-child(1),
+.table_profile_team-3 td:nth-child(2),
+.table_profile_team-3 td:nth-child(3),
+.table_profile_team-3 td:nth-child(4) {
+    text-align: center;
+}
+
+.table_with_memb {
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.table_with_memb h1 {
+    color: #fff;
+  letter-spacing: 0;
+    margin-bottom: 1em;
+    text-align: left;
+
+}
+
+.team-name {
+    color: #fff;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.team-link {
+    display: inline-block;
+    color: inherit;
+}
+
+
 
 /* ONE TEAM PAGE PROFILE END*/
 
@@ -3567,7 +3947,7 @@ form#register,form#login {
     height: 2.3em;
     margin-bottom: 1em;
     text-align: left;
-    cursor: pointer;
+    /**//**/
     background: linear-gradient(90deg, #5C0C0A 0%, #C21916 100%);
 }
 
@@ -3632,21 +4012,38 @@ form#register,form#login {
 
 .team-hint {
     font-size: 0.6em;
-    color: #474747;
+    color: #909090;
     line-height: 1.4;
 }
 
 .team-submit-button {
     background-image: url(../img/big-btn-fon.svg);
     border: none;
-    background-size: cover;
+    background-size: 102%;
     background-repeat: no-repeat;
     padding: 1em 0;
     color: #fff;
     font-weight: bold;
     font-size: 1em;
     width: 100%;
-    cursor: pointer;
     text-align: center;
     letter-spacing: 0;
+    background-position: center center;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.team-submit-button:hover{
+  background-image: url(../img/big-btn-fon.svg),linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  background-blend-mode: soft-light, normal;
+  box-shadow: 0px 20px 40px 0px #DF0C0033;
+  background-size: cover;
+  background-repeat: no-repeat;
+  outline: none;
+}
+.team-action-btn:active{
+  /* background-image: url(../img/big-btn-fon.svg),linear-gradient(90deg, #A8100D 0%, #710A0A 100%); */
+  background-blend-mode: soft-light, normal;
+  background-size: cover;
+  background-repeat: no-repeat;
 }

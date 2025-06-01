@@ -10,17 +10,9 @@
             <h1>{{ user.name }}</h1>
             
             <div class="pt-3">
-                {% if user.website %}
-                    <a href="{{ user.website }}" target="_blank" style="color: inherit;" rel="noopener">
-                        <i class="fas fa-external-link-alt fa-2x px-2" data-toggle="tooltip" data-placement="top"
-                           title="{{ user.website }}"></i>
-                    </a>
-                {% endif %}
-                
                 {% if user.team_id %}
-                    <a href="{{ url_for('teams.private') }}">
-                        <i class="btn-fa fas fa-users fa-2x px-2" data-toggle="tooltip" data-placement="top"
-                           title="Команда: {{ user.team.name }}"></i>
+                    <a href="{{ url_for('teams.private') }}" style="text-decoration: none; text-overflow: ellipsis; max-width:30%;">
+                        <span class="badge badge-primary ml-2" style="font-size: 1.7vw; max-width:7em; overflow: hidden; text-overflow: ellipsis;letter-spacing: 0; text-transform: none;">{{ user.team.name }}</span>
                     </a>
                 {% endif %}
             </div>
@@ -53,45 +45,13 @@
         {% include "components/errors.html" %}
 
         <div class="tables">
-            {% if user.affiliation or user.country or user.fields %}
-                <div class="table_with_memb">
-                    <h1>Информация</h1>
-                    <table class="table_profile_team">
-                        <tbody>
-                            {% if user.affiliation %}
-                                <tr>
-                                    <td><b>Организация</b></td>
-                                    <td>{{ user.affiliation }}</td>
-                                </tr>
-                            {% endif %}
-                            
-                            {% if user.country %}
-                                <tr>
-                                    <td><b>Страна</b></td>
-                                    <td>
-                                        <i class="flag-{{ user.country.lower() }}"></i>
-                                        {{ lookup_country_code(user.country) }}
-                                    </td>
-                                </tr>
-                            {% endif %}
-                            
-                            {% for field in user.fields %}
-                                <tr>
-                                    <td><b>{{ field.name }}</b></td>
-                                    <td>{{ field.value }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            {% endif %}
 
             {% set solves = user.solves %}
 
             {% if solves %}
                 <div class="table_with_memb">
                     <h1>Решения</h1>
-                    <table class="table_profile_team">
+                    <table class="table_profile_team-2">
                         <thead>
                             <tr>
                                 <td><b>Задание</b></td>

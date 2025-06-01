@@ -211,8 +211,8 @@ a.text-f:hover,
   color: #fff !important;
 }
 .alert-success {
-  background-color: #094 !important;
-  border-color: #095 !important;
+  background-color: rgb(255, 255, 255) !important;
+  border-color: rgb(255, 255, 255) !important;
   color: #fff !important;
 }
 .alert-danger button.close,

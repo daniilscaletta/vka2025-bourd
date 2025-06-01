@@ -36,9 +36,6 @@
 				<div class="register_button">
 					{{ form.submit(class="button-red") }}
 				</div>
-				<a class="atomic-link" href="{{ url_for('auth.reset_password') }}">
-					<span class="atomic-text">ЗАБЫЛ ПАРОЛЬ?</span>
-				</a>
 
 				{{ form.nonce() }}
 			</form>

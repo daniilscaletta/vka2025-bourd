@@ -9,8 +9,10 @@
 		<div id="team-edit-modal" class="modal fade" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered modal-lg">
 						<div class="window_edit_team  modal-content">
-							<div class="window_edit_team_header">
+							<div class="window_edit_team_header modal-header">
 								<h2 class="edit_tram_model_window_title">редактировать команду</h2>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								</button>
 							</div>
 							{% with form = Forms.teams.TeamSettingsForm(obj=team) %}
 							{% from "macros/forms.html" import render_extra_fields %}
@@ -21,7 +23,7 @@
 											Имя команды
 										</p>
 										<div class="form-input-wrapper_edit_win">
-											{{ form.name(class="form-control", placeholder="user_name", readonly=True) }}
+											{{ form.name(class="form-control form_control_for_settings", value=name) }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
 									</div>
@@ -31,7 +33,7 @@
 											Старый пароль
 										</p>
 										<div class="form-input-wrapper_edit_win">
-											{{ form.confirm(class="form-control",placeholder="********", readonly=True) }}
+											{{ form.confirm(class="form-control form_control_for_settings",placeholder="********") }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
 									</div>
@@ -41,50 +43,33 @@
 											Новый пароль
 										</p>
 										<div class="form-input-wrapper_edit_win">
-											{{ form.password(class="form-control",placeholder="********", readonly=True) }}
+											{{ form.password(class="form-control form_control_for_settings",placeholder="********") }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
 									</div>
 									<div class="line_between_micro_edit_team"></div>
 									<div class="window_edit_team_micro_row_container">
-										<p class="lable_name_window_edit_team">
-											Принадлежность
+										<p class="lable_name_window_edit_team ">
+											Учебное заведение
 										</p>
 										<div class="form-input-wrapper_edit_win">
-											{{ form.affiliation(class="form-control",placeholder="-",value=affiliation or "", readonly=True) }}
+											{{ form.affiliation(class="form-control form_control_for_settings",placeholder="-",value=affiliation or "") }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
 									</div>
-									<div class="line_between_micro_edit_team"></div>
-									<div class="window_edit_team_micro_row_container">
-										<p class="lable_name_window_edit_team">
-											Сайт
-										</p>
-										<div class="form-input-wrapper_edit_win">
-											{{ form.website(class="form-control", placeholder="-", readonly=True) }}
-											<span class="edit_icon" onclick="enableInput(this)"></span>
-										</div>
-									</div>
+
 									<div class="line_between_micro_edit_team"></div>
 									<div class="window_edit_team_micro_row_container">
 										<p class="lable_name_window_edit_team">
 											Страна
 										</p>
 										<div class="form-input-wrapper_edit_win">
-											{{ form.country(class="form-control custom-select", value=country, readonly=True) }}
+											{{ form.country(class="form-control custom-select form_control_for_settings", value=country) }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
 									</div>
 									<div class="line_between_micro_edit_team"></div>
-
-									<hr>
-
-									{{ render_extra_fields(form.extra) }}
-
-									<div id="results">
-
-									</div>
-									{{ form.submit(class="custom_submit_button", value="Сохранить изменения")}}
+									{{ form.submit(class="custom_submit_button button-red", value="Сохранить изменения", id="btn_id_find")}}
 								</div>
 							</form>
 							{% endwith %}
@@ -104,7 +89,7 @@
 						{% with form = Forms.teams.TeamCaptainForm(captain_id=team.captain_id) %}
 						<form id="team-captain-form" method="POST">
 							<div class="form-group">
-								{{ form.captain_id.label }}
+								{{ form.captain_id.label(class="form-control-label") }}
 								{% for member in team.members %}
 									{% set _ = form.captain_id.choices.append((member.id, member.name)) %}
 								{% endfor %}
@@ -126,7 +111,6 @@
 					<div class="modal-header">
 						<h2 class="modal-action text-center w-100">Пригласить пользователя</h2>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<!-- <span aria-hidden="true">&times;</span> -->
 						</button>
 					</div>
 					<div class="invite-modal__body">
@@ -191,15 +175,6 @@
 								<span class="team-action__label"></span>
 							</button>
 						</a>
-						<!-- <a class="disband-team">
-							<button class="team-action-btn team-action-btn--danger"
-									data-toggle="tooltip"
-									data-placement="top"
-									title="Расформировать команду">
-								<img src="themes/vka2025/static/img/delete.svg" alt="Удалить" class="team-action__icon">
-								<span class="team-action__label"></span>
-							</button>
-						</a> -->
 						</div>
 					{% else %}
 						<div class="team-actions">
@@ -358,15 +333,24 @@
 
 {% block scripts %}
 
-
 <script>
 function enableInput(icon) {
-	const input = icon.previousElementSibling;
-	if (input.hasAttribute('readonly')) {
-		input.removeAttribute('readonly');
-		input.focus();
-	}
+  const input = icon.previousElementSibling;
+  if (input) {
+    input.focus();
+  }
 }
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("btn_id_find");
+  const results = document.getElementById("results");
+
+  btn.addEventListener("click", function () {
+    results.style.display = "flex";
+  });
+});
 </script>
 
 <script>

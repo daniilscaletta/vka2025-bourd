@@ -157,7 +157,7 @@ def TeamSettingsForm(*args, **kwargs):
 class TeamCaptainForm(BaseForm):
     # Choices are populated dynamically at form creation time
     captain_id = SelectField("Капитан команды", choices=[], validators=[InputRequired()])
-    submit = SubmitField("Назначить")
+    submit = SubmitField("назначить")
 
 
 class TeamSearchForm(BaseForm):

@@ -2,84 +2,91 @@
 
 {% block content %}
 <section class="tournament">
+	<div class="wrapper">
 
-	<div class="top_girl_flag">
-		<div class="top_girl_flag_title top_girl_flag_title_pos_left">
-			турнирная таблица
+		<div class="top_girl_flag">
+			<div class="top_girl_flag_header">
+				<div class="top_girl_flag_title top_girl_flag_title_pos_left">
+					турнирная таблица
+				</div>
+				<div class="top_girl_flag_title top_girl_flag_title_pos_right">
+					топ команд
+				</div>
+			</div>
 		</div>
-		<div class="top_girl_flag_title top_girl_flag_title_pos_right">
-			топ-10 команд
-		</div>
-	</div>
 
-	<div class="result_graphics_form">
+
+
+
 		<div id="score-graph" class="row d-flex align-items-center">
 			<div class="col-md-12 text-center">
 				<i class="fas fa-circle-notch fa-spin fa-3x fa-fw spinner"></i>
 			</div>
 		</div>
-	</div>
-	
-	<h2 class="top_50_title">
-		топ команд
-	</h2>
-	<section class="scoreboard-freeze">
-	{% cache 60, CacheKeys.PUBLIC_SCOREBOARD_TABLE %}
-	{% if standings %}
-	
-	<div id="scoreboard" class="row">
-		<div class="col-md-12">
-			
- 				<div class="top_50_wrapper">
-					<table class="top_50_table">
-						<thead class="top_50_table_head">
-							<tr>
-								<th>Место</th>
-								<th>Команда</th>
-								<th>ВУЗ</th>
-								<th>Очки</th>
-							</tr>
-						</thead>
-						<tbody class="top_50_table_body">
-						{% for standing in standings %}
-							<tr {% if loop.index % 2 == 0 %}class="top_50_table_row_highlight"{% endif %}>
-								<td class="top_50_table_cell">{{ loop.index }}</td>
-								<td class="top_50_table_cell">
-									<a href="{{ generate_account_url(standing.account_id) }}" class="custom-link">
-										{{ standing.name | truncate(50) }}
 
-										{% if standing.oauth_id %}
-											{% if Configs.user_mode == 'teams' %}
-											<a href="https://majorleaguecyber.org/t/{{ standing.name }}">
-												<span class="badge badge-primary">Official</span>
-											</a>
-											{% elif Configs.user_mode == 'users' %}
-											<a href="https://telegram.me/{{ standing.name }}">
-												<span class="badge badge-primary">Telegram</span>
-											</a>
+
+		<h2 class="top_50_title">
+			топ команд
+		</h2>
+		<section class="scoreboard-freeze">
+		{% cache 60, CacheKeys.PUBLIC_SCOREBOARD_TABLE %}
+		{% if standings %}
+
+		<div id="scoreboard" class="row">
+			<div class="col-md-12">
+
+
+						<table class="table_profile_team-3">
+							<thead class="top_50_table_head">
+								<tr>
+									<th>Место</th>
+									<th>Команда</th>
+									<th>ВУЗ</th>
+									<th>Очки</th>
+								</tr>
+							</thead>
+							<tbody class="top_50_table_body">
+							{% for standing in standings %}
+								<tr {% if loop.index % 2 == 0 %}class="top_50_table_row_highlight"{% endif %}>
+									<td class="top_50_table_cell">{{ loop.index }}</td>
+									<td class="top_50_table_cell">
+										<a href="{{ generate_account_url(standing.account_id) }}" class="custom-link">
+											{{ standing.name | truncate(50) }}
+
+											{% if standing.oauth_id %}
+												{% if Configs.user_mode == 'teams' %}
+												<a href="https://majorleaguecyber.org/t/{{ standing.name }}">
+													<span class="badge badge-primary">Official</span>
+												</a>
+												{% elif Configs.user_mode == 'users' %}
+												<a href="https://telegram.me/{{ standing.name }}">
+													<span class="badge badge-primary">Telegram</span>
+												</a>
+												{% endif %}
 											{% endif %}
-										{% endif %}
-									</a>
-								</td>
-								<td class="top_50_table_cell">
-									{% if standing.affiliation != None %}
-										{{ standing.affiliation }}
-									{% else %}
+										</a>
+									</td>
+									<td class="top_50_table_cell">
+										{% if standing.affiliation != None %}
+											{{ standing.affiliation }}
+										{% else %}
 
-									{% endif %}
-								</td>
-								<td class="top_50_table_cell">
-									{{ standing.score }}
-								</td>
-							</tr>
-						{% endfor %}
-						</tbody>
-					</table>
-					</div>
-					 
+										{% endif %}
+									</td>
+									<td class="top_50_table_cell">
+										{{ standing.score }}
+									</td>
+								</tr>
+							{% endfor %}
+							</tbody>
+						</table>
+
+
+
+				</div>
 			</div>
+
 		</div>
-	
 	</div>
 	</section>
 	{% endif %}

@@ -161,10 +161,10 @@
 			<div class="team-score-wrapper">
 				<small class="score-label">Заработано очков</small>
 					<div class="score-boxes">
-						<div class="team-stat-box middle-box 
-							{% if score >= 19000 %}
+						<div class="team-stat-box middle-box
+							{% if score >= 3000 %}
 								middle-high
-							{% elif score >= 5000 %}
+							{% elif score != 0 %}
 								middle-medium
 							{% else %}
 								middle-low

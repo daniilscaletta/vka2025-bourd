@@ -24,10 +24,10 @@
 				<div class="center_line">&nbsp;</div>
 
 				<div class="settings_right_block">
-    				
+
 						<div class="tab-content" id="v-pills-tabContent">
 							<div class="tab-pane fade show active">
-								
+
 								<h2 class="profile_title">профиль</h2>
 								<div class="profile_form_container">
 								{% with form = Forms.self.SettingsForm(country=country) %}
@@ -36,7 +36,9 @@
 									class="form-horizontal">
 
 									<div class="form-group form_line_settings">
-										{{ form.name.label }}
+										<p class="lable_name_window_edit_team">
+											ИМЯ ПОЛЬЗОВАТЕЛЯ
+										</p>
 										<div class="form-input-wrapper">
 											{{ form.name(class="form-control form_control_for_settings", value=name) }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
@@ -44,7 +46,9 @@
 									</div>
 
 									<div class="form-group form_line_settings">
-										{{ form.email.label }}
+										<p class="lable_name_window_edit_team">
+											ПОЧТА
+										</p>
 										<div class="form-input-wrapper">
 											{{ form.email(class="form-control form_control_for_settings", placeholder="example@mail.ru") }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
@@ -52,7 +56,9 @@
 									</div>
 
 									<div class="form-group form_line_settings">
-										{{ form.confirm.label }}
+										<p class="lable_name_window_edit_team">
+											СТАРЫЙ ПАРОЛЬ
+										</p>
 										<div class="form-input-wrapper">
 											{{ form.confirm(class="form-control form_control_for_settings", placeholder="********") }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
@@ -60,18 +66,11 @@
 									</div>
 
 									<div class="form-group form_line_settings">
-										{{ form.password.label }}
+										<p class="lable_name_window_edit_team">
+											НОВЫЙ ПАРОЛЬ
+										</p>
 										<div class="form-input-wrapper">
 											{{ form.password(class="form-control form_control_for_settings",placeholder="********") }}
-											<span class="edit_icon" onclick="enableInput(this)"></span>
-										</div>
-									</div>
-
-
-									<div class="form-group form_line_settings">
-										{{ form.country.label }}
-										<div class="form-input-wrapper">
-											{{ form.country(class="form-control custom-select form_control_for_settings", value=country) }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
 									</div>
@@ -83,7 +82,7 @@
 										</div>
 
 										<div class="btn_group">
-											{{ form.submit(class="btn btn-md btn-outlined float-right", id="btn_id_find") }}
+											{{ form.submit(class="btn btn-md btn-outlined float-right btn-settings", id="btn_id_find") }}
 										</div>
 								</form>
 								{% endwith %}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{ Configs.ctf_name }}</title>
+	<title>VKACTF 2025</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="{{ Configs.ctf_small_icon }}" type="image/x-icon">
@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="{{ url_for('views.themes', path='css/main.css') }}">
 	<link rel="stylesheet" href="{{ url_for('views.themes', path='css/core.css') }}">
 	<link rel="stylesheet" href="{{ url_for('views.themes', path='css/figma.css') }}">
-	<link rel="preload" as="image" href="/img/jpg/turnir_table_bg.jpg">
 	{% block stylesheets %}
 	{% endblock %}
 
@@ -28,6 +27,13 @@
 	{{ Configs.theme_header }}
 </head>
 <body>
+	<section class="preloader" id="preloader">
+        <div class="box_section">
+            <div class="preload">
+            </div>
+            <div class="img_filter"></div>
+        </div>
+    </section>
 	{% include "components/navbar.html" %}
 
 	<main role="main">
@@ -38,12 +44,35 @@
 	<script defer src="{{ url_for('views.themes', path='js/vendor.bundle.js') }}"></script>
 	<script defer src="{{ url_for('views.themes', path='js/core.js') }}"></script>
 	<script defer src="{{ url_for('views.themes', path='js/helpers.js') }}"></script>
-
+	<script defer src="{{ url_for('views.themes', path='js/preload.js') }}"></script>
 	{% block entrypoint %}
 	<script defer src="{{ url_for('views.themes', path='js/pages/main.js') }}"></script>
 	{% endblock %}
 
 	{% block scripts %}
+	<script>
+		(function() {
+			var forgotLink = document.getElementById("forgot-password-link");
+			var alertContainer = document.getElementById("custom-alert-container");
+
+			if (forgotLink && alertContainer) {
+			forgotLink.addEventListener("click", function(e) {
+				e.preventDefault();
+				if (document.getElementById("custom-alert-box")) return;
+				var alertDiv = document.createElement("div");
+				alertDiv.className = "error-box";
+				alertDiv.id = "custom-alert-box";
+				alertDiv.innerHTML = `
+				Необходимо написать организаторам для сброса пароля:
+				<a href="https://t.me/admmdt" target="_blank" style="color:#fff;text-decoration:underline;">@admmdt</a>
+				<span style="position:absolute;right:0.5em;top:0;cursor:pointer;font-size:1.2em;" onclick="this.parentNode.remove()">×</span>
+				`;
+				alertContainer.appendChild(alertDiv);
+			});
+			}
+		})();
+	</script>
+
 	{% endblock %}
 
 	{{ Plugins.scripts }}

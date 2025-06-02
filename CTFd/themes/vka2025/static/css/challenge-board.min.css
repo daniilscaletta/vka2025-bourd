@@ -7,18 +7,36 @@
   box-sizing: border-box;
 }
 
+.wrapper_left .team-score-wrapper small{
+  font-size: 1.5em;
+}
+
+.wrapper_left .team-score-wrapper .score-boxes{
+  font-size: 1.3em;
+} 
+
 .challenges-board {
   display: grid;
   grid-template-columns: 2.5fr 7.5fr;
   width: 100%;
   margin-top: 1em;
   gap: 1em;
-  margin-bottom: 1em;
+  padding-bottom: 2em;
 }
 
 .wrapper_left{
   width: 100%;
-  padding-left: 1.7em;
+  padding-left: 1.3em;
+  padding-right: 0.3em;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2em;
+}
+
+.task__header{
+  letter-spacing: 0;
+  font-weight: 700;
+  margin: 0;
 }
 
 .info_team_line_cat{
@@ -28,7 +46,7 @@
   border-width: 1em;
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
-  margin-top: 1em;
+  margin-top: 5em;
   border: 2px solid #B2241C;
   text-transform: uppercase;
   align-items: center;
@@ -132,6 +150,7 @@
   gap: 8px;
   transition: background 0.3s ease;
   box-shadow: 0 0 0 1px #2a2a2a;
+  margin-bottom: 1em;
 }
 
 .challenge-button:hover {

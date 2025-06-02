@@ -348,6 +348,7 @@ body{
   background-image: url('../img/rules_fon1.jpg');
   background-repeat: no-repeat;
   background-size: 105% 155%;
+  margin-top: 3.5em;
 }
 
 .bliznyashka{
@@ -756,6 +757,7 @@ body{
     line-height: 100%;
     text-transform: uppercase;
     margin-bottom: 30px;
+    letter-spacing: 0 ;
 }
 
 
@@ -809,7 +811,7 @@ body{
 .form_line_settings{
    justify-content: space-between !important;
    margin-left: 30px;
-   margin-bottom: 7px !important;
+   margin-bottom: 15px !important;
   max-width: 710px !important;
   font-family: Blender Pro;
   font-weight: 500;
@@ -871,6 +873,23 @@ box-shadow: none !important;
   width: 110% !important;
 }
 
+.teap_title_solve_scorebourd{
+  margin-top: 100px;
+}
+
+.teap_title_solve_scorebourd h1{
+  color: grey;
+  font-family: Blender Pro;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+
 .btn_group{
     content: "Сохранить";
     display: flex !important;
@@ -879,15 +898,16 @@ box-shadow: none !important;
     width: 760px !important;
     height: 30px;
     margin-top: 10px;
+
 }
 
-.btn {
+/* .btn {
     margin-top: 20px;
     width: 290px;
     height: 45px;
     background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
     /**//**/
-    font-weight: 400;
+    /* font-weight: 400;
     font-size: 20px;
     line-height: 110.00000000000001%;
     letter-spacing: 0;
@@ -896,30 +916,49 @@ box-shadow: none !important;
     justify-content: center;
     border-color: #C21916;
     color: white;
+    text-transform: uppercase !important;
+} */
+
+.btn-settings {
+  display: flex;
+  background-image: url(../img/butn-fon.svg);
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: #fff;
+  background-size: cover; /* или 100% 100% */
+  background-repeat: no-repeat;
+  margin-top: 2em;
+  border: none;
+  height: 140%;
+  width: 80%;
+  align-items: center;
+  text-transform: uppercase;
+  outline: none;
 }
 
-.btn:hover{
-  border-color: #C21916;
-  background: linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+.btn-settings:hover {
+  background-image: url(../img/butn-fon.svg),linear-gradient(90deg, #C21916 0%, #810E0E 100%);
+  background-blend-mode: soft-light, normal;
   box-shadow: 0px 20px 40px 0px #DF0C0033;
-  transform: translateY(-5px);
-  background-color: #e5979481;
-  color: white;
-  text-decoration: underline;
+  color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  outline: none;
 }
 
-.btn:focus{
-    box-shadow: 0px 20px 40px 0px #DF0C0033;
+.btn-settings:active {
+  background-image: url(../img/butn-fon.svg),linear-gradient(90deg, #A8100D 0%, #710A0A 100%);
+  background-blend-mode: soft-light, normal;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
 }
 
-.btn:active{
-  background: linear-gradient(90deg, #A8100D 0%, #710A0A 100%);
-  border-color: #C21916;
-  transform: translateY(-5px);
-  background-color: #e5979481;
-  color: white;
-  text-decoration: underline;
+.btn-settings:focus {
+  outline: none;
+  box-shadow: none;
+  color: #fff;
 }
+
 
 /* SETTINGS PROFILE END */
 
@@ -1000,6 +1039,7 @@ box-shadow: none !important;
     border-radius: 10px;
     height: auto;          /* Сделал height:auto, чтобы не конфликтовать с aspect-ratio */
     margin-bottom: -175px;
+    margin-top: 2em;
 }
 
 .top_girl_flag_header {
@@ -1306,23 +1346,17 @@ box-shadow: none !important;
 
 
 /* CHALLENGES START */
-.task__header{
-  letter-spacing: 0;
-  font-weight: 700;
-  font-size: clamp(1.25rem, 3vw, 2rem);
-  margin: 0;
-}
-
-
 .challenge_container{
-  max-width: 70vw;
-  margin: 0 auto;
-  box-sizing: border-box;
+  height: 800px !important;
+  max-width: 1160px !important;
 }
 
 .challenges_up_container{
-  width: 70vw;
-  height: 10vh;
+  width: 100%;
+  height: 100%;
+  
+  max-width: 1160px;
+  max-height: 70px;
   border-width: 2px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -1332,12 +1366,44 @@ box-shadow: none !important;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
+  margin-top: 100px;
+}
+.challenge_mid_container{
+  width: 100%;
+  height: 100%;
+  max-width: 1160px;
+  max-height: 500px;
+  border-width: 2px;
+  border: 2px solid #B2241C;
+  margin-bottom: 10px;
+
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.challenge_down_container{
+  width: 100%;
+  height: 100%;
+    max-width: 1160px;
+  max-height: 70px;
+  top: 744px;
+  left: 103px;
+  border-width: 2px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 2px solid #B2241C;
+  align-items: center;
+  display: flex;
+  margin-bottom: 3em;
 }
 
 .challenges_up_container h1{
   font-family: Blender Pro;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 2rem;
   line-height: 100%;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -1364,15 +1430,15 @@ box-shadow: none !important;
 .challenges_up_right_els_left-text{
   font-family: Blender Pro;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 1.4rem;
   line-height: 100%;
   letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .challenges_up_right_els_center-icon{
-  width: 45px;
-	height: 45px;
+  width: 3rem;
+  height: 3rem;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -1381,10 +1447,8 @@ box-shadow: none !important;
 }
 
 .challenges_up_right_els_right-icon{
-  width: 66px;
-  height: 45px;
-  top: 96px;
-  left: 1183px;
+  width:4rem;
+  height: 3rem;
   border-top-right-radius: 10px;
   background: #810E0E;
   margin-left: 5px;
@@ -1392,48 +1456,24 @@ box-shadow: none !important;
   font-family: 'Blender Pro';
   font-weight: 700;
   font-size: 22px;
-  line-height: 150%;
+  line-height: 200%;
   letter-spacing: 0;
   text-align: center;
 }
 
-.challenge_mid_container{
-  width: 70vw;
-  height: 60vh;
-  top: 166px;
-  left: 103px;
-  border-width: 2px;
-  border: 2px solid #B2241C;
-  margin-bottom: 10px;
-}
 
-.challenge_down_container{
-  width: 70vw;
-  height: 10vh;
-  top: 744px;
-  left: 103px;
-  border-width: 2px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border: 2px solid #B2241C;
-  align-items: center;
-  display: flex;
-  margin-bottom: 3em;
-}
+
+
 
 .challenge_mid_container_locker {
-  width: auto;
+  width: 31px;
   height: 31px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   background-image: url('../img/svg/замок.svg');
-  margin-top: 20vh;
   margin-bottom: 30px;
   transition: transform 0.2s ease-in-out;
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
 }
 
 .challenge_mid_container_locker:hover {
@@ -1471,16 +1511,15 @@ box-shadow: none !important;
   transform: translateX(-5px);
 }
 
-.challenges_back_btn:hover .challenges_down_container_left-text {
-
-  text-decoration: underline;
+.challenges_back_btn:hover .challenges_down_container_left-text:hover {
+  text-decoration: none;
   color: #C21916;
 }
 
 .challenges_down_container_left-text {
   font-family: 'Blender Pro';
   font-weight: 700;
-  font-size: 22px;
+  font-size: 1.4rem;
   line-height: 100%;
   text-transform: uppercase;
   color: white;
@@ -2103,6 +2142,7 @@ width: 200px;
   background-size: cover;
   background-repeat: no-repeat;
   outline: none;
+  transition: all .3s;
 }
 
 #team-captain-form .button-red:active {
@@ -2768,7 +2808,7 @@ margin-bottom: 0px;
 .register_page, .login-page {
   background: url('../img/register_page_bg.jpg') no-repeat center center fixed;
   background-size: cover;
-  min-height: 92.2vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2974,9 +3014,11 @@ form#register,form#login {
   background-blend-mode: soft-light, normal;
   box-shadow: 0px 20px 40px 0px #DF0C0033;
   background-size: cover;
-    background-repeat: no-repeat;
-    outline: none;
+  transition: all .3s;
+  background-repeat: no-repeat;
+  outline: none;
 }
+
 
 .button-red:active,
 .button-red_search:active,
@@ -3143,7 +3185,7 @@ form#register,form#login {
 }
 
 .form-group-team:nth-child(1) {
-    flex: 0 0 15%;
+    flex: 0 0 16;
 }
 
 .form-group-team:nth-child(2) {
@@ -3151,7 +3193,7 @@ form#register,form#login {
 }
 
 .form-group-team:nth-child(3) {
-    flex: 0 0 15%;
+    flex: 0 0 14%;
 }
 
 .form-control-team{
@@ -3201,6 +3243,7 @@ form#register,form#login {
     font-size: 18px;
     text-transform: uppercase;
     align-items: center;
+    border: 1px solid #B2241C;
 
 }
 
@@ -3379,6 +3422,7 @@ form#register,form#login {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  height: 800px
 }
 
 /* Блок модального окна */
@@ -3483,6 +3527,7 @@ form#register,form#login {
   font-weight: 500;
   text-align: left;
   text-decoration: underline;
+  outline: none;
 }
 
 .invite-form__actions {
@@ -3520,6 +3565,12 @@ form#register,form#login {
 .invite-form__copy-icon {
   width: 60px;
   height: 60px;
+  outline: none;
+}
+
+.invite-form__copy-icon:hover {
+  background-blend-mode: soft-light, normal;
+  box-shadow: 0px 20px 40px 0px #DF0C0033;
 }
 
 .invite-form__hint {
@@ -3537,7 +3588,7 @@ form#register,form#login {
 .one_team_page {
   background: url('../img/teams_page_bg.jpg') no-repeat center center fixed;
   background-size: cover;
-  min-height: 92.2vh;
+  min-height: 100vh;
   color: #B2241C; /* основной красный цвет */
   font-family: 'Blender-bold', sans-serif;
   font-size: 1.5em !important;
@@ -3648,7 +3699,7 @@ form#register,form#login {
 }
 
 .team-stat-box {
-  background: url('../img/box_red.jpg') no-repeat center center;
+  background: url('../img/svg/box_red.svg') no-repeat center center;
   background-size: cover;
   color: white;
   min-width: 2em; /* вместо width используем min-width */
@@ -3673,16 +3724,18 @@ form#register,form#login {
 }
 
 .middle-box.middle-high {
-  background-image: url('../img/full_bat.png'), url('../img/box_red.jpg');
-
+  background-image: url('../img/full_bat.png'), url('../img/svg/box_red.svg');
+  background-size: 35% 60%, cover;
 }
 
 .middle-box.middle-medium {
-  background-image: url('../img/middle_bat.png'), url('../img/box_red.jpg');
+  background-image: url('../img/png/batareya_mid.png'), url('../img/svg/box_red.svg');
+  background-size: 35% 60%, cover;
 }
 
 .middle-box.middle-low {
-  background-image: url('../img/low_bat.png'), url('../img/box_red.jpg');
+  background-image: url('../img/png/batareya_low.png'), url('../img/svg/box_red.svg');
+  background-size: 35% 60%, cover;
 }
 
 .right-box {
@@ -3732,6 +3785,11 @@ form#register,form#login {
     background-color: #B2241C;
     font-size: 1em;
     text-transform: uppercase;
+    border: 1px solid #B2241C;
+}
+
+.table_profile_team td:nth-child(2) {
+    text-align: center;
 }
 
 .table_profile_team thead tr td {
@@ -4038,6 +4096,7 @@ form#register,form#login {
   background-blend-mode: soft-light, normal;
   box-shadow: 0px 20px 40px 0px #DF0C0033;
   background-size: cover;
+  transition: all .3s;
   background-repeat: no-repeat;
   outline: none;
 }

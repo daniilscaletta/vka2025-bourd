@@ -6,49 +6,56 @@
 
 {% block content %}
 
-<div class="challenge_container">
-		<div class="challenges_up_container">
-			<h1>категории заданий</h1>
-			<p class="center_title_vkactf">vkactf 2025.</p>
-			<div class="challenges_up_right_els">
-				<div class="challenges_up_right_els_left-text">заработано очков</div>
-				<div class="challenges_up_right_els_center-icon"></div>
-				<div class="challenges_up_right_els_right-icon">_</div>
-			</div>
+<div class="wrapper challenge_container">
+	<div class="challenges_up_container">
+		<h1>категории заданий</h1>
+		<div class="challenges_up_right_els">
+			<div class="challenges_up_right_els_left-text">заработано очков</div>
+			<div class="challenges_up_right_els_center-icon"></div>
+			<div class="challenges_up_right_els_right-icon">0</div>
 		</div>
-
-		<div class="challenge_mid_container">
-			<div class="challenge_mid_container_locker"></div>
-			<div class="challenges_mid_container_center-text">задания пока не доступны</div>
-		</div>
-
-		<div class="challenge_down_container">
-			<a href="/" class="challenges_back_btn">
-				<div class="challenges_down_container_left-icon"></div>
-				<div class="challenges_down_container_left-text">вернуться на главную</div>
-			</a>
-		</div>
-
 	</div>
 
+	<div class="challenge_mid_container">
+		<div class="challenge_mid_container_locker"></div>
+		<div class="challenges_mid_container_center-text">задания пока не доступны</div>
+	</div>
 
-<!-- 
-<div class="modal fade" id="challenge-window" tabindex="-1" role="dialog"></div>
+	<div class="challenge_down_container">
+		<a href="/" class="challenges_back_btn">
+			<div class="challenges_down_container_left-icon"></div>
+			<div class="challenges_down_container_left-text">вернуться на главную</div>
+		</a>
+	</div>
+</div>
 
+
+<!-- <div class="modal fade" id="challenge-window" tabindex="-1" role="dialog"></div>
 <div class="all_challenges">
 	<div class="wrapper">
-
-
-		<div class="row">
-			<div class="col-md-12">
-				{% include "components/errors.html" %}
-			</div>
-		</div>
-
 		<div class="info_team_line_cat">
 			<div class="wrapper_left">
 				<h1 class="task__header">Категории заданий</h1>
+			<div class="team-score-wrapper">
+				<small class="task__header">Заработано очков</small>
+				<div class="score-boxes">
+					{% set level_class = "middle-low" %}
+					{% if score is defined and score >= 3000 %}
+					{% set level_class = "middle-high" %}
+					{% elif score is defined and score == 0 %}
+					{% set level_class = "middle-medium" %}
+					{% endif %}
+					<div class="team-stat-box middle-box {{ level_class }}"></div>
+						<div class="team-stat-box right-box">
+						{% if score %}
+							<p>{{ score }}</p>
+						{% else  %}
+							<p>0</p>
+						{% endif %}
+						</div>
+				</div>
 			</div>
+		</div>
 		</div>
 		<div id='challenges-board' class="challenges-board">
 			<div class="wrapper_left">
@@ -59,10 +66,9 @@
 				</div>
 			</div>
 		</div>
-
-
 	</div>
 </div>  -->
+
 {% endblock %}
 
 {% block scripts %}

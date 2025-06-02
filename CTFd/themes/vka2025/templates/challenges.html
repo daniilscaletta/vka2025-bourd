@@ -10,9 +10,26 @@
 	<div class="challenges_up_container">
 		<h1>категории заданий</h1>
 		<div class="challenges_up_right_els">
-			<div class="challenges_up_right_els_left-text">заработано очков</div>
-			<div class="challenges_up_right_els_center-icon"></div>
-			<div class="challenges_up_right_els_right-icon">0</div>
+			<div class="team-score-wrapper">
+				<div class="challenges_up_right_els_left-text">Заработано очков</div>
+				<div class="score-boxes">
+					{% set level_class = "middle-low" %}
+					{% if score is defined and score >= 3000 %}
+					{% set level_class = "middle-high" %}
+					{% elif score is defined and score == 0 %}
+					{% set level_class = "middle-medium" %}
+					{% endif %}
+					<div class="team-stat-box middle-box correct_size_icon {{ level_class }}"></div>
+						<div class="team-stat-box correct_size_icon right-box">
+						{% if score %}
+							<p>{{ score }}</p>
+						{% else  %}
+							<p>0</p>
+						{% endif %}
+						</div>
+				</div>
+			</div>
+			
 		</div>
 	</div>
 

@@ -1347,16 +1347,17 @@ box-shadow: none !important;
 
 /* CHALLENGES START */
 .challenge_container{
-  height: 800px !important;
+  height: 100%;
   max-width: 1160px !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .challenges_up_container{
   width: 100%;
-  height: 100%;
   
   max-width: 1160px;
-  max-height: 70px;
+  height: 70px;
   border-width: 2px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -1366,16 +1367,20 @@ box-shadow: none !important;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
-  margin-top: 100px;
+  margin-top: 70px;
+   flex-shrink: 0;
+  
 }
 .challenge_mid_container{
+
   width: 100%;
-  height: 100%;
   max-width: 1160px;
-  max-height: 500px;
   border-width: 2px;
   border: 2px solid #B2241C;
   margin-bottom: 10px;
+  min-height: 0px;
+  overflow: auto;
+  height: 55%;
 
    display: flex;
   flex-direction: column;
@@ -1386,11 +1391,8 @@ box-shadow: none !important;
 
 .challenge_down_container{
   width: 100%;
-  height: 100%;
-    max-width: 1160px;
-  max-height: 70px;
-  top: 744px;
-  left: 103px;
+  max-width: 1160px;
+  height: 70px;
   border-width: 2px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -1398,6 +1400,7 @@ box-shadow: none !important;
   align-items: center;
   display: flex;
   margin-bottom: 3em;
+    flex-shrink: 0;
 }
 
 .challenges_up_container h1{
@@ -1425,6 +1428,7 @@ box-shadow: none !important;
   display: flex;
 	align-items: center;
 	justify-content: space-between;
+    margin-right: 20px;
 }
 
 .challenges_up_right_els_left-text{
@@ -1443,7 +1447,16 @@ box-shadow: none !important;
 	background-repeat: no-repeat;
 	background-position: center;
   background-image: url('../img/svg/icon_battery.svg');
-  margin-left: 20px;;
+  margin-left: 15px;;
+
+}
+
+.correct_size_icon{
+    width: 3rem !important;
+  height: 3rem !important;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .challenges_up_right_els_right-icon{

@@ -2,9 +2,12 @@
 
 {% block content %}
 <section class="notif">
-	<div class="container_full">
+
+	{% if notifications | length != 0 %}
+	<div class="container_full ">
 		<h1 class="title_settings">уведомления</h1>
 	</div>
+	
 	<div class="container">
 		<div class="container_settings_form">
 			<div class="left_buttons_container">
@@ -51,6 +54,14 @@
 
 		</div>
 	</div>
+	{% else %}
+		<div class="container_full teap_title_solve_scorebourd">
+			<h1 class="title_settings">уведомлений пока нет</h1>
+		</div>
+	{% endif %}
+
+
+	
 </section>
 
 {% endblock %}

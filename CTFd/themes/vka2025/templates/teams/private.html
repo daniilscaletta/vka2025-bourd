@@ -23,7 +23,7 @@
 											Имя команды
 										</p>
 										<div class="form-input-wrapper_edit_win">
-											{{ form.name(class="form-control form_control_for_settings", value=name) }}
+											{{ form.name(class="form-control form_control_for_settings", placeholder="Новое имя команды") }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
 									</div>
@@ -64,7 +64,7 @@
 											Страна
 										</p>
 										<div class="form-input-wrapper_edit_win">
-											{{ form.country(class="form-control custom-select form_control_for_settings", value=country) }}
+											{{ form.country(class="form-control custom-select form_control_for_settings", placeholder="Выберите страну") }}
 											<span class="edit_icon" onclick="enableInput(this)"></span>
 										</div>
 									</div>
@@ -231,9 +231,9 @@
 				<small class="score-label">Заработано очков</small>
 					<div class="score-boxes">
 						<div class="team-stat-box middle-box
-							{% if score >= 19000 %}
+							{% if score >= 3000 %}
 								middle-high
-							{% elif score >= 5000 %}
+							{% elif score != 0 %}
 								middle-medium
 							{% else %}
 								middle-low

@@ -42,7 +42,6 @@ label:focus {
   cursor: url('../img/svg/Курсор.svg') 16 16, default !important;
 }
 
-
 @font-face {
     font-family: 'Blender Pro';
     src: local('Blender Pro Medium'), local('Blender-Pro-Medium'),
@@ -91,6 +90,84 @@ body{
   font-weight: 700;
   color:rgb(255, 255, 255);
   background-color: #000000;
+}
+
+.preloader {
+  position: fixed; /* ключевой момент */
+  top: 0;
+  left: 0;
+  z-index: 9999; /* поверх всего */
+  background: #000; /* или любой фон */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.box_section {
+  width: 100%;
+  display: flex;
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 5em; убираем */
+}
+
+.preload{
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  border: 4px solid #0000;
+  border-radius: 50%;
+  border-color: #ccc #0000;
+  animation: l16 1s infinite linear;
+}
+.preload::before,
+.preload::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+}
+.preload::before {
+  border-color: #B2241C #0000;
+  animation: inherit;
+  animation-duration: .5s;
+  animation-direction: reverse;
+}
+.preload::after {
+  margin: 8px;
+}
+
+.img_filter {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  animation: shimmer 1.6s ease-in-out infinite;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.preloader.fadeout,
+.img_filter.fadeout {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+
+
+@keyframes l16 {
+  100%{transform: rotate(1turn)}
 }
 
 .container_full {
@@ -512,7 +589,7 @@ body{
     flex-direction: row;
     align-items: center;
     height: 10vh;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .logo-tg-red{
@@ -565,7 +642,12 @@ body{
   text-decoration: none;
 }
 
-
+.footer__copyright {
+  flex: 3;
+  color: #b19797;
+  text-align: end;
+  margin-left: 25vw;
+}
 
 /* RULES END */
 
@@ -681,6 +763,12 @@ body{
     font-size: 16px !important;
     background-color: rgba(255, 255, 255, 0.1) !important; /* прозрачный фон */
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      font-family: Blender Pro;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 .alert-success{
@@ -874,7 +962,7 @@ box-shadow: none !important;
 }
 
 .teap_title_solve_scorebourd{
-  margin-top: 100px;
+  padding-top: 100px !important;
 }
 
 .teap_title_solve_scorebourd h1{
@@ -974,6 +1062,9 @@ box-shadow: none !important;
     color: #B2241C;
     font-family: Blender-bold;
     font-size: 1.4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     text-transform: uppercase;
     padding: 0;
@@ -981,6 +1072,7 @@ box-shadow: none !important;
     position: relative;
     overflow: hidden;
 }
+
 
 /* .scoreboard-freeze {
     position: relative;
@@ -1346,11 +1438,24 @@ box-shadow: none !important;
 
 
 /* CHALLENGES START */
+
 .challenge_container{
   height: 100%;
   max-width: 1160px !important;
   display: flex;
   flex-direction: column;
+}
+.correct_icon_left_cattegory h1{
+    margin-left: 10px !important;
+
+}
+
+.challenge_container_task_correct{
+    height: 100%;
+    max-width: 1200px !important;
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
 }
 
 .challenges_up_container{
@@ -1367,10 +1472,10 @@ box-shadow: none !important;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
-  margin-top: 70px;
    flex-shrink: 0;
   
 }
+
 .challenge_mid_container{
 
   width: 100%;
@@ -1595,9 +1700,10 @@ box-shadow: none !important;
 .container_inner_main_page{
   width: 1050px;
   margin: 0 auto;
-  padding-top: 90px;;
+  padding-top: 90px;
   display: flex;
   justify-content: center;
+  padding-top: 20vh;
 }
 
 .welcome_text{
@@ -1660,7 +1766,7 @@ box-shadow: none !important;
 .text_into_form_team {
     font-family: 'Blender Pro', sans-serif;
     font-weight: 700;
-    font-size: (1rem, 1.8vw, 1.25rem);
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
     line-height: 120%;
     letter-spacing: 0;
     text-align: center;
@@ -1833,42 +1939,65 @@ box-shadow: none !important;
     justify-content: center;
     height: 100vh; /* Центрирование по высоте */
     text-align: center;
+    margin: 0 auto;
 }
 
-.error_page_number_img{
-    background-size: 100%;        /* Увеличит зум (напр., 150% от реального размера) */
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-image: url('../img/png/404.png');
-    height: 100vh;
-
-    width: 558px;
-    height: 291px;
-    padding-left:175px;
-    margin-bottom: 70px;
+.error_content_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
 }
 
-.inside_error_number_pioner{
-    background-size: 100%;        /* Увеличит зум (напр., 150% от реального размера) */
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-image: url('../img/png/pioner.png');
-    height: 100vh;
 
-    width: 209px;
-    height: 405px;
-    transform: translateY(-70px);
+.error_page_number_img {
+  width: 300px;
+  height: 160px;
+  background-image: url('../img/png/404.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+.error_container_test {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hwb(0 0% 100%);
+  font-family: sans-serif;
+  text-align: center;
 }
 
-.h2_error_page{
-  font-family: Blender Pro;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 100%;
+
+.inside_error_number_pioner {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 230px;
+  background-image: url('../img/png/pioner.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-transform: uppercase;
+}
+
+
+.h2_error_page h2{
+  font-family: Blender Pro !important;
+  font-weight: 700 !important;
+  font-size: 32px !important;
+  line-height: 100% !important;
   letter-spacing: 0;
   text-align: center;
   text-transform: uppercase;
-
+  color: white;
+  font-size: 24px;
+  margin: 0;
 }
 
 
@@ -2090,6 +2219,13 @@ width: 200px;
 
 .correct_btn_send_flag{
   padding: 0px 0px !important;
+  width: 100% !important;
+  margin-top: 15px !important;
+}
+.max_length_alert_title{
+  max-width: 340px !important;
+  width: 100% !important;
+  margin-top: 20px !important;
 }
 
 #team-captain-form .button-red {
@@ -2299,7 +2435,7 @@ width: 200px;
 }
 
 
-.challenges_up_right_els_center-icon_capsul{
+.challenges_up_right_els_center-icon_capsul_full{
   width: 9px;
 	height: 23px;
 	background-size: contain;
@@ -2309,6 +2445,18 @@ width: 200px;
   align-items: center;
   justify-content: center;
 }
+.challenges_up_right_els_center-icon_capsul_half{
+  width: 9px;
+	height: 23px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+  background-image: url('../img/svg/capsula_half.svg');
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 .challenges_up_right_els_right-icon_value{
     width: 66px;
@@ -2342,7 +2490,9 @@ width: 200px;
     display: flex;
     align-items: center;     /* вертикальное выравнивание */
     justify-content: flex-start; /* прижатие к левому краю */             /* отступ между картинкой и текстом */
-    gap: 20px;
+    gap: 10px;
+    margin-left: 20px;
+    margin-right: 20px
 }
 
 .web_icon_fg {
@@ -2351,47 +2501,69 @@ width: 200px;
     object-fit: contain;
 }
 
+.correct_icon_left_cattegory h1{
+    margin-left: 10px !important;
+
+}
+
 .challenge_mid_container_bg_black{
-  width: 1160px;
-  height: 588px;
-  border-width: 2px;
-  background-color: #000;
-  padding-top: 10px;
   display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 65%;
   gap: 10px;
+  margin-bottom: 10px;
+  max-width: 1160px;
 }
 
 .challenge_mid_container_left-column{
   display: flex;
   flex-direction: column;
+  flex: 1;
   gap: 10px;
+  height: 100%;
 }
 
 
 .challenge_mid_container_right-column{
-  display: flex;
-  align-items: start;
-  justify-content: center;
-}
-
-.left-top_box_ramka{
-  width: 360px;
-  height: 392px;
-}
-
-.left-bottom_box_ramka{
-  width: 360px;
-  height: 166px;
+  flex: 2;
   display: flex;
   flex-direction: column;
 }
 
-.right-box_box_ramka{
-  width: 790px;
-  height: 568px;
+.left-top_box_ramka{
+  flex: 3;
+  min-height: 0;
+  width: 100%;
+  
 }
 
+.left-bottom_box_ramka{
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center;
+  box-sizing: border-box;;
+  gap: 10px;
+}
 
+.right-box_box_ramka{
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.notification-placeholder {
+  height: 3em; /* подбери нужную высоту */
+}
 
 .box_ramka_red{
   border: 2px solid #B2241C;
@@ -2400,18 +2572,15 @@ width: 200px;
 }
 
 
-
 .chellange_count_solve_header{
   font-family: Blender Pro;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 1.4rem;
   line-height: 100%;
   letter-spacing: 0;
   text-transform: uppercase;
   position: relative;
-  margin-top: 30px;
-  margin-left: 40px;
-  margin-bottom: 20px;;
+  
 
 }
 
@@ -2419,17 +2588,16 @@ width: 200px;
   width: 233px;
   height: 58px;
   position: relative;
-  margin-left: 40px;
-  margin-bottom: 32px;
 
   background: linear-gradient(90deg, #5E5E5E 0%, #242424 100%);
 
   font-family: Blender Pro;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.2rem;
   line-height: 100%;
   letter-spacing: 0;
   text-transform: uppercase;
+  padding: 0.5em 1em;
 
   display: flex;
   align-items: center;
@@ -2455,9 +2623,16 @@ width: 200px;
 
 .right-box_box_ramka-column-left,
 .right-box_box_ramka-column-right {
-  width: 49%;
   box-sizing: border-box;
   color: white;
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  overflow-x: hidden;
+  scrollbar-color: #B2241C #1a1a1a;
+  scrollbar-width: thin;
+  padding-right: 20px;
+  padding-left: 30px;
 }
 
 
@@ -2465,7 +2640,6 @@ width: 200px;
   width: 292px;
   height: 209px;
   border-radius: 30px;
-  margin-left: 50px;;
   margin-top: 30px;;
   margin-bottom: 20px;;
 }
@@ -2476,11 +2650,10 @@ width: 200px;
   font-size: 15px;
   line-height: 150%;
   letter-spacing: 0;
-  margin-left: 50px;
 
 
 }
-.challenge-connection-info_string code{
+.challenge-connection-info_string code #text{
   color: #FFFFFF;
   width: 286px;
   height: 23px;
@@ -2489,7 +2662,14 @@ width: 200px;
   font-size: 15px;
   line-height: 150%;
   letter-spacing: 0;
+  text-align: justify;
+  display: block !important;
+  margin-bottom: 15px;
+}
 
+.challenge-connection-info_string code{
+    text-align: justify;
+  display: block !important;
 }
 
 .left-box_connection_info_up{
@@ -2501,14 +2681,12 @@ width: 200px;
   vertical-align: middle;
 
   color:#C21916;
-  margin-left: 50px;
   margin-bottom: 10px;
 }
 
 .challenge_container_download_file{
-  margin-top: 15px;
-  width: 292px;
-  margin-left: 50px;
+  margin-top: 25px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -2541,7 +2719,6 @@ width: 200px;
   transform: translateY(-3px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 .challenge_header_title{
   font-family: Blender Pro;
   font-weight: 700;
@@ -2552,6 +2729,10 @@ width: 200px;
   color: #fff;
   margin-top: 30px;
   margin-bottom: 10px;
+  text-align: justify;
+  letter-spacing: 0;
+  max-width: 340px;
+  width: 100%;
 }
 
 
@@ -2590,17 +2771,15 @@ margin-bottom: 0px;
   font-size: 15px;
   line-height: 110.00000000000001%;
   letter-spacing: 0;
-  width: 85%;
+  width: 100%;
+  max-width: 340px;
   text-align: justify;
   margin-bottom: 15px;
 }
-
 .challenge_hint_container {
   display: flex;
   align-items: center;
   gap: 10px;
-  /**//**/
-  margin-bottom: 20px;;
 }
 
 
@@ -2641,19 +2820,22 @@ margin-bottom: 0px;
 }
 
 .rectangle_input_flag{
-  width: 340px;
-  height: 58px;
+  max-width: 340px;
+  max-height: 58px;
+  width: 100%;
+  min-height: 0;
+  height: 100%;
   border-width: 1px;
   border: 1px solid #FFFFFF;
+  margin: 0 0;
 }
-
 .challenge-inpu_flag_form{
   font-family: Blender Pro;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 110.00000000000001%;
   letter-spacing: 0;
-  color: #474747;
+  color: #ffffff;
   width: 338px;
   height: 56px;;
   border-radius: 0px;;
@@ -2790,16 +2972,14 @@ margin-bottom: 0px;
   margin-top: 30px;
   margin-bottom: 10px;
 }
-
 .table_scroll_wrapper {
-  min-height: 360px;
+  min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
   width: 100%;
+  scrollbar-color: #B2241C #1a1a1a;
+  scrollbar-width: thin;
 }
-
-
-
 
 
 
@@ -2871,7 +3051,7 @@ margin-bottom: 0px;
 }
 .error-box {
   width: 100%;
-  height: 2em;
+  height: 3em;
   background: #B2241C80;
   color: #ffffff;
   text-align: center;
@@ -2880,6 +3060,26 @@ margin-bottom: 0px;
   font-family: Blender-bold;
   font-size: 0.7em;
   margin: 10px auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.error-box-alert{
+  width: 100%;
+  height: 3em;
+  background: #B2241C80;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  border: none;
+  font-family: Blender-bold;
+  font-size: 0.7em;
+  margin: 10px auto;
+  font-size: 0.65em;
+  margin: 10px auto;
+  margin-top: 4em;
+  padding: 0.3em;
 }
 
 .error-text {
@@ -2907,6 +3107,7 @@ margin-bottom: 0px;
     position: absolute;
     top: 23%;
     width: 50%;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     text-align: center;
     text-transform: uppercase;
     color: #B2241C;
@@ -2915,7 +3116,6 @@ margin-bottom: 0px;
 .left-page h2 {
     font-family: Blender-bold;
     font-weight: 700;
-    font-size: 1.5vw;
     line-height: 1.2;
     margin-bottom: 0.5em;
 }
@@ -2944,13 +3144,13 @@ margin-bottom: 0px;
 
 form#register,form#login {
     font-family: Blender-bold;
-    font-size: 1.1vw;
+    font-size: clamp(1vh, 1vw, 3vh);
     line-height: 1.2;
     color: #000;
 }
 
 .form-group_reg_name {
-    width: 100%;
+
     margin-top: 3em;
     width: 100%;
 }
@@ -3032,6 +3232,12 @@ form#register,form#login {
   outline: none;
 }
 
+.reset_pass{
+  margin-top: 1.5em;
+}
+.forgot-password-link{
+  color:#B2241C;
+}
 
 .button-red:active,
 .button-red_search:active,
@@ -3435,7 +3641,17 @@ form#register,form#login {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  height: 800px
+}
+.wrapper_huyaper {
+  width: 100%;
+  max-width: 1340px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100vh;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 /* Блок модального окна */

@@ -5,204 +5,209 @@
 {% endblock %}
 
 
-<div class="modal-dialog modal-dialog-centered modal-lg">
-		
-	<div class="modal-content madal_change_content challenge_container_task modal-body challenge_main_container modal">
-					<div class="challenges_up_container_task">
-						{% if challenge.category == "web" %}
-						<div class="challenge_up_left_name_and_img">
-							<img class="web_icon_fg" src="themes/vka2025/static/img/png/web_img.png" alt="web_img">
-							<h1>{{ challenge.category }}</h1>
-						</div>
-						{% elif challenge.category == "crypto" %}
-						<div class="challenge_up_left_name_and_img">
-							<img class="web_icon_fg" src="themes/vka2025/static/img/png/crypt_img.png" alt="crypt_img">
-							<h1>{{ challenge.category }}</h1>
-						</div>
-						{% elif challenge.category == "ppc" %}
-						<div class="challenge_up_left_name_and_img">
-							<img class="web_icon_fg" src="themes/vka2025/static/img/png/ppc_img.png" alt="ppc_img">
-							<h1>{{ challenge.category }}</h1>
-						</div>
-						{% elif challenge.category == "misc" %}
-						<div class="challenge_up_left_name_and_img">
-							<img class="web_icon_fg" src="themes/vka2025/static/img/png/misc_img.png" alt="misc_img">
-							<h1>{{ challenge.category }}</h1>
-						</div>
-						{% elif challenge.category == "forensics" %}
-						<div class="challenge_up_left_name_and_img">
-							<img class="web_icon_fg" src="themes/vka2025/static/img/png/for_img.png" alt="for_img">
-							<h1>{{ challenge.category }}</h1>
-						</div>
-						{% elif challenge.category == "pwn" %}
-						<div class="challenge_up_left_name_and_img">
-							<img class="web_icon_fg" src="themes/vka2025/static/img/png/pwn_img.png" alt="pwn_img">
-							<h1>{{ challenge.category }}</h1>
-						</div>
-						{% elif challenge.category == "rev" %}
-						<div class="challenge_up_left_name_and_img">
-							<img class="web_icon_fg" src="themes/vka2025/static/img/png/rev_img.png" alt="rev_img">
-							<h1>{{ challenge.category }}</h1>
-						</div>
-						{% endif %}
-						<p class="center_title_vkactf">vkactf 2025.</p>
-						<div class="challenges_up_right_els">
-							<div class="challenges_up_right_els_left-text">ценность задания</div>
-							<div class="challenges_up_right_els_center_box">
-								<div class="challenges_up_right_els_center-icon_capsul"></div>
+<div class="wrapper challenge_container_task_correct">
+			
+			
+						<div class="challenges_up_container correct_icon_left_cattegory">
+							{% if challenge.category == "web" %}
+							<div class="challenge_up_left_name_and_img">
+								<img class="web_icon_fg" src="themes/vka2025/static/img/png/web_img.png" alt="web_img">
+								<h1>{{ challenge.category }}</h1>
 							</div>
-							<div class="challenges_up_right_els_right-icon_value">{{ challenge.value }}</div>
-						</div>
-					</div>
-
-					<div class="challenge_mid_container_bg_black">
-						<div class="challenge_mid_container_left-column ">
-							<div class="box_ramka_red left-top_box_ramka">
-								<div class="table_scroll_wrapper">
-									<table class="table_up_container_challenge">
-										<thead class="simple_thead">
-											<tr>
-											<th><b>имя</b></th>
-											<th><b>время</b></th>
-											</tr>
-										</thead>
-										<tbody id="challenge-solves-names" class="set_properties_for_solves">
-										</tbody>
-									</table>
+							{% elif challenge.category == "crypto" %}
+							<div class="challenge_up_left_name_and_img">
+								<img class="web_icon_fg" src="themes/vka2025/static/img/png/crypt_img.png" alt="crypt_img">
+								<h1>{{ challenge.category }}</h1>
+							</div>
+							{% elif challenge.category == "ppc" %}
+							<div class="challenge_up_left_name_and_img">
+								<img class="web_icon_fg" src="themes/vka2025/static/img/png/ppc_img.png" alt="ppc_img">
+								<h1>{{ challenge.category }}</h1>
+							</div>
+							{% elif challenge.category == "misc" %}
+							<div class="challenge_up_left_name_and_img">
+								<img class="web_icon_fg" src="themes/vka2025/static/img/png/misc_img.png" alt="misc_img">
+								<h1>{{ challenge.category }}</h1>
+							</div>
+							{% elif challenge.category == "forensics" %}
+							<div class="challenge_up_left_name_and_img">
+								<img class="web_icon_fg" src="themes/vka2025/static/img/png/for_img.png" alt="for_img">
+								<h1>{{ challenge.category }}</h1>
+							</div>
+							{% elif challenge.category == "pwn" %}
+							<div class="challenge_up_left_name_and_img">
+								<img class="web_icon_fg" src="themes/vka2025/static/img/png/pwn_img.png" alt="pwn_img">
+								<h1>{{ challenge.category }}</h1>
+							</div>
+							{% elif challenge.category == "rev" %}
+							<div class="challenge_up_left_name_and_img">
+								<img class="web_icon_fg" src="themes/vka2025/static/img/png/rev_img.png" alt="rev_img">
+								<h1>{{ challenge.category }}</h1>
+							</div>
+							{% endif %}
+							<div class="challenges_up_right_els">
+								<div class="challenges_up_right_els_left-text">ценность задания</div>
+								<div class="challenges_up_right_els_center_box">
+									{% if challenge.value >= 500 %}
+										<div class="challenges_up_right_els_center-icon_capsul_full"></div>
+									{% else %}
+										<div class="challenges_up_right_els_center-icon_capsul_half"></div>
+									{% endif %}
 								</div>
+								<div class="challenges_up_right_els_right-icon_value">{{ challenge.value }}</div>
 							</div>
+						</div>
+
+						<div class="challenge_mid_container_bg_black">
+							<div class="challenge_mid_container_left-column ">
+								<div class="box_ramka_red left-top_box_ramka">
+									<div class="table_scroll_wrapper">
+										<table class="table_up_container_challenge">
+											<thead class="simple_thead">
+												<tr>
+												<th><b>имя</b></th>
+												<th><b>время</b></th>
+												</tr>
+											</thead>
+											<tbody id="challenge-solves-names" class="set_properties_for_solves">
+											</tbody>
+										</table>
+									</div>
+								</div>
 
 								<div class="box_ramka_red left-bottom_box_ramka">
-								<h3 class="chellange_count_solve_header">
-									{% if solves != None %}
-									{{ solves }} {% if solves == 1 %}Готовое решение{% else %}Готовых решений{% endif %}
-									{% endif %}
-								</h3>
-								<a class="challenge_grey_btn_solves challenge-solves">
-									смотреть таблицу
-								</a>
-							</div>
-						</div>
-						<div class="challenge_mid_container_right-column">
-							<div class="box_ramka_red right-box_box_ramka">
-								<div class="right-box_box_ramka-column-left">
-									<img class="task_icon_left" src="themes/vka2025/static/img/task_img.gif" alt="task_img">
-									<div class="left-box_connection_info_up">
-										{% if files | length != 0 %}
-											Задействуй потенциал
-										{% else %}
-
+									<h3 class="chellange_count_solve_header">
+										{% if solves != None %}
+										{{ solves }} {% if solves == 1 %}Готовое решение{% else %}Готовых решений{% endif %}
 										{% endif %}
-									</div>
-									<span class="challenge-connection-info_string">
-									{% block connection_info %}
-										{% set conn = challenge.connection_info %}
-										{% if not conn %}
-										{% elif conn.startswith("http") %}
-											{{ conn | urlize(target="_blank") }}
-										{% else %}
-											<code>{{ conn }}</code>
-										{% endif %}
-									{% endblock %}
-									<div class="challenge_container_download_file">
-										{% for file in files %}
-												<a class='download_file_bg_link'
-												href='{{ file }}'>
-													<img class="download_challenge_img" src="themes/vka2025/static/img/svg/dwnload_img.svg" alt="download_img">
-													<small>
-														{% set segments = file.split('/') %}
-														{% set file = segments | last %}
-														{% set token = file.split('?') | last %}
-														{% if token %}
-															{{ file | replace("?" + token, "") }}
-														{% else %}
-															{{ file }}
-														{% endif %}
-													</small>
-												</a>
-										{% endfor %}
-										
-									</div>
-								</span>
+									</h3>
+									<a class="challenge_grey_btn_solves challenge-solves">
+										смотреть таблицу
+									</a>
 								</div>
-								<div class="right-box_box_ramka-column-right">
-									<h2 class='challenge_header_title'>
-										{{ challenge.name }}
-									</h2>
-									<div class="challenge_container_level_right">
-										<h3 class="challenge_level_title">
-											Уровень сложности:
-										</h3>
-										<div class="challenge_level_tags">
-											{% if tags | length == 0 %}
-												<span class="unknown_tag_color">Неизвестно</span>
+							</div>
+							<div class="challenge_mid_container_right-column">
+								<div class="box_ramka_red right-box_box_ramka">
+									<div class="right-box_box_ramka-column-left">
+										<img class="task_icon_left" src="themes/vka2025/static/img/task_img.gif" alt="task_img">
+										<div class="left-box_connection_info_up">
+											{% if files | length != 0 %}
+												Задействуй потенциал
 											{% else %}
-												{% for tag in tags %}
-													{% if tag == 'easy' %}
-														<span class="easy_tag_color_atom">Мирный атом</span>
-													{% elif tag == 'medium' %}
-														<span class="medium_tag_color">Локальный сбой</span>
-													{% elif tag == 'hard' %}
-														<span class="hard_tag_color">Армагеддон</span>
-													{% else %}
-														<span class="unknown_tag_color">Неизвестно</span>
-													{% endif %}
-												{% endfor %}
+
 											{% endif %}
 										</div>
-									</div>
-									<div class="challenge_desc_text_task">
-										{{ challenge.html }}
-									</div>
-									{% for hint in hints %}
-										<a class="challenge_hint_container load-hint " href="javascript:;" data-hint-id="{{ hint.id }}">
-											<img class="hint_key_img" src="themes/vka2025/static/img/png/hint_key_img.png" alt="hint_key_img">
-											<h3 class="challenge_text_hint">
-												{% if hint.content %}
-													<small>Посмотреть подсказку</small>
+										<span class="challenge-connection-info_string">
+											{% block connection_info %}
+												{% set conn = challenge.connection_info %}
+												{% if not conn %}
+												{% elif conn.startswith("http") %}
+													{{ conn | urlize(target="_blank") }}
 												{% else %}
-												{% if hint.cost %}
-													<small>Открыть подсказку за {{ hint.cost }} баллов</small>
-												{% else %}
-													<small>Посмотреть подсказку</small>
+													<code>{{ conn }}</code>
 												{% endif %}
-												{% endif %}
+											{% endblock %}
+										</span>
+										<div class="challenge_container_download_file">
+											{% for file in files %}
+													<a class='download_file_bg_link'
+													href='{{ file }}'>
+														<img class="download_challenge_img" src="themes/vka2025/static/img/svg/dwnload_img.svg" alt="download_img">
+														<small>
+															{% set segments = file.split('/') %}
+															{% set file = segments | last %}
+															{% set token = file.split('?') | last %}
+															{% if token %}
+																{{ file | replace("?" + token, "") }}
+															{% else %}
+																{{ file }}
+															{% endif %}
+														</small>
+													</a>
+											{% endfor %}
+										</div>
+									</div>
+									<div class="right-box_box_ramka-column-right">
+										<h2 class='challenge_header_title'>
+											{{ challenge.name }}
+										</h2>
+										<div class="challenge_container_level_right">
+											<h3 class="challenge_level_title">
+												Уровень сложности:
 											</h3>
-										</a>
-									{% endfor %}
-									
-									
-									<div class="rectangle_input_flag">
-									{% block input %}
-										<input id="challenge-id" class="challenge-inpu_flag_form" type="hidden" value="{{ challenge.id }}">
-										<input id="challenge-input" class="challenge-inpu_flag_form" type="text" name="answer" placeholder="vka{dummy}"/>
-									{% endblock %}
-									{% block submit %}
-										<button id="challenge-submit" class="button-red correct_btn_send_flag" type="submit">
-											Отправить
-										</button>
-									{% endblock %}
-									</div>
-									<div class="row notification-row">
-											<div class="col-md-12">
-												<div id="result-notification" class="alert alert-dismissable text-center w-100"
-													role="alert" style="display: none;">
-													<strong id="result-message"></strong>
-												</div>
+											<div class="challenge_level_tags">
+												{% if tags | length == 0 %}
+													<span class="unknown_tag_color">Неизвестно</span>
+												{% else %}
+													{% for tag in tags %}
+														{% if tag == 'easy' %}
+															<span class="easy_tag_color_atom">Мирный атом</span>
+														{% elif tag == 'medium' %}
+															<span class="medium_tag_color">Локальный сбой</span>
+														{% elif tag == 'hard' %}
+															<span class="hard_tag_color">Армагеддон</span>
+														{% else %}
+															<span class="unknown_tag_color">Неизвестно</span>
+														{% endif %}
+													{% endfor %}
+												{% endif %}
 											</div>
 										</div>
+										<div class="challenge_desc_text_task">
+											{{ challenge.html }}
+										</div>
+										{% for hint in hints %}
+											<a class="challenge_hint_container load-hint " href="javascript:;" data-hint-id="{{ hint.id }}">
+												<img class="hint_key_img" src="themes/vka2025/static/img/png/hint_key_img.png" alt="hint_key_img">
+												<h3 class="challenge_text_hint">
+													{% if hint.content %}
+														<small>Посмотреть подсказку</small>
+													{% else %}
+													{% if hint.cost %}
+														<small>Открыть подсказку за {{ hint.cost }} баллов</small>
+													{% else %}
+														<small>Посмотреть подсказку</small>
+													{% endif %}
+													{% endif %}
+												</h3>
+											</a>
+										{% endfor %}
+										
+										<div class="notification-placeholder">
+											<div class="row notification-row max_length_alert_title">
+													<div class="col-md-12">
+														<div id="result-notification" class="alert alert-dismissable text-center w-100"
+															role="alert" style="display: none;">
+															<strong id="result-message"></strong>
+														</div>
+													</div>
+											</div>
+										</div>
+										<div class="rectangle_input_flag">
+											{% block input %}
+												<input id="challenge-id" class="challenge-inpu_flag_form" type="hidden" value="{{ challenge.id }}">
+												<input id="challenge-input" class="challenge-inpu_flag_form" type="text" name="answer" placeholder="vka{dummy}"/>
+											{% endblock %}
+											{% block submit %}
+												<button id="challenge-submit" class="button-red correct_btn_send_flag" type="submit">
+													Отправить
+												</button>
+											{% endblock %}
+										</div>
+
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 
-					<div class="challenge_down_container_task">
-						<a href="/challenges" class="challenges_back_btn">
-							<div class="challenges_down_container_left-icon"></div>
-							<div class="challenges_down_container_left-text">в категории заданий</div>
-						</a>
-					</div>
-			
+						<div class="challenge_down_container">
+							<a href="/challenges" class="challenges_back_btn">
+								<div class="challenges_down_container_left-icon"></div>
+								<div class="challenges_down_container_left-text">в категории заданий</div>
+							</a>
+						</div>
+				
+		</div>
 	</div>
 </div>
 

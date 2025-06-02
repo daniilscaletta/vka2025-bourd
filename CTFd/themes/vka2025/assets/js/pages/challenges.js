@@ -178,16 +178,7 @@ function renderSubmissionResponse(response) {
         .text()
         .trim()
     ) {
-      // Only try to increment solves if the text isn't hidden
-      $(".challenge-solves").text(
-        parseInt(
-          $(".challenge-solves")
-            .text()
-            .split(" ")[0]
-        ) +
-          1 +
-          " Solves"
-      );
+      $(".challenge-solves").text("ТАБЛИЦА")
     }
 
     answer_input.val("");
@@ -239,7 +230,7 @@ function markSolves() {
 function getSolves(id) {
   return CTFd.api.get_challenge_solves({ challengeId: id }).then(response => {
     const data = response.data;
-    $(".challenge-solves").text(parseInt(data.length) + " Solves");
+    $(".challenge-solves").text("ТАБЛИЦА");
     const box = $("#challenge-solves-names");
     box.empty();
     for (let i = 0; i < data.length; i++) {

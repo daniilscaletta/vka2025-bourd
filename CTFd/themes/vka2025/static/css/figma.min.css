@@ -2103,23 +2103,6 @@ outline: none;
 width: 200px;
 }
 
-.modal-content {
-  background-color: #000;
-  border: none;
-  box-shadow: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 70vw;
-  padding: 5vh 5vw 5vh 5vw;
-  display: flex;
-  flex-direction: column;
-  border-radius: 8px;
-  border: solid 1px #DF0C00;
-  width: 50vw;
-  max-height: 95vh;
-}
 
 
 .madal_change_content{
@@ -2138,6 +2121,24 @@ width: 200px;
   border-radius: 0px !important;
   border: none !important;
 }
+.modal-content {
+  background-color: #000;
+  border: none;
+  box-shadow: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 70vw;
+  padding: 5vh 5vw 5vh 5vw;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: solid 1px #DF0C00;
+  width: 50vw;
+  max-height: 95vh;
+}
+
 
 .modal-dialog {
   width: 1360px;

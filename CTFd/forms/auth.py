@@ -18,7 +18,7 @@ def RegistrationForm(*args, **kwargs):
         email = EmailField("Почта", validators=[InputRequired()])
         password = PasswordField("Пароль", validators=[InputRequired()])
         affiliation = StringField("Школа", validators=[InputRequired()])
-        submit = SubmitField("Отправить")
+        submit = SubmitField("ЗАРЕГИСТИРОВАТЬСЯ")
 
         @property
         def extra(self):
@@ -35,7 +35,7 @@ def RegistrationForm(*args, **kwargs):
 class LoginForm(BaseForm):
     name = StringField("Имя пользователя или почта", validators=[InputRequired()])
     password = PasswordField("Пароль", validators=[InputRequired()])
-    submit = SubmitField("Отправить")
+    submit = SubmitField("ВОЙТИ")
 
 
 class ConfirmForm(BaseForm):

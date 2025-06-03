@@ -37,8 +37,7 @@
                         <p class="team-hint">
                             После создания команды поделитесь с участниками названием и паролем от аккаунта команды, чтобы они могли присоединиться.
                         </p>
-
-                        {{ form.submit(class="team-submit-button") }}
+                        <div class="create-team-btn">{{ form.submit(class="button-red") }}</div>
                         {{ form.nonce() }}
                     </form>
                     {% endwith %}

@@ -11,13 +11,13 @@
 		<div class="search_team_line">
 			{% with form = Forms.teams.PublicTeamSearchForm(field=field, q=q) %}
 			<form method="GET" class="form-teams_search">
-				<div class="form-group-team ">
-					{{ form.field(class="form-control-team") }}
+				<div class="form-group-team-2 ">
+					{{ form.field(class="form-control-team-2") }}
 				</div>
-				<div class="form-group-team ">
-					{{ form.q(class="form-control-team", placeholder="Введите название команды") }}
+				<div class="form-group-team-2 ">
+					{{ form.q(class="form-control-team-2", placeholder="Введите название команды") }}
 				</div>
-				<div class="form-group-team">
+				<div class="form-group-team-2">
 					<button type="search_team_button" class="button-red_search">
 						<span class="text_in_button"> ПОИСК</span>
 					</button>

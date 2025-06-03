@@ -37,6 +37,8 @@
   letter-spacing: 0;
   font-weight: 700;
   margin: 0;
+  align-items: center;
+  display: flex;
 }
 
 .info_team_line_cat{

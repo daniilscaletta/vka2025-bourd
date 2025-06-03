@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<div class="wrapper_huyaper challenge_container">
+<!-- <div class="wrapper_huyaper challenge_container">
 	<div class="challenges_up_container">
 		<h1>категории заданий</h1>
 		<div class="challenges_up_right_els">
@@ -16,7 +16,7 @@
 					{% set level_class = "middle-low" %}
 					{% if score is defined and score >= 3000 %}
 					{% set level_class = "middle-high" %}
-					{% elif score is defined and score == 0 %}
+					{% elif score is defined and score != 0 %}
 					{% set level_class = "middle-medium" %}
 					{% endif %}
 					<div class="team-stat-box middle-box correct_size_icon {{ level_class }}"></div>
@@ -44,12 +44,12 @@
 			<div class="challenges_down_container_left-text">вернуться на главную</div>
 		</a>
 	</div>
-</div>
+</div> -->
 
 
-<!-- <div class="modal fade" id="challenge-window" tabindex="-1" role="dialog"></div>
+<!-- <div class="modal fade" id="challenge-window" tabindex="-1" role="dialog"></div> -->
 
-<!-- <div class="modal fade" id="challenge-window" tabindex="-1" role="dialog"></div>
+<div class="modal fade" id="challenge-window" tabindex="-1" role="dialog"></div>
 
 <div class="all_challenges">
 	<div class="wrapper">
@@ -87,8 +87,7 @@
 			</div>
 		</div>
 	</div>
-</div> -->
-</div> -->
+</div>
 
 {% endblock %}
 

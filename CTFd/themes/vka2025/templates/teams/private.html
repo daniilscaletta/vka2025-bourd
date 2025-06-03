@@ -16,7 +16,7 @@
 							</div>
 							{% with form = Forms.teams.TeamSettingsForm(obj=team) %}
 							{% from "macros/forms.html" import render_extra_fields %}
-							<form id="team-info-form" method="POST">
+							<form id="team-info-form" class="correct_edit_team_form" method="POST">
 								<div class="window_edit_inner_container">
 									<div class="window_edit_team_micro_row_container">
 										<p class="lable_name_window_edit_team">
@@ -30,7 +30,7 @@
 									<div class="line_between_micro_edit_team"></div>
 									<div class="window_edit_team_micro_row_container">
 										<p class="lable_name_window_edit_team">
-											Старый пароль
+											Текущий пароль
 										</p>
 										<div class="form-input-wrapper_edit_win">
 											{{ form.confirm(class="form-control form_control_for_settings",placeholder="********") }}
@@ -69,7 +69,7 @@
 										</div>
 									</div>
 									<div class="line_between_micro_edit_team"></div>
-									{{ form.submit(class="custom_submit_button button-red", value="Сохранить изменения", id="btn_id_find")}}
+									{{ form.submit(class="custom_submit_button button-red", value="Сохранить", id="btn_id_find")}}
 								</div>
 							</form>
 							{% endwith %}
@@ -79,17 +79,19 @@
 
 		<div id="team-captain-modal" class="modal fade">
 			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h2 class="modal-action text-center w-100">Назначить капитана</h2>
+				<div class="window_edit_team  modal-content">
+							<div class="window_edit_team_header modal-header">
+						<h2 class="edit_tram_model_window_title">Назначить капитана</h2>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						</button>
 					</div>
 					<div class="modal-body clearfix">
 						{% with form = Forms.teams.TeamCaptainForm(captain_id=team.captain_id) %}
-						<form id="team-captain-form" method="POST">
+						<form id="team-captain-form" class="correct_edit_team_form" method="POST">
 							<div class="form-group">
-								{{ form.captain_id.label(class="form-control-label") }}
+								<p class="lable_name_window_edit_team ">
+											КАПИТАН КОМАНДЫ
+								</p>
 								{% for member in team.members %}
 									{% set _ = form.captain_id.choices.append((member.id, member.name)) %}
 								{% endfor %}
@@ -97,7 +99,7 @@
 							</div>
 							<div id="results">
 							</div>
-							{{ form.submit(class="button-red") }}
+							{{ form.submit(class="button-red custom_submit_button") }}
 						</form>
 						{% endwith %}
 					</div>
@@ -107,25 +109,26 @@
 
 		<div id="team-invite-modal" class="modal fade">
 			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h2 class="modal-action text-center w-100">Пригласить пользователя</h2>
+				<div class="window_edit_team  modal-content">
+							<div class="window_edit_team_header modal-header">
+						<h2 class="edit_tram_model_window_title">Пригласить пользователя</h2>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						</button>
 					</div>
-					<div class="invite-modal__body">
 					{% with form = Forms.teams.TeamInviteForm() %}
-					<form method="POST">
+					<form class="correct_edit_team_form_link" method="POST">
 						<div class="invite-form__group">
-						<label class="invite-form__label">{{ form.link.label }}</label>
-						<div class="invite-form__input-wrapper">
-							{{ form.link(id="team-invite-link", class="invite-form__input", readonly=True) }}
-							<div class="invite-form__actions">
-								<button id="team-invite-link-copy" class="invite-form__copy-btn" type="button">
-								<div class="copy-btn__square">
-									<img src="themes/vka2025/static/img/svg/copy.svg" alt="" class="invite-form__copy-icon">
-								</div>
-								</button>
+							<p class="lable_name_window_edit_team text_share_link_up">
+								ССЫЛКА-ПРИГЛАШЕНИЕ
+							</p>
+							<div class="invite-form__input-wrapper">
+								{{ form.link(id="team-invite-link", class="invite-form__input", readonly=True) }}
+								<div class="invite-form__actions">
+									<button id="team-invite-link-copy" class="invite-form__copy-btn" type="button">
+										<div class="copy-btn__square">
+											<img src="themes/vka2025/static/img/svg/copy.svg" alt="" class="invite-form__copy-icon">
+										</div>
+									</button>
 							</div>
 						</div>
 						<p class="invite-form__hint">
@@ -134,7 +137,6 @@
 						<p class="invite-form__hint">
 							Cсылки могут быть использованы повторно, срок их действия истекает через 1 день
 						</p>
-						</div>
 					</form>
 					{% endwith %}
 					</div>

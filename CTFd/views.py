@@ -163,63 +163,20 @@ def setup():
                 default_ctf_banner_location = url_for("views.files", path=f.location)
 
             # Splice in our banner
-            index = f"""<div class="container mt-large-f mb-large-f" style="position: relative;">
-  <h1 class="text-pixel-green-f mt-5">Hack School CTF 2022</h1>
-  <div class="row justify-content-center">
-      <div class="text-white-f col-12">
-            <p>Примите участие в космических приключениях в формате CTF от команды Red Cadets!</p>
-            <br/>
-            <p>В соревнованиях придусмотрено два официальных зачета, призеры и победители которых будут награждены почетными сертификатами, кубками и призами.</p>
-            <p>Для официального участия необходимо собрать команду из студентов российских вузов или курсантов военных вузов. Во время состязаний необходимо соблюдать правила соревнований, уважительно относиться к организаторам и другим участникам.</p>
-            <p>Следите за всеми новостями в нашем телеграм-канале</p>
-            <br/>
-        </div>
-        <div class="text-white-f col-xl-6 col-lg-5 col-md-4 col-sm-8 col-7">
-            <p>Начало: 5 июня 2021 года в 18:00</p>
-            <p>Конец: 6 июня 2021 года в 18:00</p>
-            <p>Длительность: 24 часа</p>
-        </div>
-    	<div class="col-xl-4 col-lg-5 col-md-5 col-sm-7 col-12 order-2 order-md-1">
-          	<div class="flex-wrap d-lg-flex">
-            	<span class="label-f w-100 mb-4" style="font-size: 19px;">Организатор Олимпиады</span>
-            	<a href="#">
-                	<span class="icon-f icon-sponsor-f"></span>
-            	</a>
-        	</div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-5 order-1 order-md-2">
-            <div class="d-flex justify-content-end align-items-center mt-1">
-                <span class="text-white-f">Чат </span>
-                <a class="social-f" href="https://t.me/vkactf_chat">
-                    <i class="fab fa-telegram fa-2x" aria-hidden="true"></i>
-                </a>
-            </div>
-            <div class="d-flex justify-content-end align-items-center mt-4">
-                <span class="text-white-f">Канал </span>
-                <a class="social-f" href="https://t.me/vkactf">
-                    <i class="fab fa-telegram fa-2x" aria-hidden="true"></i>
-                </a>
-            </div>
-    	</div>
-  	</div>
-</div>
-<div class="container mt-5 mb-large-f">
-	<div class="legend-f row p-3 pt-5 p-md-5">
-		<div class="legend-content col-lg-7 order-lg-1 order-2 pt-5">
-          <h2 class="label-f text-center text-lg-left">Заголовок</h2>
-          <p class="text-white-f mt-4">
-          Современные технологии достигли такого уровня, что граница обучения кадров обеспечивает актуальность системы массового участия. Повседневная практика показывает, что экономическая повестка сегодняшнего дня прекрасно подходит для реализации вывода текущих активов.
-          </p>
-          <p class="text-white-f">
-		  Современные технологии достигли такого уровня, что граница обучения кадров обеспечивает актуальность системы массового участия. Повседневная практика показывает, что экономическая повестка сегодняшнего дня прекрасно подходит для реализации вывода текущих активов.
-          </p>
-          <p class="text-white-f">
-	      Современные технологии достигли такого уровня, что граница обучения кадров обеспечивает актуальность системы массового участия. Повседневная практика показывает, что экономическая повестка сегодняшнего дня прекрасно подходит для реализации вывода текущих активов.
-          </p>
-		</div>
-      	<img src="/themes/hackschool2022/static/img/Vector.png" class="col-xl-3 col-lg-4 col-6 m-auto order-1 order-lg-2">
-	</div>
-</div>"""
+            index = f"""<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+    <meta http-equiv="refresh" content="0;url=/all_rules">
+    <script>
+        window.location.replace('/all_rules');
+    </script>
+</head>
+<body>
+</body>
+</html>
+"""
             page.content = index
 
             # Visibility
@@ -277,7 +234,7 @@ def setup():
             )
 
 
-             
+
             set_config("setup", True)
 
             try:

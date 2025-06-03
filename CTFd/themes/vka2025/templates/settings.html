@@ -41,7 +41,7 @@
 										</p>
 										<div class="form-input-wrapper">
 											{{ form.name(class="form-control form_control_for_settings", value=name) }}
-											<span class="edit_icon" onclick="enableInput(this)"></span>
+											<span class="edit_icon settings_edit_icon_correct" onclick="enableInput(this)"></span>
 										</div>
 									</div>
 
@@ -51,17 +51,17 @@
 										</p>
 										<div class="form-input-wrapper">
 											{{ form.email(class="form-control form_control_for_settings", placeholder="example@mail.ru") }}
-											<span class="edit_icon" onclick="enableInput(this)"></span>
+											<span class="edit_icon settings_edit_icon_correct" onclick="enableInput(this)"></span>
 										</div>
 									</div>
 
 									<div class="form-group form_line_settings">
 										<p class="lable_name_window_edit_team">
-											СТАРЫЙ ПАРОЛЬ
+											ТЕКУЩИЙ ПАРОЛЬ
 										</p>
 										<div class="form-input-wrapper">
 											{{ form.confirm(class="form-control form_control_for_settings", placeholder="********") }}
-											<span class="edit_icon" onclick="enableInput(this)"></span>
+											<span class="edit_icon settings_edit_icon_correct" onclick="enableInput(this)"></span>
 										</div>
 									</div>
 
@@ -71,19 +71,19 @@
 										</p>
 										<div class="form-input-wrapper">
 											{{ form.password(class="form-control form_control_for_settings",placeholder="********") }}
-											<span class="edit_icon" onclick="enableInput(this)"></span>
+											<span class="edit_icon settings_edit_icon_correct" onclick="enableInput(this)"></span>
 										</div>
 									</div>
 
 									{{ render_extra_fields(form.extra) }}
+									<div class="btn_group">
+											{{ form.submit(class="btn btn-md btn-outlined float-right btn-settings btn_correct_margin", id="btn_id_find") }}
+									</div>
 
+									<div class="notification-placeholder">
 										<div id="results" class="form-group_notif">
-
 										</div>
-
-										<div class="btn_group">
-											{{ form.submit(class="btn btn-md btn-outlined float-right btn-settings", id="btn_id_find") }}
-										</div>
+									</div>
 								</form>
 								{% endwith %}
 							</div>

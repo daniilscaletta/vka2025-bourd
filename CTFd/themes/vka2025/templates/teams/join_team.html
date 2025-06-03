@@ -30,7 +30,7 @@
                             {{ form.password(class="team-input", placeholder="Введите пароль команды") }}
                         </div>
 
-                        {{ form.submit(class="team-submit-button") }}
+                        <div class="create-team-btn">{{ form.submit(class="button-red") }}</div>
                         {{ form.nonce() }}
                     </form>
                     {% endwith %}
